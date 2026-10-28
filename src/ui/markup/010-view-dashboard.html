@@ -1,14 +1,14 @@
   <!-- ═══════════ Dashboard ═══════════ -->
-  <section class="view" id="view-dashboard" role="tabpanel" aria-label="Dashboard" hidden>
+  <section class="view" id="view-dashboard" role="tabpanel" aria-label="Kontrol Paneli" hidden>
     <!-- "What's new since last scan" — rendered only when this root has a prior snapshot -->
     <div class="card glass whatsnew" id="whatsNewCard" hidden>
-      <div class="wn-body" id="whatsNewBody" role="button" tabindex="0" title="Open Trends for the full history"></div>
-      <button class="close-x" id="whatsNewClose" aria-label="Dismiss until the next scan"><span data-icon="x" data-size="14"></span></button>
+      <div class="wn-body" id="whatsNewBody" role="button" tabindex="0" title="Tüm geçmiş için Eğilimler'i aç"></div>
+      <button class="close-x" id="whatsNewClose" aria-label="Sonraki taramaya kadar kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="dash-grid">
       <div class="dash-col">
         <div class="card glass">
-          <h2><span data-icon="hardDrive"></span>System</h2>
+          <h2><span data-icon="hardDrive"></span>Sistem</h2>
           <div class="sys-row">
             <div class="ring-wrap">
               <svg width="132" height="132" viewBox="0 0 132 132">
@@ -20,50 +20,50 @@
                 <circle class="ring-bg" cx="66" cy="66" r="55"/>
                 <circle class="ring-fg" id="ringFg" cx="66" cy="66" r="55" stroke-dasharray="345.6" stroke-dashoffset="345.6"/>
               </svg>
-              <div class="ring-label"><b id="ringPct" class="num">–</b><span>used</span></div>
+              <div class="ring-label"><b id="ringPct" class="num">–</b><span>kullanılan</span></div>
             </div>
             <div class="sys-facts">
-              <div class="fact"><span>Host</span><b id="sysHost">–</b></div>
+              <div class="fact"><span>Ana Bilgisayar</span><b id="sysHost">–</b></div>
               <div class="fact"><span>Platform</span><b id="sysPlatform">–</b></div>
-              <div class="fact"><span>Total disk</span><b id="sysTotal" class="num">–</b></div>
-              <div class="fact"><span>Free</span><b id="sysFree" class="num">–</b></div>
-              <div class="fact"><span>Used</span><b id="sysUsed" class="num">–</b></div>
-              <div class="fact fact-trash" id="trashFact" hidden role="button" tabindex="0" title="View Trash contents"><span>Trash<small class="fact-sub" id="sysTrashSub" hidden></small></span><b id="sysTrash" class="num">–</b></div>
+              <div class="fact"><span>Toplam disk</span><b id="sysTotal" class="num">–</b></div>
+              <div class="fact"><span>Boş</span><b id="sysFree" class="num">–</b></div>
+              <div class="fact"><span>Kullanılan</span><b id="sysUsed" class="num">–</b></div>
+              <div class="fact fact-trash" id="trashFact" hidden role="button" tabindex="0" title="Çöp Kutusu içeriğini görüntüle"><span>Çöp Kutusu<small class="fact-sub" id="sysTrashSub" hidden></small></span><b id="sysTrash" class="num">–</b></div>
             </div>
           </div>
           <div class="growth-proj" id="growthProj" hidden></div>
           <div class="snap-row" id="snapRow" hidden>
             <span class="ic" data-icon="clock" data-size="16"></span>
             <div class="snap-meta"><b id="snapCount">–</b><span id="snapHint" class="muted"></span></div>
-            <button class="pill" id="snapPurgeBtn">Purge</button>
+            <button class="pill" id="snapPurgeBtn">Boşalt</button>
           </div>
           <div class="snap-row" id="hardlinkRow" hidden>
             <span class="ic" data-icon="copy" data-size="16"></span>
-            <div class="snap-meta"><b id="hardlinkText"></b><span class="muted">Each is another name for data already counted, so totals match what the OS reports.</span></div>
+            <div class="snap-meta"><b id="hardlinkText"></b><span class="muted">Tümü zaten sayılmış olan veriler için başka bir addır, dolayısıyla toplamlar işletim sisteminin bildirdikleriyle eşleşir.</span></div>
           </div>
           <div class="snap-row" id="sparseRow" hidden>
             <span class="ic" data-icon="disc" data-size="16"></span>
-            <div class="snap-meta"><b id="sparseText"></b><span class="muted">Room reserved but not filled — a virtual machine disk, or a file stored compressed.</span></div>
+            <div class="snap-meta"><b id="sparseText"></b><span class="muted">Ayrılmış ancak doldurulmamış alan — bir sanal makine diski veya sıkıştırılmış olarak saklanan bir dosya.</span></div>
           </div>
           <div class="snap-row" id="cloudRow" hidden>
             <span class="ic" data-icon="cloud" data-size="16"></span>
-            <div class="snap-meta"><b id="cloudText"></b><span class="muted">Not downloaded — they take almost no space here, and deleting one removes it from the cloud too.</span></div>
+            <div class="snap-meta"><b id="cloudText"></b><span class="muted">İndirilmedi — burada neredeyse hiç yer kaplamazlar ve birini silmek onu buluttan da kaldırır.</span></div>
           </div>
           <div class="snap-row" id="engineRow" hidden>
             <span class="ic" data-icon="zap" data-size="16"></span>
-            <div class="snap-meta"><b id="engineText"></b><span class="muted" id="engineHint"></span><details class="engine-why" id="engineMore" hidden><summary>Engine details</summary><span class="muted" id="engineMoreText"></span></details><details class="engine-why" id="engineWhy" hidden><summary>Why the faster engine could not run</summary><span class="muted" id="engineWhyText"></span></details></div>
+            <div class="snap-meta"><b id="engineText"></b><span class="muted" id="engineHint"></span><details class="engine-why" id="engineMore" hidden><summary>Motor ayrıntıları</summary><span class="muted" id="engineMoreText"></span></details><details class="engine-why" id="engineWhy" hidden><summary>Daha hızlı motorun neden çalışamadığı</summary><span class="muted" id="engineWhyText"></span></details></div>
           </div>
         </div>
 
         <div class="card glass">
-          <h2><span data-icon="play"></span>Scan a folder</h2>
+          <h2><span data-icon="play"></span>Klasör tara</h2>
           <div class="scan-row">
             <div class="field">
               <span data-icon="folder"></span>
-              <input type="text" id="pathInput" placeholder="/Users/you/Documents" aria-label="Folder to scan" autocomplete="off" spellcheck="false">
+              <input type="text" id="pathInput" placeholder="/Users/you/Documents" aria-label="Taranacak klasör" autocomplete="off" spellcheck="false">
             </div>
-            <button class="btn" id="browseBtn">Browse…</button>
-            <button class="btn btn-primary" id="scanBtn"><span data-icon="play"></span>Scan</button>
+            <button class="btn" id="browseBtn">Gözat…</button>
+            <button class="btn btn-primary" id="scanBtn"><span data-icon="play"></span>Tara</button>
           </div>
           <!-- QA D45: never ticked by the page, and not offered where the next
                scan runs on the native engine — an incremental rescan runs on
@@ -72,7 +72,7 @@
                folder's time was settled before the last scan began
                (diskScanner's listingSettled, SETTLED_LISTING_MS). -->
           <label class="fast-rescan" id="fastRescanWrap" hidden>
-            <input type="checkbox" id="fastRescan"><span data-icon="zap" data-size="13"></span>Fast rescan — reuse the last scan for folders unchanged since 5 seconds before it began (built-in walker)
+            <input type="checkbox" id="fastRescan"><span data-icon="zap" data-size="13"></span>Hızlı yeniden tarama — başlamadan 5 saniye öncesinden beri değişmeyen klasörler için son taramayı yeniden kullan (dahili gezgin)
           </label>
           <!-- FX wiring: the well is where the "searching" orb lives while a
                scan runs. It must sit OUTSIDE #scanStatus — followScanProgress
@@ -80,7 +80,7 @@
                strand a mounted orb's observers. -->
           <div class="scan-status-row">
             <span class="fx-orb-well" id="scanOrbWell"></span>
-            <div class="scan-status" id="scanStatus">No scan yet — pick a folder above.</div>
+            <div class="scan-status" id="scanStatus">Henüz tarama yapılmadı — yukarıdan bir klasör seçin.</div>
           </div>
           <!-- A1: the index indicator. Green "always current" when a live
                watcher is attached; amber when the index exists but missed
@@ -100,7 +100,7 @@
           <div class="index-line" id="indexLine" hidden></div>
           <div id="indexAnnounce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
           <div class="scan-meta num" id="scanMeta"></div>
-          <div class="progress-track" id="progressTrack" role="progressbar" aria-label="Scan progress"><div class="progress-fill"></div></div>
+          <div class="progress-track" id="progressTrack" role="progressbar" aria-label="Tarama ilerlemesi"><div class="progress-fill"></div></div>
           <!-- The scan's voice, #scanAnnounce, is not here: it stands outside
                every view, beside #stopAnnounce (BQT item 28). -->
           <!-- Folders the OS would not open. Hidden unless there are some:
@@ -121,9 +121,9 @@
             <!-- C06: "Show all" lists every refused folder by path, in a
                  sheet, when the row names fewer than it counts. -->
             <div class="access-actions">
-              <button class="btn" id="accessListBtn" hidden>Show all</button>
-              <button class="btn" id="accessMissingBtn" hidden>What’s missing?</button>
-              <button class="btn" id="accessOpenBtn" hidden>Open Privacy settings</button>
+              <button class="btn" id="accessListBtn" hidden>Tümünü göster</button>
+              <button class="btn" id="accessMissingBtn" hidden>Eksik olan ne?</button>
+              <button class="btn" id="accessOpenBtn" hidden>Gizlilik ayarlarını aç</button>
             </div>
           </div>
           <!-- The row, said aloud (BQS): it comes on screen with its words
@@ -143,7 +143,7 @@
             <div class="access-body">
               <div class="access-text" id="mountsNoteText"></div>
             </div>
-            <button class="btn" id="mountsNoteSettingsBtn">Change in Settings</button>
+            <button class="btn" id="mountsNoteSettingsBtn">Ayarlardan değiştir</button>
           </div>
           <!-- The note, said aloud (BQS): it comes on screen with its words
                already in it, which a screen reader seldom announces.
@@ -153,28 +153,28 @@
         </div>
 
         <div class="card glass">
-          <h2><span data-icon="activity"></span>Quick stats</h2>
+          <h2><span data-icon="activity"></span>Hızlı istatistikler</h2>
           <div class="quick-stats">
             <div class="stat-tile tile"><span class="chip" style="--tint:#0A84FF"><span data-icon="file"></span></span>
-              <div><div class="v num" id="statFiles">–</div><div class="k">Files</div></div></div>
+              <div><div class="v num" id="statFiles">–</div><div class="k">Dosyalar</div></div></div>
             <div class="stat-tile tile"><span class="chip" style="--tint:#30D158"><span data-icon="folder"></span></span>
-              <div><div class="v num" id="statDirs">–</div><div class="k">Folders</div></div></div>
+              <div><div class="v num" id="statDirs">–</div><div class="k">Klasörler</div></div></div>
             <div class="stat-tile tile"><span class="chip" style="--tint:#FF9F0A"><span data-icon="trendUp"></span></span>
               <!-- Name and size apart (design pass G14): only the name ellipsizes. -->
-              <div><div class="v small stat-largest"><span class="nm" id="statLargest">–</span><span class="sz" id="statLargestSize"></span></div><div class="k">Largest file</div></div></div>
+              <div><div class="v small stat-largest"><span class="nm" id="statLargest">–</span><span class="sz" id="statLargestSize"></span></div><div class="k">En büyük dosya</div></div></div>
             <div class="stat-tile tile"><span class="chip" style="--tint:#BF5AF2"><span data-icon="clock"></span></span>
-              <div><div class="v small num" id="statLastScan">–</div><div class="k">Last scan</div></div></div>
+              <div><div class="v small num" id="statLastScan">–</div><div class="k">Son tarama</div></div></div>
           </div>
         </div>
 
         <!-- A5: physical disks and the volumes on each, so "which physical
              drive is actually filling up" has a direct answer. -->
         <div class="card glass" id="topologyCard">
-          <h2><span data-icon="hardDrive"></span>Disk topology
+          <h2><span data-icon="hardDrive"></span>Disk topolojisi
             <button class="pill" id="topologyRefresh" style="margin-left:auto;"
-                    title="Re-read the disk layout — after plugging in a drive, for example">Refresh</button>
+                    title="Disk düzenini yeniden oku — örneğin bir sürücü taktıktan sonra">Yenile</button>
           </h2>
-          <div id="topologyBody"><div class="muted">Reading disk layout…</div></div>
+          <div id="topologyBody"><div class="muted">Disk düzeni okunuyor…<!-- Reading disk layout --></div></div>
           <!-- What this part is working on, said aloud: its loader puts the sentence of the working rows it writes here (sayWorking), beside the card's body, whose every write would take it away. -->
           <div id="topologyWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
@@ -184,48 +184,48 @@
              a process, not a file — so each row offers a restart, behind the
              shared confirmation with an explicit unsaved-work warning. -->
         <div class="card glass" id="zombieCard">
-          <h2><span data-icon="activity"></span>Held-up space
+          <h2><span data-icon="activity"></span>Kullanımda tutulan alan
             <button class="pill" id="zombieRefresh" style="margin-left:auto;"
-                    title="Look again for space held by programs that won’t let go">Refresh</button>
+                    title="Kapanmayan programlar tarafından tutulan alanı yeniden kontrol et">Yenile</button>
           </h2>
-          <div id="zombieBody"><div class="muted">Checking for held-up space…</div></div>
+          <div id="zombieBody"><div class="muted">Kullanımda tutulan alan kontrol ediliyor…</div></div>
           <div id="zombieWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
 
       <div class="dash-col">
         <div class="card glass">
-          <h2><span data-icon="pie"></span>File types by size</h2>
+          <h2><span data-icon="pie"></span>Boyuta göre dosya türleri</h2>
           <div class="donut-row">
             <!-- FX wiring: the wrap anchors the 64px "searching" hero to the
                  donut's own centre — the dashboard's empty-while-scanning
                  surface — wherever the flex row happens to wrap. -->
             <div class="donut-canvas-wrap">
-              <canvas id="donutCanvas" width="230" height="230" aria-label="File type breakdown donut chart" role="img"></canvas>
+              <canvas id="donutCanvas" width="230" height="230" aria-label="Dosya türü dağılımı halka grafiği" role="img"></canvas>
               <div class="fx-orb-well fx-canvas-orb" id="dashScanOrb"></div>
             </div>
-            <div class="donut-legend" id="donutLegend"><div class="muted">Run a scan to see the breakdown.</div></div>
+            <div class="donut-legend" id="donutLegend"><div class="muted">Dağılımı görmek için bir tarama yapın.</div></div>
           </div>
         </div>
         <div class="card glass">
-          <h2><span data-icon="trendUp"></span>Largest files
+          <h2><span data-icon="trendUp"></span>En büyük dosyalar
             <!-- v4 §3.3 — the same ten files, ordered by the question people
                  actually have. Sorting, not filtering: nothing leaves the list. -->
-            <div class="seg" id="bigFilesSort" role="tablist" aria-label="Sort largest files by" style="margin-left:auto;">
-              <button role="tab" type="button" data-sort="size" aria-selected="true" title="Biggest first">Size</button>
-              <button role="tab" type="button" data-sort="reclaim" aria-selected="false" title="Safest and most worthwhile to delete first">Reclaim</button>
+            <div class="seg" id="bigFilesSort" role="tablist" aria-label="En büyük dosyaları sıralama ölçütü" style="margin-left:auto;">
+              <button role="tab" type="button" data-sort="size" aria-selected="true" title="Önce en büyükler">Boyut</button>
+              <button role="tab" type="button" data-sort="reclaim" aria-selected="false" title="Önce silinmesi en güvenli ve faydalı olanlar">Geri Kazanım</button>
             </div>
           </h2>
-          <div id="bigFiles"><div class="muted">Run a scan to find your biggest files.</div></div>
+          <div id="bigFiles"><div class="muted">En büyük dosyalarınızı bulmak için bir tarama yapın.</div></div>
         </div>
         <div class="card glass">
           <!-- Each row's percentage is its size against the first row's (sixth browser pass H55). -->
-          <h2><span data-icon="folder"></span>Largest folders<span class="h2-aside">% of the largest</span></h2>
-          <div id="bigFolders"><div class="muted">Run a scan to find your biggest folders.</div></div>
+          <h2><span data-icon="folder"></span>En büyük klasörler<span class="h2-aside">en büyüğün %'si</span></h2>
+          <div id="bigFolders"><div class="muted">En büyük klasörlerinizi bulmak için bir tarama yapın.</div></div>
         </div>
         <div class="card glass" id="allStorageCard">
-          <h2><span data-icon="hardDrive"></span>All storage</h2>
-          <div id="allStorageList"><div class="muted">Local disk and any connected cloud accounts appear here.</div></div>
+          <h2><span data-icon="hardDrive"></span>Tüm depolama</h2>
+          <div id="allStorageList"><div class="muted">Yerel disk ve bağlı bulut hesapları burada görünür.</div></div>
         </div>
         <!-- QA D19: Drive Health and Cost to Keep sit here, under All Storage,
              so the two columns end near each other (measured at 1440×900
@@ -235,8 +235,8 @@
              can see which limit arrives first — space or write endurance.
              It never renders a verdict of its own. -->
         <div class="card glass" id="driveHealthCard">
-          <h2><span data-icon="gauge"></span>Drive health</h2>
-          <div id="driveHealthBody"><div class="muted">Run a scan to check this drive.</div></div>
+          <h2><span data-icon="gauge"></span>Sürücü sağlığı</h2>
+          <div id="driveHealthBody"><div class="muted">Bu sürücüyü kontrol etmek için bir tarama yapın.</div></div>
           <div id="driveHealthWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
 
@@ -245,18 +245,18 @@
              visible: a stale price shown as stale is honest, shown as current
              is not. -->
         <div class="card glass" id="costCard">
-          <h2><span data-icon="cloud"></span>Cost to keep
-            <select id="costCurrency" aria-label="Currency" style="margin-left:auto;">
+          <h2><span data-icon="cloud"></span>Depolama maliyeti
+            <select id="costCurrency" aria-label="Para Birimi" style="margin-left:auto;">
               <option value="USD">USD $</option><option value="EUR">EUR €</option>
               <option value="GBP">GBP £</option><option value="INR">INR ₹</option>
               <option value="AUD">AUD A$</option><option value="CAD">CAD C$</option>
             </select>
           </h2>
-          <div id="costBody"><div class="muted">Run a scan to see what this data would cost to keep online.</div></div>
+          <div id="costBody"><div class="muted">Bu verileri çevrimiçi tutmanın maliyetini görmek için bir tarama yapın.</div></div>
           <div id="costWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
         <div class="card glass" id="budgetCard" hidden>
-          <h2><span data-icon="gauge"></span>Folder budgets</h2>
+          <h2><span data-icon="gauge"></span>Klasör bütçeleri</h2>
           <div id="budgetList"></div>
         </div>
       </div>

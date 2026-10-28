@@ -1,6 +1,6 @@
 <div id="tooltip" role="tooltip"></div>
 <!-- ═══════════ Trash contents (Feature 8) ═══════════ -->
-<div class="modal-backdrop" id="trashModal" role="dialog" aria-modal="true" aria-label="Trash contents">
+<div class="modal-backdrop" id="trashModal" role="dialog" aria-modal="true" aria-label="Çöp Kutusu içeriği">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -8,13 +8,13 @@
   <div id="trashModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:560px;max-width:92vw;">
     <div class="modal-head">
-      <h3><span data-icon="trash" data-size="17"></span>Trash <span class="num" id="trashModalMeta"></span></h3>
-      <button class="close-x" data-close="trashModal" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+      <h3><span data-icon="trash" data-size="17"></span>Çöp Kutusu <span class="num" id="trashModalMeta"></span></h3>
+      <button class="close-x" data-close="trashModal" aria-label="Kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body" id="trashModalBody"></div>
     <div class="modal-foot">
       <span class="muted" style="flex:1;" id="trashModalNote"></span>
-      <button class="btn btn-danger" id="emptyTrashBtn"><span data-icon="trash" data-size="14"></span>Empty Trash…</button>
+      <button class="btn btn-danger" id="emptyTrashBtn"><span data-icon="trash" data-size="14"></span>Çöp Kutusunu Boşalt…</button>
     </div>
   </div>
 </div>
@@ -23,7 +23,7 @@
      The Dashboard's row names five and counts the rest; this names every one,
      from GET /api/scan/:scanId/refused. Nothing in it commits, so it opens on
      itself (the focus net's fallback), and closes like every sheet. -->
-<div class="modal-backdrop" id="refusedModal" role="dialog" aria-modal="true" aria-label="Folders TreeMap could not read">
+<div class="modal-backdrop" id="refusedModal" role="dialog" aria-modal="true" aria-label="TreeMap'in okuyamadığı klasörler">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -31,19 +31,19 @@
   <div id="refusedModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:620px;max-width:92vw;">
     <div class="modal-head">
-      <h3><span data-icon="alert" data-size="17"></span>Folders TreeMap could not read <span class="num" id="refusedModalMeta"></span></h3>
-      <button class="close-x" data-close="refusedModal" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+      <h3><span data-icon="alert" data-size="17"></span>TreeMap'in okuyamadığı klasörler <span class="num" id="refusedModalMeta"></span></h3>
+      <button class="close-x" data-close="refusedModal" aria-label="Kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body" id="refusedModalBody"></div>
     <div class="modal-foot">
       <span class="muted" style="flex:1;" id="refusedModalNote"></span>
-      <button class="btn" data-close="refusedModal">Close</button>
+      <button class="btn" data-close="refusedModal">Kapat</button>
     </div>
   </div>
 </div>
 
 <!-- ═══════════ Keyboard shortcuts (Feature 6) ═══════════ -->
-<div class="modal-backdrop" id="shortcutsModal" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+<div class="modal-backdrop" id="shortcutsModal" role="dialog" aria-modal="true" aria-label="Klavye kısayolları">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -51,39 +51,39 @@
   <div id="shortcutsModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:540px;max-width:92vw;">
     <div class="modal-head">
-      <h3><span data-icon="keyboard" data-size="18"></span>Keyboard shortcuts</h3>
-      <button class="close-x" data-close="shortcutsModal" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+      <h3><span data-icon="keyboard" data-size="18"></span>Klavye kısayolları</h3>
+      <button class="close-x" data-close="shortcutsModal" aria-label="Kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body">
-      <div class="kbd-sec">Treemap &amp; Sunburst</div>
+      <div class="kbd-sec">Ağaç Haritası &amp; Güneş Işığı</div>
       <div class="kbd-grid">
-        <div><kbd>h</kbd><kbd>←</kbd><kbd>⌫</kbd></div><div>Zoom out one level</div>
-        <div><kbd>j</kbd><kbd>↓</kbd></div><div>Select next cell</div>
-        <div><kbd>k</kbd><kbd>↑</kbd></div><div>Select previous cell</div>
-        <div><kbd>l</kbd><kbd>→</kbd><kbd>↵</kbd></div><div>Drill into folder / preview file</div>
-        <div><kbd>c</kbd></div><div>Add selected to the Clean Up cart</div>
-        <div><kbd>p</kbd></div><div>Quick-look the selected file</div>
-        <div><kbd>n</kbd></div><div>Add or edit the selected folder&rsquo;s note</div>
-        <div><kbd>Del</kbd></div><div>Move the selected cell to Trash</div>
-        <div><kbd>/</kbd></div><div>Focus the search box</div>
-        <div><kbd>Esc</kbd></div><div>Clear selection · close panel · zoom out</div>
+        <div><kbd>h</kbd><kbd>←</kbd><kbd>⌫</kbd></div><div>Bir düzey yukarı çık</div>
+        <div><kbd>j</kbd><kbd>↓</kbd></div><div>Sonraki hücreyi seç</div>
+        <div><kbd>k</kbd><kbd>↑</kbd></div><div>Önceki hücreyi seç</div>
+        <div><kbd>l</kbd><kbd>→</kbd><kbd>↵</kbd></div><div>Klasörün içine gir / dosyayı önizle</div>
+        <div><kbd>c</kbd></div><div>Seçileni Temizleme sepetine ekle</div>
+        <div><kbd>p</kbd></div><div>Seçilen dosyayı hızlıca önizle</div>
+        <div><kbd>n</kbd></div><div>Seçilen klasörün notunu ekle veya düzenle</div>
+        <div><kbd>Del</kbd></div><div>Seçilen hücreyi Çöp Kutusuna taşı</div>
+        <div><kbd>/</kbd></div><div>Arama kutusuna odaklan</div>
+        <div><kbd>Esc</kbd></div><div>Seçimi temizle · paneli kapat · uzaklaştır</div>
       </div>
-      <div class="kbd-sec">Grid</div>
+      <div class="kbd-sec">Izgara</div>
       <div class="kbd-grid">
-        <div><kbd>⌫</kbd></div><div>Up one folder</div>
-        <div><kbd>Del</kbd></div><div>Move the selection to Trash</div>
-        <div><kbd data-key="mod">⌘</kbd><kbd>⌫</kbd></div><div>Move the selection to Trash</div>
-        <div><kbd>/</kbd></div><div>Focus the filter box</div>
-        <div><kbd>Esc</kbd></div><div>Clear selection · up one folder</div>
+        <div><kbd>⌫</kbd></div><div>Bir üst klasöre çık</div>
+        <div><kbd>Del</kbd></div><div>Seçimi Çöp Kutusuna taşı</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>⌫</kbd></div><div>Seçimi Çöp Kutusuna taşı</div>
+        <div><kbd>/</kbd></div><div>Filtre kutusuna odaklan</div>
+        <div><kbd>Esc</kbd></div><div>Seçimi temizle · bir üst klasöre çık</div>
       </div>
-      <div class="kbd-sec">Anywhere</div>
+      <div class="kbd-sec">Genel Kısayollar</div>
       <div class="kbd-grid">
-        <div><kbd data-key="mod">⌘</kbd><kbd>K</kbd></div><div>Command palette — views, actions, saved views, recent folders</div>
-        <div><kbd data-key="mod">⌘</kbd><kbd>B</kbd></div><div>Collapse or expand the navigation</div>
-        <div><kbd>/</kbd></div><div>Search everything indexed (in Treemap and Grid, <kbd>/</kbd> focuses that view's own filter instead)</div>
-        <div><kbd data-key="mod">⌘</kbd><kbd>R</kbd></div><div>Rescan the current folder</div>
-        <div><kbd>Shift</kbd><kbd>F10</kbd></div><div>Open the focused item&rsquo;s menu, as a right-click does (or the Menu key)</div>
-        <div><kbd>?</kbd></div><div>Show this help</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>K</kbd></div><div>Komut paleti — görünümler, eylemler, kayıtlı görünümler, son klasörler</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>B</kbd></div><div>Gezinme çubuğunu daralt veya genişlet</div>
+        <div><kbd>/</kbd></div><div>Dizine eklenen tüm öğeleri ara (Ağaç Haritası ve Izgarada <kbd>/</kbd> o görünümün kendi filtresine odaklanır)</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>R</kbd></div><div>Geçerli klasörü yeniden tara</div>
+        <div><kbd>Shift</kbd><kbd>F10</kbd></div><div>Odaklanan öğenin menüsünü aç (sağ tık veya Menü tuşu gibi)</div>
+        <div><kbd>?</kbd></div><div>Bu yardımı göster</div>
       </div>
     </div>
   </div>

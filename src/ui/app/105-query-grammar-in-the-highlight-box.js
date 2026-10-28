@@ -877,7 +877,7 @@ function tmMoveHint(delta) {
    140 px beside the open preview pane, and one placeholder for every width
    was cut mid-word there — "Highlight… (try size>1g", read as "1gl" (QA
    fourth pass E14c). The markup ships the last, which fits the floor. */
-const TM_SEARCH_PLACEHOLDERS = ['Highlight… (try size>1gb)', 'Highlight… (size>1gb)', 'Highlight…'];
+const TM_SEARCH_PLACEHOLDERS = ['Vurgula… (size>1gb deneyin)', 'Vurgula… (size>1gb)', 'Vurgula…'];
 let tmSearchMeasure = null; // a 2D context, for the field's own font
 function tmSearchPlaceholderFit() {
   const box = $('tmSearch');

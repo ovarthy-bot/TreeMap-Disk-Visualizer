@@ -1,7 +1,7 @@
   <!-- ═══════════ Disk City (v4 §6.1) ═══════════
        The Treemap's own tiling, seen from a corner. Same root, same nodes,
        three variables instead of one. -->
-  <section class="view" id="view-city" role="tabpanel" aria-label="Disk City" hidden>
+  <section class="view" id="view-city" role="tabpanel" aria-label="Disk Şehri" hidden>
     <!-- Same toolbar design system as the Treemap view — grouped, never a
          flat flex soup: the nav group grows with a floor, control groups
          stay whole when the row wraps. The old .tm-controls form died with
@@ -10,7 +10,7 @@
     <div class="tm-toolbar">
       <div class="tb-row tb-row-nav">
         <div class="tb-group tb-nav">
-          <button class="btn" id="cityUpBtn" title="Zoom out one level (Escape)" aria-label="Zoom out one level"><span data-icon="arrowUp"></span></button>
+          <button class="btn" id="cityUpBtn" title="Bir düzey yukarı çık (Escape)" aria-label="Bir düzey yukarı çık"><span data-icon="arrowUp"></span></button>
           <div class="crumbs" id="cityCrumbs"></div>
         </div>
       </div>
@@ -19,23 +19,23 @@
           <!-- Each group says in words what it sets (G16): without them the
                two rows of buttons were "Staleness Files Depth" and
                "Reclaim Type Age" with nothing to say which was which. -->
-          <span class="tb-label" aria-hidden="true">Height</span>
-          <div class="seg" id="cityHeightSeg" role="tablist" aria-label="What building height means">
-            <button role="tab" type="button" data-h="staleness" aria-selected="true" title="Taller = longer since anything in it changed">Staleness</button>
-            <button role="tab" type="button" data-h="files" aria-selected="false" title="Taller = more files inside">Files</button>
-            <button role="tab" type="button" data-h="depth" aria-selected="false" title="Taller = more deeply nested">Depth</button>
+          <span class="tb-label" aria-hidden="true">Yükseklik</span>
+          <div class="seg" id="cityHeightSeg" role="tablist" aria-label="Bina yüksekliğinin anlamı">
+            <button role="tab" type="button" data-h="staleness" aria-selected="true" title="Daha yüksek = İçindekilerin değişmesinden bu yana daha uzun süre geçmiş">Eskilik</button>
+            <button role="tab" type="button" data-h="files" aria-selected="false" title="Daha yüksek = İçinde daha fazla dosya var">Dosyalar</button>
+            <button role="tab" type="button" data-h="depth" aria-selected="false" title="Daha yüksek = Daha derin iç içe geçmiş">Derinlik</button>
           </div>
-          <span class="tb-label" aria-hidden="true">Color</span>
-          <div class="seg" id="cityColorSeg" role="tablist" aria-label="What building color means">
-            <button role="tab" type="button" data-c="size" aria-selected="true" title="Color by size, on the Treemap's own scale">Size</button>
-            <button role="tab" type="button" data-c="reclaim" aria-selected="false" title="Color by how safe and worthwhile it is to reclaim">Reclaim</button>
-            <button role="tab" type="button" data-c="type" aria-selected="false" title="Color by file kind">Type</button>
-            <button role="tab" type="button" data-c="age" aria-selected="false" title="Color by how recently modified">Age</button>
+          <span class="tb-label" aria-hidden="true">Renk</span>
+          <div class="seg" id="cityColorSeg" role="tablist" aria-label="Bina renginin anlamı">
+            <button role="tab" type="button" data-c="size" aria-selected="true" title="Ağaç Haritası ölçeğinde boyuta göre renklendir">Boyut</button>
+            <button role="tab" type="button" data-c="reclaim" aria-selected="false" title="Geri kazanmanın ne kadar güvenli ve değerli olduğuna göre renklendir">Geri Kazanım</button>
+            <button role="tab" type="button" data-c="type" aria-selected="false" title="Dosya türüne göre renklendir">Tür</button>
+            <button role="tab" type="button" data-c="age" aria-selected="false" title="En son değiştirilme zamanına göre renklendir">Yaş</button>
           </div>
         </div>
         <div class="tb-spring" aria-hidden="true"></div>
         <div class="tb-group tb-actions">
-          <button class="pill" id="cityReset" title="Recenter and reset the zoom">Recenter</button>
+          <button class="pill" id="cityReset" title="Görünümü ortala ve yakınlaştırmayı sıfırla">Ortala</button>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
       <!-- Described by its line (#cityLod): what it shows of the folder, read
            with the city, since the counts in it are not said as they change. -->
       <canvas id="cityCanvas" tabindex="0" aria-describedby="cityLod"
-              aria-label="Disk usage as an isometric city. Drag to pan, scroll to zoom, click a building to drill in, Escape to go up. A text equivalent of every building is listed below the map."></canvas>
+              aria-label="İzometrik şehir olarak disk kullanımı. Kaydırmak için sürükleyin, yakınlaştırmak için kaydırın, ayrıntıya inmek için bir binaya tıklayın, yukarı çıkmak için Escape tuşuna basın. Binaların tümünün metin karşılığı haritanın altında listelenmiştir."></canvas>
       <!-- The hover card: a tooltip the pointer moves, rebuilt as it crosses
            each building — no status to announce as it changes (BQS); the list
            of buildings under the map says the same. -->
@@ -61,14 +61,14 @@
     <div class="tm-foot">
       <div id="cityLegend" class="tm-legend"></div>
       <span class="num" id="cityStatus"></span>
-      <span class="hint"><span data-icon="mouse"></span><span>drag to pan · ⇧ or <span data-key="alt">⌥</span> drag to lasso · scroll to zoom · click to drill in · Esc to go up</span></span>
+      <span class="hint"><span data-icon="mouse"></span><span>kaydırmak için sürükle · kement için ⇧ veya <span data-key="alt">⌥</span> ile sürükle · yakınlaştırmak için tekeri çevir · ayrıntı için tıkla · yukarı çıkmak için Esc</span></span>
     </div>
-    <div class="drive-dock" id="cityDock" hidden aria-label="Connected drives — drop your cart on one to offload"></div>
+    <div class="drive-dock" id="cityDock" hidden aria-label="Bağlı sürücüler — tahliye etmek için sepetinizi birine bırakın"></div>
     <!-- §6 cross-cutting: every canvas view needs a text-equivalent path to the
          same information. This is that path, not a second navigation mechanism —
          it lists what the canvas drew and drills through the same function. -->
     <details class="city-table" id="cityTableWrap">
-      <summary>List the buildings (text equivalent of the map)</summary>
+      <summary>Binaları listele (haritanın metin karşılığı)</summary>
       <div id="cityTable"></div>
     </details>
   </section>

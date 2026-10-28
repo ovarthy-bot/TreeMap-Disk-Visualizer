@@ -1,34 +1,34 @@
   <!-- ═══════════ Trends ═══════════ -->
-  <section class="view" id="view-trends" role="tabpanel" aria-label="Trends" hidden>
+  <section class="view" id="view-trends" role="tabpanel" aria-label="Eğilimler" hidden>
     <!-- No history at all (design pass G02): what Trends will show, and the
          action that starts it — not a 230 px empty chart over "No data yet.". -->
     <div class="card glass trend-empty" id="trendEmpty" hidden>
-      <h2><span data-icon="trendUp"></span>No history yet</h2>
-      <p class="muted">Trends draws how a folder’s size changes from one scan to the next. Scan a folder to start its history.</p>
-      <button class="btn btn-primary" id="trendEmptyBrowse"><span data-icon="folder"></span>Choose a folder</button>
+      <h2><span data-icon="trendUp"></span>Henüz geçmiş yok</h2>
+      <p class="muted">Eğilimler, bir klasörün boyutunun bir taramadan diğerine nasıl değiştiğini gösterir. Geçmişini başlatmak için bir klasör tarayın.</p>
+      <button class="btn btn-primary" id="trendEmptyBrowse"><span data-icon="folder"></span>Bir klasör seçin</button>
     </div>
     <div class="trends-toolbar" id="trendToolbar">
       <span class="label-pair">
-        <label for="trendRoot">Folder</label>
-        <select id="trendRoot" aria-label="Folder to show history for"></select>
+        <label for="trendRoot">Klasör</label>
+        <select id="trendRoot" aria-label="Geçmişi gösterilecek klasör"></select>
       </span>
       <span class="muted" id="trendInfo"></span>
     </div>
     <div class="trends-grid" id="trendGrid">
       <div class="card glass">
-        <h2><span data-icon="trendUp"></span>Total size over time</h2>
-        <div class="trend-chart-wrap"><canvas id="trendChart" height="300" aria-label="Folder size history chart" role="img"></canvas></div>
+        <h2><span data-icon="trendUp"></span>Zaman içindeki toplam boyut</h2>
+        <div class="trend-chart-wrap"><canvas id="trendChart" height="300" aria-label="Klasör boyutu geçmişi grafiği" role="img"></canvas></div>
       </div>
       <div class="card glass">
-        <h2><span data-icon="activity"></span>Since previous scan</h2>
+        <h2><span data-icon="activity"></span>Önceki taramadan bu yana</h2>
         <div id="trendNet" hidden>
-          <div class="tn-h">Net change per scan</div>
+          <div class="tn-h">Tarama başına net değişim</div>
           <!-- The canvas keeps a wrapper of its own: the chart kit anchors its
                tooltip to the canvas's parent, and a heading inside that parent
                would shift every tooltip by its height. -->
-          <div class="tn-wrap"><canvas id="trendNetChart" height="120" aria-label="Net size change between consecutive scans" role="img"></canvas></div>
+          <div class="tn-wrap"><canvas id="trendNetChart" height="120" aria-label="Ardışık taramalar arasındaki net boyut değişimi" role="img"></canvas></div>
         </div>
-        <div id="trendDeltas"><div class="muted">Scan the same folder twice to see what grew or shrank.</div></div>
+        <div id="trendDeltas"><div class="muted">Neyin büyüdüğünü veya küçüldüğünü görmek için aynı klasörü iki kez tarayın.</div></div>
       </div>
     </div>
   </section>

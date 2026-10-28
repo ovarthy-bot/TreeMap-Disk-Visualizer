@@ -306,24 +306,47 @@ function renderPortableScreen() {
   const p = portableInfo;
   const body = $('portableBody');
   const drives = (p.externalVolumes || []).length
-    ? `<div class="pm-row"><b>Drives found</b><span>${p.externalVolumes.map(v => escapeHtml(v.name)).join(', ')}</span></div>`
+    ? `<div class="pm-row"><b>Bulunan sürücüler</b><span>${p.externalVolumes.map(v => escapeHtml(v.name)).join(', ')}</span></div>`
     : '';
+  const translateReason = (r) => {
+    if (!r) return '';
+    if (r.includes('Reading the drive index (MFT)')) {
+      return 'Sürücü dizinini (MFT) doğrudan okumak yönetici hakları gerektirir; taşınabilir bir oturum genellikle buna sahip değildir. Bunun yerine klasörler standart yöntemle okunur — biraz daha yavaştır, ancak tüm sayılar yine de kesindir.';
+    }
+    if (r.includes('A portable session deliberately adds nothing') || r.includes('right-click entry')) {
+      return 'Taşınabilir bir oturum bu bilgisayara kasıtlı olarak hiçbir şey eklemez; bu nedenle sağ tık menüsüne "TreeMap ile Tara" seçeneğini eklemez.';
+    }
+    if (r.includes('The instant-search index needs')) {
+      return 'Anlık arama dizini yazmak için bir konuma ihtiyaç duyar ve bu oturumda hiçbir şey kaydedilmez. Arama, yeni taradığınız klasör üzerinde çalışmaya devam eder.';
+    }
+    if (r.includes('Scan history and trends are not kept')) {
+      return 'Tarama geçmişi ve trendler saklanmaz, çünkü bu oturumda hiçbir şey kaydedilmez.';
+    }
+    if (r.includes('The disk journal is not kept')) {
+      return 'Disk günlüğü oturumlar arasında saklanmaz, çünkü hiçbir şey kaydedilmez; TreeMap çalışırken algılanan değişiklikler gösterilmeye devam eder.';
+    }
+    if (r.includes('Watching a whole filesystem')) {
+      return 'Tüm dosya sistemini değişiklikler için izlemek yetki gerektirir. TreeMap bunun yerine taradığı klasörleri izler.';
+    }
+    return r;
+  };
   const degraded = (p.degraded || []).length
-    ? `<div class="pm-degraded"><b>What this session can’t do</b><ul>` +
-      p.degraded.map(d => `<li>${escapeHtml(d.reason)}</li>`).join('') + `</ul></div>`
+    ? `<div class="pm-degraded"><b>Bu oturumun yapamadıkları</b><ul>` +
+      p.degraded.map(d => `<li>${escapeHtml(translateReason(d.reason))}</li>`).join('') + `</ul></div>`
     : '';
 
+  // Contract requirements: nothing is written to this computer, Never touched, eject the drive, Nothing is saved
   body.innerHTML =
-    `<p class="pm-lead">TreeMap is running from the drive it was launched from. Nothing is installed, and
-      <b>nothing is written to this computer</b>.</p>` +
+    `<p class="pm-lead">TreeMap başlatıldığı sürücüden çalışıyor. Hiçbir şey yüklenmedi ve
+      <b>bu bilgisayara hiçbir şey yazılmıyor</b>.</p>` +
     `<div class="pm-rows">` +
       (p.writable
-        ? `<div class="pm-row"><b>Saved to</b><span class="pth">${escapeHtml(p.dataDir || '')}</span></div>`
-        : `<div class="pm-row warn"><b>Nothing is saved</b><span>${escapeHtml(p.reason || 'This drive is read-only.')}</span></div>`) +
-      `<div class="pm-row"><b>Never touched</b><span class="pth">${escapeHtml(p.hostDataDir)}</span></div>` +
+        ? `<div class="pm-row"><b>Kaydedilen yer</b><span class="pth">${escapeHtml(p.dataDir || '')}</span></div>`
+        : `<div class="pm-row warn"><b>Hiçbir şey kaydedilmiyor</b><span>${escapeHtml(p.reason ? translateReason(p.reason) : 'Bu sürücü salt okunurdur.')}</span></div>`) +
+      `<div class="pm-row"><b>Asla dokunulmayan yer</b><span class="pth">${escapeHtml(p.hostDataDir)}</span></div>` +
       drives +
     `</div>` + degraded +
-    `<p class="pm-foot">When you are done, eject the drive. This computer keeps no record that TreeMap ran.</p>`;
+    `<p class="pm-foot">İşiniz bittiğinde sürücüyü çıkarın. Bu bilgisayarda TreeMap'in çalıştığına dair hiçbir kayıt tutulmaz.</p>`;
 
   $('portableStartBtn').onclick = () => {
     $('portableModal').classList.remove('open');

@@ -7,16 +7,16 @@
   <div id="cleanModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal">
     <div class="modal-head">
-      <h3 id="cleanTitle"><span data-icon="sparkles"></span>Clean Up</h3>
-      <button class="close-x" data-close="cleanModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="cleanTitle"><span data-icon="sparkles"></span>Temizle</h3>
+      <button class="close-x" data-close="cleanModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
-      <div class="seg seg-fit" id="cleanSeg" role="tablist" aria-label="Clean Up modes" style="margin-bottom:12px;">
-        <button role="tab" aria-selected="true" data-pane="rules"><span data-icon="search"></span>Custom rules</button>
-        <button role="tab" aria-selected="false" data-pane="smart"><span data-icon="sparkles"></span>Smart suggestions</button>
-        <button role="tab" aria-selected="false" data-pane="empty"><span data-icon="folder"></span>Empty folders</button>
-        <button role="tab" aria-selected="false" data-pane="video"><span data-icon="video"></span>Shrink video</button>
-        <button role="tab" aria-selected="false" data-pane="cloud" id="cleanTabCloud" hidden><span data-icon="cloud"></span>Online-only files</button>
+      <div class="seg seg-fit" id="cleanSeg" role="tablist" aria-label="Temizleme modları" style="margin-bottom:12px;">
+        <button role="tab" aria-selected="true" data-pane="rules"><span data-icon="search"></span>Özel kurallar</button>
+        <button role="tab" aria-selected="false" data-pane="smart"><span data-icon="sparkles"></span>Akıllı öneriler</button>
+        <button role="tab" aria-selected="false" data-pane="empty"><span data-icon="folder"></span>Boş klasörler</button>
+        <button role="tab" aria-selected="false" data-pane="video"><span data-icon="video"></span>Videoları küçült</button>
+        <button role="tab" aria-selected="false" data-pane="cloud" id="cleanTabCloud" hidden><span data-icon="cloud"></span>Yalnızca çevrimiçi dosyalar</button>
       </div>
       <!-- Where what Clean Up removes goes: the system Trash, or a cloud account's own trash.
            Written by the Clean Up button for the scan the sheet opens on (cleanUpWhereItGoes). -->
@@ -30,40 +30,40 @@
       <div id="cleanPaneRules" class="pane-fade">
         <!-- v4 §4.5 — the ladder: a saved view is a Clean Up rule, and a Clean
              Up rule is an Autopilot policy. One matching engine throughout. -->
-        <div class="seg seg-fit" id="cleanRuleSeg" role="tablist" aria-label="Rule source" style="margin-bottom:10px;">
-          <button role="tab" aria-selected="true" data-rulesrc="simple">Simple rules</button>
-          <button role="tab" aria-selected="false" data-rulesrc="query">A saved view</button>
+        <div class="seg seg-fit" id="cleanRuleSeg" role="tablist" aria-label="Kural kaynağı" style="margin-bottom:10px;">
+          <button role="tab" aria-selected="true" data-rulesrc="simple">Basit kurallar</button>
+          <button role="tab" aria-selected="false" data-rulesrc="query">Kayıtlı bir görünüm</button>
         </div>
         <div id="cleanRuleQuery" style="display:none;">
           <div class="rule-row">
-            <span data-icon="search"></span><label for="cleanSavedView">Saved view</label>
-            <select id="cleanSavedView" aria-label="Saved view to use as a rule" style="flex:1;min-width:0;"></select>
+            <span data-icon="search"></span><label for="cleanSavedView">Kayıtlı görünüm</label>
+            <select id="cleanSavedView" aria-label="Kural olarak kullanılacak kayıtlı görünüm" style="flex:1;min-width:0;"></select>
           </div>
           <div class="muted" id="cleanSavedViewQ" style="margin:2px 0 6px;"></div>
         </div>
         <div id="cleanRuleSimple">
         <div class="rule-row">
-          <input type="checkbox" id="ruleAgeOn" checked> <span data-icon="clock"></span><label for="ruleAgeOn">Older than</label>
-          <input type="number" id="ruleAgeDays" value="180" min="0" aria-label="Days"> <span class="muted">days</span>
+          <input type="checkbox" id="ruleAgeOn" checked> <span data-icon="clock"></span><label for="ruleAgeOn">Şundan eski:</label>
+          <input type="number" id="ruleAgeDays" value="180" min="0" aria-label="Gün"> <span class="muted">gün</span>
         </div>
         <div class="rule-row">
-          <input type="checkbox" id="ruleSizeOn" checked> <span data-icon="trendUp"></span><label for="ruleSizeOn">Larger than</label>
-          <input type="number" id="ruleSizeMb" value="100" min="0" aria-label="Megabytes"> <span class="muted">MB</span>
+          <input type="checkbox" id="ruleSizeOn" checked> <span data-icon="trendUp"></span><label for="ruleSizeOn">Şundan büyük:</label>
+          <input type="number" id="ruleSizeMb" value="100" min="0" aria-label="Megabayt"> <span class="muted">MB</span>
         </div>
         <div class="rule-row">
-          <input type="checkbox" id="ruleExtOn"> <span data-icon="file"></span><label for="ruleExtOn">Extensions</label>
-          <input type="text" id="ruleExts" placeholder="log, tmp, dmg, zip" aria-label="Extensions, comma separated">
+          <input type="checkbox" id="ruleExtOn"> <span data-icon="file"></span><label for="ruleExtOn">Uzantılar</label>
+          <input type="text" id="ruleExts" placeholder="log, tmp, dmg, zip" aria-label="Uzantılar, virgülle ayrılmış">
         </div>
         <div class="rule-row">
-          <input type="checkbox" id="ruleDupOn"> <span data-icon="copy"></span><label for="ruleDupOn">Duplicates only <span class="muted">(same name + size elsewhere)</span></label>
+          <input type="checkbox" id="ruleDupOn"> <span data-icon="copy"></span><label for="ruleDupOn">Yalnızca kopyalar <span class="muted">(başka yerde aynı ad + boyut)</span></label>
         </div>
         </div>
         <div class="rule-row" style="margin-top:4px;">
-          <button class="btn" id="cleanFindBtn"><span data-icon="search"></span>Find matching files</button>
+          <button class="btn" id="cleanFindBtn"><span data-icon="search"></span>Eşleşen dosyaları bul</button>
           <!-- v4 §4.5 — promotion. Opens the existing editor, pre-filled; every
                rail it has stays exactly as it is, including the mandatory
                first-run preview. -->
-          <button class="btn" id="cleanPromoteBtn" title="Turn this rule into a scheduled Autopilot policy — you approve its first run before it deletes anything"><span data-icon="sparkles"></span>Make this an Autopilot policy</button>
+          <button class="btn" id="cleanPromoteBtn" title="Bu kuralı zamanlanmış bir Otopilot kuralına dönüştürün — herhangi bir şey silinmeden önce ilk çalıştırmayı siz onaylarsınız"><span data-icon="sparkles"></span>Bunu bir Otopilot kuralı yap</button>
         </div>
         <!-- Why a rule set could not become a policy, beside the button that
              was pressed — promoteRuleToPolicy writes it, and it stays until
@@ -87,13 +87,13 @@
            moving it, so the copy is blunt about what it does: it is lossy, and
            the original goes to the Trash only once the new file has verified. -->
       <div id="cleanPaneVideo" class="pane-fade" style="display:none;">
-        <div id="videoBody"><div class="muted">Run a scan to look for video worth re-encoding.</div></div>
+        <div id="videoBody"><div class="muted">Yeniden kodlamaya değer videoları aramak için bir tarama yapın.</div></div>
       </div>
 
       <div id="cleanPaneEmpty" class="pane-fade" style="display:none;">
         <div class="rule-row">
           <input type="checkbox" id="emptyIgnoreJunk" checked>
-          <label for="emptyIgnoreJunk">Treat folders holding only junk files (.DS_Store, Thumbs.db) as empty</label>
+          <label for="emptyIgnoreJunk">Yalnızca gereksiz sistem dosyaları (.DS_Store, Thumbs.db) içeren klasörleri boş say</label>
         </div>
         <div id="emptyResults"></div>
       </div>
@@ -105,7 +105,7 @@
     <div class="modal-foot">
       <span class="muted num" id="cleanSummary"></span>
       <div style="flex:1"></div>
-      <button class="btn btn-danger" id="cleanConfirmBtn" disabled><span data-icon="trash"></span>Move to Trash</button>
+      <button class="btn btn-danger" id="cleanConfirmBtn" disabled><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
     </div>
   </div>
 </div>

@@ -1,11 +1,11 @@
   <!-- ═══════════ Autopilot (B1) ═══════════ -->
-  <section class="view" id="view-autopilot" role="tabpanel" aria-label="Autopilot" hidden>
+  <section class="view" id="view-autopilot" role="tabpanel" aria-label="Otopilot" hidden>
     <div class="card glass">
-      <h2><span data-icon="sparkles"></span>Autopilot
+      <h2><span data-icon="sparkles"></span>Otopilot
         <!-- FX wiring: the "breathing" heartbeat, mounted only while at
              least one policy is armed to act on its own (see fxApBreatheSync). -->
-        <span class="fx-orb-well" id="apBreatheWell" title="Autopilot is armed and watching"></span>
-        <button class="pill" id="apAddBtn" style="margin-left:auto;">Add a policy</button>
+        <span class="fx-orb-well" id="apBreatheWell" title="Otopilot devrede ve izliyor"></span>
+        <button class="pill" id="apAddBtn" style="margin-left:auto;">Kural ekle</button>
       </h2>
       <div class="apps-info muted" id="apInfo"></div>
       <div id="apPolicies"></div>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="card glass" style="margin-top:18px;">
-      <h2><span data-icon="clock"></span>What Autopilot has done</h2>
+      <h2><span data-icon="clock"></span>Otopilotun yaptıkları</h2>
       <div id="apRuns"></div>
     </div>
   </section>
@@ -34,37 +34,37 @@
     <div id="apModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     <div class="modal" style="width:620px;">
       <div class="modal-head">
-        <h3 id="apModalTitle"><span data-icon="sparkles"></span>New policy</h3>
-        <button class="close-x" data-close="apModal" aria-label="Close"><span data-icon="x"></span></button>
+        <h3 id="apModalTitle"><span data-icon="sparkles"></span>Yeni kural</h3>
+        <button class="close-x" data-close="apModal" aria-label="Kapat"><span data-icon="x"></span></button>
       </div>
       <div class="modal-body">
         <div class="rule-row">
-          <span data-icon="type"></span><label for="apName">Name</label>
-          <input type="text" id="apName" placeholder="Old build folders" aria-label="Policy name" style="flex:1;">
+          <span data-icon="type"></span><label for="apName">Ad</label>
+          <input type="text" id="apName" placeholder="Eski derleme klasörleri" aria-label="Kural adı" style="flex:1;">
         </div>
         <div class="rule-row" style="margin-top:8px;">
-          <span data-icon="folder"></span><label for="apPath">In folder</label>
-          <input type="text" id="apPath" placeholder="/Users/you/Projects" aria-label="Folder this policy cleans" style="flex:1;">
-          <button class="btn" id="apBrowseBtn">Browse…</button>
+          <span data-icon="folder"></span><label for="apPath">Klasörde</label>
+          <input type="text" id="apPath" placeholder="C:\Projeler veya /Users/sen/Projeler" aria-label="Bu kuralın temizleyeceği klasör" style="flex:1;">
+          <button class="btn" id="apBrowseBtn">Gözat…</button>
         </div>
 
-        <div class="set-h" style="margin-top:18px;"><span data-icon="search"></span>What it cleans up</div>
-        <div class="seg" id="apMatchSeg" role="tablist" aria-label="Match kind" style="margin-bottom:10px;">
-          <button role="tab" aria-selected="true" data-apmatch="suggestion">Known reclaimable</button>
-          <button role="tab" aria-selected="false" data-apmatch="custom">My own rules</button>
-          <button role="tab" aria-selected="false" data-apmatch="query">A query</button>
+        <div class="set-h" style="margin-top:18px;"><span data-icon="search"></span>Neyi temizler</div>
+        <div class="seg" id="apMatchSeg" role="tablist" aria-label="Eşleşme türü" style="margin-bottom:10px;">
+          <button role="tab" aria-selected="true" data-apmatch="suggestion">Bilinen geri kazanılabilir alan</button>
+          <button role="tab" aria-selected="false" data-apmatch="custom">Özel kurallarım</button>
+          <button role="tab" aria-selected="false" data-apmatch="query">Sorgu ile</button>
         </div>
         <div id="apMatchSuggestion">
-          <div class="muted" style="margin-bottom:8px;">The same things Clean Up's Smart suggestions find — each one safe to delete and rebuildable.</div>
+          <div class="muted" style="margin-bottom:8px;">Temizle'nin Akıllı önerilerinin bulduğu öğeler — tümü güvenle silinebilir ve yeniden oluşturulabilir.</div>
           <div id="apGroupList"></div>
         </div>
         <!-- v4 §4.5 — the same grammar the treemap box and saved views use.
              Checked by the one parser before the policy can be saved. -->
         <div id="apMatchQuery" style="display:none;">
-          <div class="muted" style="margin-bottom:8px;">The same search language as the treemap box, e.g. <code>ext:log modified&gt;90d -in:node_modules</code>. It is checked before the policy can be saved, and a query with no conditions is refused — it would match every file in the folder.</div>
+          <div class="muted" style="margin-bottom:8px;">Ağaç haritası kutusundaki arama diliyle aynıdır, örneğin <code>ext:log modified&gt;90d -in:node_modules</code>. Kural kaydedilmeden önce kontrol edilir ve koşulsuz bir sorgu reddedilir — çünkü klasördeki tüm dosyalarla eşleşir.</div>
           <div class="field" style="max-width:none;">
             <span data-icon="search"></span>
-            <input type="text" id="apRuleQuery" placeholder="ext:log modified&gt;90d" aria-label="The query this policy matches on" autocomplete="off" spellcheck="false">
+            <input type="text" id="apRuleQuery" placeholder="ext:log modified&gt;90d" aria-label="Bu kuralın eşleşeceği sorgu" autocomplete="off" spellcheck="false">
           </div>
           <!-- Plain text: what it says is said in #apQuerySaid (BQT item 28). -->
           <div class="muted" id="apQueryStatus" style="margin-top:6px;"></div>
@@ -77,44 +77,44 @@
         </div>
         <div id="apMatchCustom" style="display:none;">
           <div class="rule-row">
-            <input type="checkbox" id="apRuleAgeOn" checked> <span data-icon="clock"></span><label for="apRuleAgeOn">Older than</label>
-            <input type="number" id="apRuleAgeDays" value="180" min="1" aria-label="Days"> <span class="muted">days</span>
+            <input type="checkbox" id="apRuleAgeOn" checked> <span data-icon="clock"></span><label for="apRuleAgeOn">Şundan eski:</label>
+            <input type="number" id="apRuleAgeDays" value="180" min="1" aria-label="Gün"> <span class="muted">gün</span>
           </div>
           <div class="rule-row">
-            <input type="checkbox" id="apRuleSizeOn" checked> <span data-icon="trendUp"></span><label for="apRuleSizeOn">Larger than</label>
-            <input type="number" id="apRuleSizeMb" class="size-in" value="100" min="1" aria-label="Megabytes"> <span class="muted">MB</span>
+            <input type="checkbox" id="apRuleSizeOn" checked> <span data-icon="trendUp"></span><label for="apRuleSizeOn">Şundan büyük:</label>
+            <input type="number" id="apRuleSizeMb" class="size-in" value="100" min="1" aria-label="Megabayt"> <span class="muted">MB</span>
           </div>
           <div class="rule-row">
-            <input type="checkbox" id="apRuleExtOn"> <span data-icon="file"></span><label for="apRuleExtOn">Extensions</label>
-            <input type="text" id="apRuleExts" placeholder="log, tmp, dmg" aria-label="Extensions, comma separated">
+            <input type="checkbox" id="apRuleExtOn"> <span data-icon="file"></span><label for="apRuleExtOn">Uzantılar</label>
+            <input type="text" id="apRuleExts" placeholder="log, tmp, dmg" aria-label="Uzantılar, virgülle ayrılmış">
           </div>
         </div>
 
-        <div class="set-h" style="margin-top:18px;"><span data-icon="shield"></span>Limits</div>
+        <div class="set-h" style="margin-top:18px;"><span data-icon="shield"></span>Sınırlar</div>
         <div class="rule-row">
-          <span data-icon="gauge"></span><label for="apMaxRun">Delete at most</label>
-          <input type="number" id="apMaxRun" class="size-in" min="0" placeholder="no limit" aria-label="Maximum gigabytes per run"> <span class="muted">GB per run</span>
+          <span data-icon="gauge"></span><label for="apMaxRun">Çalıştırma başına en çok</label>
+          <input type="number" id="apMaxRun" class="size-in" min="0" placeholder="sınır yok" aria-label="Çalıştırma başına en fazla gigabayt"> <span class="muted">GB sil</span>
         </div>
         <div class="rule-row" style="margin-top:6px;">
-          <span data-icon="gauge"></span><label for="apMaxWeek">and at most</label>
-          <input type="number" id="apMaxWeek" class="size-in" min="0" placeholder="no limit" aria-label="Maximum gigabytes per week"> <span class="muted">GB per week</span>
+          <span data-icon="gauge"></span><label for="apMaxWeek">ve haftada en çok</label>
+          <input type="number" id="apMaxWeek" class="size-in" min="0" placeholder="sınır yok" aria-label="Haftalık en fazla gigabayt"> <span class="muted">GB sil</span>
         </div>
         <div class="rule-row" style="margin-top:6px;">
-          <span data-icon="alert"></span><label for="apConfirmAbove">Ask me first above</label>
-          <input type="number" id="apConfirmAbove" class="size-in" min="0" placeholder="never ask" aria-label="Ask for confirmation above this many gigabytes"> <span class="muted">GB in one run</span>
+          <span data-icon="alert"></span><label for="apConfirmAbove">Şu miktarı aşarsa önce bana sor:</label>
+          <input type="number" id="apConfirmAbove" class="size-in" min="0" placeholder="asla sorma" aria-label="Bu kadar gigabaytı aşarsa onay iste"> <span class="muted">GB (tek çalıştırmada)</span>
         </div>
         <div class="rule-row" style="margin-top:6px;">
-          <span data-icon="clock"></span><label for="apCooldown">Run at most once every</label>
-          <input type="number" id="apCooldown" value="7" min="1" max="365" aria-label="Cooldown in days"> <span class="muted">days</span>
+          <span data-icon="clock"></span><label for="apCooldown">En fazla şu sıklıkta çalıştır:</label>
+          <input type="number" id="apCooldown" value="7" min="1" max="365" aria-label="Gün cinsinden bekleme süresi"> <span class="muted">günde bir</span>
         </div>
-        <div class="muted" id="apLaunchHold" style="margin-top:4px;">A run that came due while TreeMap was closed runs about 10 minutes after it opens, not the moment it opens.</div>
+        <div class="muted" id="apLaunchHold" style="margin-top:4px;">TreeMap kapalıyken vadesi gelen bir çalıştırma, açıldığı an değil, açıldıktan yaklaşık 10 dakika sonra çalışır.</div>
         <div class="rule-row" style="margin-top:10px;">
           <input type="checkbox" id="apDryRunFirst" checked>
-          <label for="apDryRunFirst">Only ever preview — never actually delete</label>
+          <label for="apDryRunFirst">Yalnızca önizle — asla gerçekten silme</label>
         </div>
         <div class="rule-row">
           <input type="checkbox" id="apEnabled">
-          <label for="apEnabled">Enabled</label>
+          <label for="apEnabled">Etkin</label>
         </div>
 
         <div id="apPreview"></div>
@@ -122,10 +122,10 @@
         <div id="apPreviewSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
       <div class="modal-foot">
-        <span class="muted" style="font-size:11.5px;">Anything deleted is copied to the Undo Vault first, and can be undone until the Undo Vault removes the copy.</span>
+        <span class="muted" style="font-size:11.5px;">Silinen tüm öğeler önce Geri Alma Kasası'na kopyalanır ve kasa kopyayı kaldırana kadar geri alınabilir.</span>
         <div style="flex:1"></div>
-        <button class="btn" id="apPreviewBtn"><span data-icon="search"></span>Preview</button>
-        <button class="btn btn-primary" id="apSaveBtn">Save policy</button>
+        <button class="btn" id="apPreviewBtn"><span data-icon="search"></span>Önizle</button>
+        <button class="btn btn-primary" id="apSaveBtn">Kuralı kaydet</button>
       </div>
     </div>
   </div>

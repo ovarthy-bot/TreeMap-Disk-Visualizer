@@ -3,14 +3,14 @@
      drives the real UI — picks the folder, clicks the real Add buttons —
      while the card narrates. pointer-events pass through everywhere except
      the card itself. -->
-<div id="tourOverlay" role="dialog" aria-modal="false" aria-label="Welcome tour" hidden>
+<div id="tourOverlay" role="dialog" aria-modal="false" aria-label="Hoş geldiniz turu" hidden>
   <div class="tour-card glass" id="tourCard"></div>
 </div>
 
 <!-- ═══════════ Command palette (v4 §9.1) ═══════════
      ⌘K / Ctrl+K. One box over everything: views, actions, saved views and
      recent scan roots, fuzzy-matched. Focus returns to where it was. -->
-<div class="modal-backdrop" id="cmdkModal" role="dialog" aria-modal="true" aria-label="Command palette">
+<div class="modal-backdrop" id="cmdkModal" role="dialog" aria-modal="true" aria-label="Komut paleti">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -18,9 +18,9 @@
   <div id="cmdkModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal cmdk-panel" style="width:560px;max-width:92vw;">
     <input type="text" id="cmdkInput" role="combobox" aria-expanded="true" aria-controls="cmdkList"
-           aria-autocomplete="list" aria-label="Search views, actions, saved views and recent folders"
-           placeholder="Jump to a view, run an action, rescan a folder…" autocomplete="off" spellcheck="false">
-    <div id="cmdkList" role="listbox" aria-label="Palette results"></div>
-    <div class="muted cmdk-foot">↑↓ choose · ↵ run · esc close</div>
+           aria-autocomplete="list" aria-label="Görünümleri, eylemleri, kayıtlı görünümleri ve son klasörleri arayın"
+           placeholder="Bir görünüme geçin, bir eylem çalıştırın, bir klasörü yeniden tarayın…" autocomplete="off" spellcheck="false">
+    <div id="cmdkList" role="listbox" aria-label="Palet sonuçları"></div>
+    <div class="muted cmdk-foot">↑↓ seç · ↵ çalıştır · esc kapat</div>
   </div>
 </div>

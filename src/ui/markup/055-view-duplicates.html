@@ -1,25 +1,25 @@
   <!-- ═══════════ Duplicates ═══════════ -->
-  <section class="view" id="view-duplicates" role="tabpanel" aria-label="Duplicates" hidden>
-    <div class="seg seg-fit" id="dupModeSeg" role="tablist" aria-label="Duplicate detection mode" style="margin-bottom:13px;">
-      <button role="tab" aria-selected="true" data-dupmode="exact"><span data-icon="copy"></span>Exact</button>
-      <button role="tab" aria-selected="false" data-dupmode="near"><span data-icon="image"></span>Near-duplicate images</button>
+  <section class="view" id="view-duplicates" role="tabpanel" aria-label="Yinelenenler" hidden>
+    <div class="seg seg-fit" id="dupModeSeg" role="tablist" aria-label="Yinelenen dosya tespit modu" style="margin-bottom:13px;">
+      <button role="tab" aria-selected="true" data-dupmode="exact"><span data-icon="copy"></span>Birebir Aynı</button>
+      <button role="tab" aria-selected="false" data-dupmode="near"><span data-icon="image"></span>Benzer görseller</button>
     </div>
     <div id="dupPaneExact" class="pane-fade">
       <div class="dup-toolbar">
-        <span class="dup-summary" id="dupSummary">Scanning for duplicates…</span>
+        <span class="dup-summary" id="dupSummary">Yinelenenler taranıyor…</span>
         <div class="spacer"></div>
         <span class="label-pair">
-          <label for="dupMinSize">Ignore files under</label>
-          <select id="dupMinSize" aria-label="Minimum file size for duplicate detection">
+          <label for="dupMinSize">Şundan küçükleri yoksay</label>
+          <select id="dupMinSize" aria-label="Yinelenen tespiti için en küçük dosya boyutu">
             <option value="1000">1 KB</option>
             <option value="100000" selected>100 KB</option>
             <option value="1000000">1 MB</option>
             <option value="10000000">10 MB</option>
           </select>
         </span>
-        <button class="btn" id="dupAutoBtn" title="In every group, select all copies except the newest one"><span data-icon="sparkles"></span>Auto-select (keep newest)</button>
-        <button class="btn" id="dupOffloadBtn" disabled title="Copy the selected duplicates to another drive, verify, then trash them locally"><span data-icon="archive"></span>Offload…</button>
-        <button class="btn btn-danger" id="dupTrashBtn" disabled><span data-icon="trash"></span>Move to Trash</button>
+        <button class="btn" id="dupAutoBtn" title="Gruplardaki en yeni kopya dışındaki tüm kopyaları seç"><span data-icon="sparkles"></span>Otomatik seç (en yeniyi koru)</button>
+        <button class="btn" id="dupOffloadBtn" disabled title="Seçilen kopyaları başka bir sürücüye kopyala, doğrula ve ardından yerel kopyaları çöpe at"><span data-icon="archive"></span>Tahliye et…</button>
+        <button class="btn btn-danger" id="dupTrashBtn" disabled><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
       </div>
       <!-- What the figure above does not promise, and what the last trash
            measurably did. Its own element on purpose: #dupSummary and #dupBody
@@ -32,18 +32,18 @@
     </div>
     <div id="dupPaneNear" class="pane-fade" hidden>
       <div class="dup-toolbar">
-        <span class="dup-summary" id="ndSummary">Looking for similar images…</span>
+        <span class="dup-summary" id="ndSummary">Benzer görseller aranıyor…</span>
         <div class="spacer"></div>
         <span class="label-pair">
-          <label for="ndThreshold">Match</label>
-          <select id="ndThreshold" aria-label="How similar images must be to be grouped">
-            <option value="6">Very similar</option>
-            <option value="10" selected>Similar</option>
-            <option value="14">Loosely similar</option>
+          <label for="ndThreshold">Eşleşme</label>
+          <select id="ndThreshold" aria-label="Görsellerin gruplanması için gereken benzerlik derecesi">
+            <option value="6">Çok benzer</option>
+            <option value="10" selected>Benzer</option>
+            <option value="14">Kısmen benzer</option>
           </select>
         </span>
-        <button class="btn" id="ndAutoBtn" title="In every group, select all copies except the newest one"><span data-icon="sparkles"></span>Auto-select (keep newest)</button>
-        <button class="btn btn-danger" id="ndTrashBtn" disabled><span data-icon="trash"></span>Move to Trash</button>
+        <button class="btn" id="ndAutoBtn" title="Gruplardaki en yeni kopya dışındaki tüm kopyaları seç"><span data-icon="sparkles"></span>Otomatik seç (en yeniyi koru)</button>
+        <button class="btn btn-danger" id="ndTrashBtn" disabled><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
       </div>
       <div id="ndBody"></div>
     </div>

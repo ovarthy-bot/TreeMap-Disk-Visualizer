@@ -1,9 +1,9 @@
 <!-- ═══════════ Selection toolbar ═══════════ -->
 <div class="glass" id="selectionBar">
-  <span id="selInfo" class="num">0 items selected</span>
-  <button class="btn" id="selOffloadBtn" title="Copy to another drive, verify, then move the originals to the Trash"><span data-icon="archive"></span>Offload…</button>
-  <button class="btn btn-danger" id="selTrashBtn"><span data-icon="trash"></span>Move to Trash</button>
-  <button class="btn" id="selClearBtn">Clear</button>
+  <span id="selInfo" class="num">0 öğe seçildi</span>
+  <button class="btn" id="selOffloadBtn" title="Başka bir sürücüye kopyala, doğrula ve orijinalleri Çöp Kutusuna taşı"><span data-icon="archive"></span>Tahliye et…</button>
+  <button class="btn btn-danger" id="selTrashBtn"><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
+  <button class="btn" id="selClearBtn">Temizle</button>
 </div>
 
 <!-- ═══════════ Offload progress (Feature 24) ═══════════ -->
@@ -15,10 +15,10 @@
   <div id="offloadModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:520px;">
     <div class="modal-head">
-      <h3 id="offloadTitle"><span data-icon="archive"></span>Offloading…</h3>
+      <h3 id="offloadTitle"><span data-icon="archive"></span>Tahliye ediliyor…</h3>
     </div>
     <div class="modal-body">
-      <div class="muted" id="offloadPhase" style="margin-bottom:8px;">Checking…</div>
+      <div class="muted" id="offloadPhase" style="margin-bottom:8px;">Kontrol ediliyor…</div>
       <div class="progress-track active" style="position:static;height:6px;border-radius:3px;overflow:hidden;background:var(--surface-2);">
         <div id="offloadBar" style="height:100%;width:0%;background:var(--accent);transition:width .3s ease;"></div>
       </div>
@@ -26,9 +26,9 @@
       <div class="muted" id="offloadCurrent" style="margin-top:4px;word-break:break-all;font-size:11.5px;"></div>
     </div>
     <div class="modal-foot">
-      <span class="muted" id="offloadFoot" style="font-size:11.5px;">Nothing is removed until every copy is verified.</span>
+      <span class="muted" id="offloadFoot" style="font-size:11.5px;">Tüm kopyalar doğrulanana kadar hiçbir şey silinmez.</span>
       <div style="flex:1"></div>
-      <button class="btn" id="offloadCancelBtn"><span data-icon="x"></span>Cancel</button>
+      <button class="btn" id="offloadCancelBtn"><span data-icon="x"></span>İptal</button>
     </div>
     <!-- FX wiring: the job ring rides this overlay strip, never .modal — a
          .modal is a Liquid Glass host whose fill IS .lg::before, and the beam

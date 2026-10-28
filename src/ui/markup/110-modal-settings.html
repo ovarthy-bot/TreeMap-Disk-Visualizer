@@ -7,38 +7,38 @@
   <div id="settingsModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:740px;">
     <div class="modal-head">
-      <h3 id="settingsTitle"><span data-icon="settings"></span>Settings</h3>
-      <button class="close-x" data-close="settingsModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="settingsTitle"><span data-icon="settings"></span>Ayarlar</h3>
+      <button class="close-x" data-close="settingsModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <!-- QA D67 — System (follow the computer, the default), Light or Dark.
            Saved the moment it is picked, in this browser's storage like the
            sidebar's theme button, which flips to an explicit Light or Dark;
            this row is the way back to System. -->
-      <div class="set-h"><span data-icon="sun"></span>Theme</div>
-      <div class="muted" style="margin-bottom:10px;">How TreeMap looks. Picking one saves it straight away.</div>
-      <div id="themeOptions" role="radiogroup" aria-label="Theme">
+      <div class="set-h"><span data-icon="sun"></span>Tema</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap'in görünümü. Birini seçtiğinizde anında kaydedilir.</div>
+      <div id="themeOptions" role="radiogroup" aria-label="Tema">
         <label class="rule-row budget-row" for="themeChoice-system">
           <input type="radio" name="themeChoice" id="themeChoice-system" value="system" checked>
-          <span class="budget-name">System</span>
-          <span class="muted budget-help">follows this computer’s light or dark setting, and changes when it does</span>
+          <span class="budget-name">Sistem</span>
+          <span class="muted budget-help">bu bilgisayarın açık veya koyu temasını takip eder ve değiştikçe güncellenir</span>
         </label>
         <label class="rule-row budget-row" for="themeChoice-light">
           <input type="radio" name="themeChoice" id="themeChoice-light" value="light">
-          <span class="budget-name">Light</span>
-          <span class="muted budget-help">always light</span>
+          <span class="budget-name">Açık</span>
+          <span class="muted budget-help">daima açık</span>
         </label>
         <label class="rule-row budget-row" for="themeChoice-dark">
           <input type="radio" name="themeChoice" id="themeChoice-dark" value="dark">
-          <span class="budget-name">Dark</span>
-          <span class="muted budget-help">always dark</span>
+          <span class="budget-name">Koyu</span>
+          <span class="muted budget-help">daima koyu</span>
         </label>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="calendar"></span>Scheduled scans</div>
-      <div class="muted" style="margin-bottom:10px;">TreeMap re-scans these folders on a schedule while the app is running, and alerts you when a folder grows past your threshold since the previous scan. Every run is also saved to Trends. A scan that came due while TreeMap was closed runs about 10 minutes after it opens, not the moment it opens.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="calendar"></span>Zamanlanmış taramalar</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap, uygulama çalışırken bu klasörleri bir zamanlamaya göre yeniden tarar ve bir klasör önceki taramadan bu yana belirlediğiniz eşiği aştığında sizi uyarır. Tüm çalıştırmalar Eğilimler'e de kaydedilir. TreeMap kapalıyken vadesi gelen bir tarama, açıldığı an değil, açıldıktan yaklaşık 10 dakika sonra çalışır.</div>
       <div id="schedList"></div>
-      <button class="btn" id="schedAddBtn"><span data-icon="plus"></span>Add scheduled scan</button>
+      <button class="btn" id="schedAddBtn"><span data-icon="plus"></span>Zamanlanmış tarama ekle</button>
 
       <!-- Phase 2 §11.4 — the scanning budget. Four presets, saved the moment
            one is picked: a budget is a dial, not a form. A server that cannot
@@ -46,28 +46,28 @@
            blank row. Automatic's sentence ships neutral: opening Settings
            writes the platform's own (renderEngineBudgetHelp), since only a Mac
            and Linux report their heat. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Scanning budget</div>
-      <div class="muted" style="margin-bottom:10px;">How much of this computer a scan is allowed to use. Picking one saves it straight away.</div>
-      <div id="engineBudgetOptions" role="radiogroup" aria-label="Scanning budget">
+      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Tarama bütçesi</div>
+      <div class="muted" style="margin-bottom:10px;">Bir taramanın bu bilgisayarın kaynaklarının ne kadarını kullanmasına izin verildiği. Birini seçtiğinizde anında kaydedilir.</div>
+      <div id="engineBudgetOptions" role="radiogroup" aria-label="Tarama bütçesi">
         <label class="rule-row budget-row" for="engineBudget-auto">
           <input type="radio" name="engineBudget" id="engineBudget-auto" value="auto" checked>
-          <span class="budget-name">Automatic</span>
-          <span class="muted budget-help" id="engineBudgetHelp-auto">Turbo for scans you start, never above Balanced for the rest; a step lower on battery</span>
+          <span class="budget-name">Otomatik</span>
+          <span class="muted budget-help" id="engineBudgetHelp-auto">Başlattığınız taramalar için Turbo, diğerleri için asla Dengeli'nin üzerinde değil; pilde bir kademe daha düşük</span>
         </label>
         <label class="rule-row budget-row" for="engineBudget-eco">
           <input type="radio" name="engineBudget" id="engineBudget-eco" value="eco">
-          <span class="budget-name">Eco</span>
-          <span class="muted budget-help">A quarter of the machine; scans take longer and stay out of your way</span>
+          <span class="budget-name">Ekonomik</span>
+          <span class="muted budget-help">Bilgisayarın dörtte biri; taramalar daha uzun sürer ve sizi rahatsız etmez</span>
         </label>
         <label class="rule-row budget-row" for="engineBudget-balanced">
           <input type="radio" name="engineBudget" id="engineBudget-balanced" value="balanced">
-          <span class="budget-name">Balanced</span>
-          <span class="muted budget-help">Half the machine; backs off while you are working</span>
+          <span class="budget-name">Dengeli</span>
+          <span class="muted budget-help">Bilgisayarın yarısı; siz çalışırken kaynak kullanımını azaltır</span>
         </label>
         <label class="rule-row budget-row" for="engineBudget-turbo">
           <input type="radio" name="engineBudget" id="engineBudget-turbo" value="turbo">
           <span class="budget-name">Turbo</span>
-          <span class="muted budget-help">Nearly all of it — a tenth is left so the computer stays usable; for when you are watching and want it now</span>
+          <span class="muted budget-help">Neredeyse tamamı — bilgisayarın kullanılabilir kalması için onda biri bırakılır; izlerken ve hemen bitmesini istediğinizde</span>
         </label>
       </div>
       <!-- Plain text: what it says is said in #engineBudgetNoteSaid (BQT item 28). -->
@@ -85,33 +85,33 @@
            M6 adds a fifth, NTFS turbo, for Windows only: its row ships hidden and
            renderScanEngine shows it once /api/system says win32. The server
            refuses the value on every other platform. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Scan engine</div>
-      <div class="muted" style="margin-bottom:10px;">Which engine reads the disk. Picking one saves it straight away and applies from the next scan. The native engine and the built-in walker count the same files the same way; gdu shows a folder it may not open as empty.</div>
-      <div id="scanEngineOptions" role="radiogroup" aria-label="Scan engine">
+      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Tarama motoru</div>
+      <div class="muted" style="margin-bottom:10px;">Diski hangi motorun okuyacağı. Birini seçtiğinizde anında kaydedilir ve bir sonraki taramadan itibaren uygulanır. Yerel motor ve yerleşik gezici aynı dosyaları aynı şekilde sayar; gdu açamadığı klasörleri boş gösterir.</div>
+      <div id="scanEngineOptions" role="radiogroup" aria-label="Tarama motoru">
         <label class="rule-row budget-row" for="scanEngine-auto">
           <input type="radio" name="scanEngine" id="scanEngine-auto" value="auto" checked>
-          <span class="budget-name">Automatic</span>
-          <span class="muted budget-help">TreeMap picks the fastest engine this scan can use; the Dashboard says which one ran and why</span>
+          <span class="budget-name">Otomatik</span>
+          <span class="muted budget-help">TreeMap bu taramanın kullanabileceği en hızlı motoru seçer; Kontrol Paneli hangisinin neden çalıştığını belirtir</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-native">
           <input type="radio" name="scanEngine" id="scanEngine-native" value="native">
-          <span class="budget-name">Native</span>
-          <span class="muted budget-help">the built-in fast engine, when this build has it</span>
+          <span class="budget-name">Yerel Motor</span>
+          <span class="muted budget-help">bu derlemede mevcut olduğunda yerleşik hızlı motor</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-gdu">
           <input type="radio" name="scanEngine" id="scanEngine-gdu" value="gdu">
           <span class="budget-name">gdu</span>
-          <span class="muted budget-help" id="scanEngineHelp-gdu">the bundled gdu helper, one process per top-level folder</span>
+          <span class="muted budget-help" id="scanEngineHelp-gdu">birlikte gelen gdu yardımcısı, üst düzey klasör başına bir işlem</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-walker">
           <input type="radio" name="scanEngine" id="scanEngine-walker" value="walker">
-          <span class="budget-name">Built-in walker</span>
-          <span class="muted budget-help">the original engine — slower, and the one every other engine is checked against</span>
+          <span class="budget-name">Yerleşik gezici</span>
+          <span class="muted budget-help">orijinal motor — daha yavaş ve diğer tüm motorların doğrulaması için temel alınan motor</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-ntfs-mft" id="scanEngineRow-ntfs-mft" hidden>
           <input type="radio" name="scanEngine" id="scanEngine-ntfs-mft" value="ntfs-mft">
           <span class="budget-name">NTFS turbo</span>
-          <span class="muted budget-help">Windows only, with TreeMap installed for everyone who uses the computer: asks Windows for administrator permission, then reads the drive’s file table directly, read-only — not verified on this build</span>
+          <span class="muted budget-help">Yalnızca Windows: Windows'tan yönetici izni ister, ardından sürücünün dosya tablosunu doğrudan salt okunur okur — bu derlemede doğrulanmamıştır</span>
         </label>
       </div>
 
@@ -119,104 +119,104 @@
            disk image, the iOS Simulator's volumes, a separate /home on Linux), stay
            on the drive the scan started on (the default, the owner's answer to
            U-Q9), or go into it. Saved the moment it is picked, like the engine. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="hardDrive"></span>Drives mounted inside a folder</div>
-      <div class="muted" style="margin-bottom:10px;">A disk image or drive mounted inside the folder you scan is a separate disk. Staying on this drive keeps the totals true to the disk you chose. Picking one saves it straight away.</div>
-      <div id="scanBoundary" role="radiogroup" aria-label="Drives mounted inside a folder">
+      <div class="set-h" style="margin-top:22px;"><span data-icon="hardDrive"></span>Klasör içine bağlanan sürücüler</div>
+      <div class="muted" style="margin-bottom:10px;">Taradığınız klasörün içine bağlanan bir disk görüntüsü veya sürücü ayrı bir disktir. Bu sürücüde kalmak toplamların seçtiğiniz diske sadık kalmasını sağlar. Birini seçtiğinizde anında kaydedilir.</div>
+      <div id="scanBoundary" role="radiogroup" aria-label="Klasör içine bağlanan sürücüler">
         <label class="rule-row budget-row" for="scanBoundary-stay">
           <input type="radio" name="scanBoundary" id="scanBoundary-stay" value="stay" checked>
-          <span class="budget-name">Stay on this drive</span>
-          <span class="muted budget-help">the scan stops where another drive is mounted, and the Dashboard names it</span>
+          <span class="budget-name">Bu sürücüde kal</span>
+          <span class="muted budget-help">tarama başka bir sürücünün bağlandığı yerde durur ve Kontrol Paneli bunu adlandırır</span>
         </label>
         <label class="rule-row budget-row" for="scanBoundary-cross">
           <input type="radio" name="scanBoundary" id="scanBoundary-cross" value="cross">
-          <span class="budget-name">Include drives mounted inside it</span>
-          <span class="muted budget-help">their files are counted as well, from the next scan</span>
+          <span class="budget-name">İçine bağlanan sürücüleri dahil et</span>
+          <span class="muted budget-help">bir sonraki taramadan itibaren onların dosyaları da sayılır</span>
         </label>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="trendUp"></span>Disk-full forecast</div>
-      <div class="muted" style="margin-bottom:10px;">Scheduled scans also project when the disk will fill up (needs 5+ scans across 2+ days). You'll get a notification when the forecast drops below:</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="trendUp"></span>Disk doluluk tahmini</div>
+      <div class="muted" style="margin-bottom:10px;">Zamanlanmış taramalar ayrıca diskin ne zaman dolacağını tahmin eder (2+ güne yayılmış 5+ tarama gerektirir). Tahmin şu sürenin altına indiğinde bildirim alırsınız:</div>
       <div class="rule-row">
-        <span data-icon="clock"></span><label for="forecastDays">Warn within</label>
-        <input type="number" id="forecastDays" min="1" max="365" value="30" aria-label="Forecast warning threshold in days">
-        <span class="muted">days of the disk filling up</span>
+        <span data-icon="clock"></span><label for="forecastDays">Şu süreden önce uyar:</label>
+        <input type="number" id="forecastDays" min="1" max="365" value="30" aria-label="Gün cinsinden tahmin uyarı eşiği">
+        <span class="muted">gün (diskin dolmasına kalan)</span>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Live activity</div>
-      <div class="muted" style="margin-bottom:10px;">The treemap's Live mode watches the scanned folder in real time and pauses itself when nothing is happening.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Canlı etkinlik</div>
+      <div class="muted" style="margin-bottom:10px;">Ağaç haritasının Canlı modu, taranan klasörü gerçek zamanlı olarak izler ve herhangi bir hareket olmadığında kendini duraklatır.</div>
       <div class="rule-row">
-        <span data-icon="clock"></span><label for="watchIdleMin">Auto-pause after</label>
-        <input type="number" id="watchIdleMin" min="1" max="120" value="10" aria-label="Live mode idle auto-pause in minutes">
-        <span class="muted">minutes without disk activity</span>
+        <span data-icon="clock"></span><label for="watchIdleMin">Şu süre işlem olmazsa duraklat:</label>
+        <input type="number" id="watchIdleMin" min="1" max="120" value="10" aria-label="Dakika cinsinden canlı mod boşta otomatik duraklatma süresi">
+        <span class="muted">dakika</span>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="clock"></span>Undo Vault</div>
-      <div class="muted" style="margin-bottom:10px;">Everything <b>Autopilot</b> or the <b>Clean Up cart</b> moves to the Trash is copied here first and checked — so you can undo it even after emptying the Trash, until the copy expires or is dropped to make room (the two settings below). Files you move to the Trash any other way (right-click, the Grid, Duplicates, Clean Up) go to the Trash only and aren't copied.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="clock"></span>Geri Alma Kasası</div>
+      <div class="muted" style="margin-bottom:10px;"><b>Otopilot</b> veya <b>Temizleme sepeti</b> tarafından Çöp Kutusuna taşınan tüm öğeler önce buraya kopyalanır ve kontrol edilir — böylece Çöp Kutusunu boşalttıktan sonra bile, kopya süresi dolana veya yer açmak için silinene kadar geri alabilirsiniz (aşağıdaki iki ayar). Çöp Kutusuna başka yollarla (sağ tık, Izgara, Yinelenenler, Temizle) taşıdığınız dosyalar yalnızca Çöp Kutusuna gider ve kopyalanmaz.</div>
       <div class="rule-row">
-        <span data-icon="clock"></span><label for="capsuleRetentionDays">Keep copies for</label>
-        <input type="number" id="capsuleRetentionDays" min="1" max="365" value="30" aria-label="How many days to keep Undo Vault copies">
-        <span class="muted">days</span>
+        <span data-icon="clock"></span><label for="capsuleRetentionDays">Kopyaları saklama süresi:</label>
+        <input type="number" id="capsuleRetentionDays" min="1" max="365" value="30" aria-label="Geri Alma Kasası kopyalarının kaç gün saklanacağı">
+        <span class="muted">gün</span>
       </div>
       <div class="rule-row" style="margin-top:8px;">
-        <span data-icon="gauge"></span><label for="capsuleMaxPercent">Never use more than</label>
-        <input type="number" id="capsuleMaxPercent" min="1" max="90" value="10" aria-label="Undo Vault size cap as a percentage of the free space on this disk, counting what it already holds">
-        <span class="muted">% of the free space on this disk, counting what the Undo Vault holds — oldest copies go first, and anything too big to fit is left undeleted rather than deleted unprotected</span>
+        <span data-icon="gauge"></span><label for="capsuleMaxPercent">Kullanım sınırı:</label>
+        <input type="number" id="capsuleMaxPercent" min="1" max="90" value="10" aria-label="Mevcut tuttukları dahil bu diskteki boş alanın yüzdesi olarak Geri Alma Kasası boyut sınırı">
+        <span class="muted">% (bu diskteki boş alanın, kasanın tuttukları dahil) — en eski kopyalar önce silinir ve sığmayacak kadar büyük olanlar korumasız silinmek yerine silinmeden bırakılır</span>
       </div>
 
       <!-- v4 §3.2: "a score the user cannot inspect or adjust is an oracle, and
            this app does not ship oracles." These are the weights every reclaim
            score in the app is computed from. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Reclaim Score</div>
-      <div class="muted" style="margin-bottom:10px;">TreeMap ranks files by how safe and worthwhile they are to delete, out of 100. These sliders decide how much each signal counts. Set one to zero to leave it out of the score entirely — that is different from it scoring zero, and a signal TreeMap simply <b>could not read</b> is left out too rather than counted against the file.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Geri Kazanım Puanı</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap, dosyaları 100 üzerinden silinmelerinin ne kadar güvenli ve değerli olduğuna göre sıralar. Bu kaydırıcılar sinyallerin ne kadar etkili olacağını belirler. Birini puandan tamamen çıkarmak için sıfıra ayarlayın — bu, o sinyalin sıfır almasından farklıdır; TreeMap'in <b>okuyamadığı</b> bir sinyal de dosyaya eksi puan olarak yazılmak yerine hesaba katılmaz.</div>
       <div id="reclaimWeights"></div>
       <div class="rule-row" style="margin-top:8px;">
-        <button class="btn" id="reclaimResetBtn"><span data-icon="refresh"></span>Reset to defaults</button>
+        <button class="btn" id="reclaimResetBtn"><span data-icon="refresh"></span>Varsayılanlara sıfırla</button>
         <span class="muted" id="reclaimWeightsNote"></span>
       </div>
 
       <!-- v4 §4.1 — a target for the Clean Up cart. Optional, off by default,
            and deliberately just a meter: no streaks, no badges, no confetti. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="cart"></span>Clean Up target</div>
-      <div class="muted" style="margin-bottom:10px;">Set how much you are trying to free and the Clean Up cart shows a meter filling toward it. Leave it empty for no target — the meter then doesn't appear at all. It only measures what you have staged; nothing is ever deleted to reach it.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="cart"></span>Temizleme hedefi</div>
+      <div class="muted" style="margin-bottom:10px;">Ne kadar alan boşaltmaya çalıştığınızı belirleyin; Temizleme sepeti hedefe doğru dolan bir gösterge gösterir. Hedef istemiyorsanız boş bırakın — gösterge hiç görünmez. Yalnızca sepete eklediklerinizi ölçer; hedefe ulaşmak için hiçbir şey kendiliğinden silinmez.</div>
       <div class="rule-row">
-        <span data-icon="gauge"></span><label for="cleanupGoalValue">Free up</label>
-        <input type="number" id="cleanupGoalValue" class="size-in" min="0" step="any" placeholder="none" aria-label="Clean Up target amount — leave empty for none">
-        <select id="cleanupGoalUnit" aria-label="Clean Up target unit">
+        <span data-icon="gauge"></span><label for="cleanupGoalValue">Hedef:</label>
+        <input type="number" id="cleanupGoalValue" class="size-in" min="0" step="any" placeholder="yok" aria-label="Temizleme hedef miktarı — hedef yoksa boş bırakın">
+        <select id="cleanupGoalUnit" aria-label="Temizleme hedef birimi">
           <option value="1000000000">GB</option>
           <option value="1000000000000">TB</option>
           <option value="1000000">MB</option>
         </select>
-        <button class="btn" id="cleanupGoalClear"><span data-icon="x"></span>Clear target</button>
+        <button class="btn" id="cleanupGoalClear"><span data-icon="x"></span>Hedefi temizle</button>
       </div>
 
       <!-- v4 §9.3 — human-scale units. Computed from each folder's own file
            mix, never a constant, so the equivalence stays honest. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="image"></span>Human-scale sizes</div>
-      <div class="muted" style="margin-bottom:10px;">Next to sizes over about 1 GB, also say what that amounts to — "≈ 3,100 photos like the ones in this folder". The comparison always comes from the folder's <b>own</b> photos, videos or music (at least ten of a kind), never from a made-up average; folders with nothing comparable show nothing.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="image"></span>İnsan ölçeğinde boyutlar</div>
+      <div class="muted" style="margin-bottom:10px;">Yaklaşık 1 GB üzerindeki boyutların yanında neye karşılık geldiğini de belirtin — "≈ bu klasördekiler gibi 3.100 fotoğraf". Karşılaştırma daima uydurma bir ortalamadan değil, klasörün <b>kendi</b> fotoğraflarından, videolarından veya müziklerinden (aynı türden en az on tane) hesaplanır; karşılaştırılabilir hiçbir şeyi olmayan klasörlerde hiçbir şey gösterilmez.</div>
       <label class="rule-row" style="cursor:var(--cur-hand);">
         <input type="checkbox" id="humanScaleToggle" checked>
-        <span>Show human-scale equivalents in tooltips</span>
+        <span>Araç ipuçlarında insan ölçeğindeki karşılıkları göster</span>
       </label>
 
       <!-- v4 §9.6 — the plain-words box: the offline phrase table only. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="sparkles"></span>Ask in plain words</div>
-      <div class="muted" style="margin-bottom:10px;">The ✨ button beside the treemap's highlight box turns plain words into a search — "big videos I haven't opened in a year" becomes <b class="num">size&gt;1gb ext:mp4,… used&gt;1y</b>. The translation is <b>always shown for you to check and edit before it runs</b>, and the built-in phrase table works entirely offline — nothing here ever touches the network.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="sparkles"></span>Doğal dille sorun</div>
+      <div class="muted" style="margin-bottom:10px;">Ağaç haritasının vurgulama kutusunun yanındaki ✨ butonu, günlük konuşma dilindeki ifadeleri bir aramaya dönüştürür — "bir yıldır açmadığım büyük videolar", <b class="num">size&gt;1gb ext:mp4,… used&gt;1y</b> haline gelir. Çeviri, <b>çalıştırılmadan önce kontrol edip düzenlemeniz için daima gösterilir</b> ve yerleşik ifade tablosu tamamen çevrimdışı çalışır — buradaki hiçbir şey asla ağa bağlanmaz.</div>
 
       <!-- v4 §9.2 — the tour's way back, since Skip promises one. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="help"></span>Welcome tour</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="help"></span>Hoş geldiniz turu</div>
       <div class="rule-row">
-        <button class="btn" id="tourResetBtn"><span data-icon="refresh"></span>Show the welcome tour again</button>
-        <span class="muted" style="font-size:12px;">Up to three quick wins, staged only when you click, nothing deleted.</span>
+        <button class="btn" id="tourResetBtn"><span data-icon="refresh"></span>Hoş geldiniz turunu tekrar göster</button>
+        <span class="muted" style="font-size:12px;">En fazla üç hızlı kazanım, yalnızca tıkladığınızda sepete eklenir, hiçbir şey silinmez.</span>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="cloud"></span>Cloud accounts</div>
-      <div class="muted" style="margin-bottom:10px;">Scan your own Google Drive, Dropbox or OneDrive in the same treemap — <b>metadata only, no file contents are ever downloaded</b>, and sign-in tokens never leave this computer. Bring your own (free) API app: create one in the provider's developer console with redirect URI <code id="cloudRedirectUri">http://127.0.0.1:53682/oauth/callback</code>, then paste its client ID below.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="cloud"></span>Bulut hesapları</div>
+      <div class="muted" style="margin-bottom:10px;">Kendi Google Drive, Dropbox veya OneDrive hesabınızı aynı ağaç haritasında tarayın — <b>yalnızca meta veriler taranır, dosya içerikleri asla indirilmez</b> ve oturum açma belirteçleri asla bu bilgisayardan ayrılmaz. Kendi (ücretsiz) API uygulamanızı kullanın: sağlayıcının geliştirici konsolunda yönlendirme URI'si <code id="cloudRedirectUri">http://127.0.0.1:53682/oauth/callback</code> olan bir uygulama oluşturun ve ardından istemci kimliğini (Client ID) aşağıya yapıştırın.</div>
       <div id="cloudAccounts"></div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="ban"></span>Ignore list</div>
-      <div class="muted" style="margin-bottom:10px;">Folders, files or patterns to leave alone. <b>Don't scan</b> skips them entirely; <b>Don't suggest</b> keeps them out of Smart suggestions only. While any pattern is set to Don't scan or Both, every scan uses the built-in walker, which is slower than the native engine. Patterns: a full path, a name like <b>node_modules</b>, or globs like <b>*.iso</b> and <b>~/projects/&#42;&#42;/dist</b><!-- the stars as entities: the build's banner check counts comment openers and closers in each part -->.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="ban"></span>Yoksayma listesi</div>
+      <div class="muted" style="margin-bottom:10px;">Dokunulmayacak klasörler, dosyalar veya desenler. <b>Taramama</b> onları tamamen atlar; <b>Önerme</b> yalnızca Akıllı önerilerin dışında tutar. Herhangi bir desen Taramama veya İkisi Birlikte olarak ayarlandığında, tüm taramalar yerel motordan daha yavaş olan yerleşik geziciyi kullanır. Desenler: tam bir yol, <b>node_modules</b> gibi bir ad veya <b>*.iso</b> ve <b>~/projects/&#42;&#42;/dist</b> gibi glob ifadeleri<!-- the stars as entities: the build's banner check counts comment openers and closers in each part -->.</div>
       <div id="ignoreList"></div>
-      <button class="btn" id="ignoreAddBtn"><span data-icon="plus"></span>Add pattern</button>
+      <button class="btn" id="ignoreAddBtn"><span data-icon="plus"></span>Desen ekle</button>
 
       <!-- A2: the reconciliation diagnostic. Shows what TreeMap measured
            against what the disk itself reports, so the gap caused by files
@@ -227,19 +227,19 @@
            The second figure only where it was measured: on Windows, and for
            an index built from a scan, the panel says "Not measured" and
            shows no figure (review F1.3). -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>How TreeMap measures space</div>
-      <div class="muted" style="margin-bottom:10px;">TreeMap's map and totals count the size each file claims. Where this computer can measure it, this panel shows the space the files actually take up on disk next to that, for the folder you last scanned.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>TreeMap alanı nasıl ölçer</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap'in haritası ve toplamları tüm dosyaların beyan ettiği boyutu sayar. Bu bilgisayarın ölçebildiği durumlarda bu panel, son taradığınız klasör için dosyaların diskte gerçekte kapladığı alanı bunun yanında gösterir.</div>
       <!-- QA D09 (the owner's answer, "Match Finder"): every size is decimal. -->
-      <div class="muted" style="margin-bottom:10px;">Sizes are in decimal units, as Finder and drive makers count them: 1 KB is 1,000 bytes, 1 MB is 1,000,000 bytes and 1 GB is 1,000,000,000 bytes — the same units the search box reads in <code>size&gt;1gb</code>. Windows Explorer divides by 1,024 instead, so it shows the same files smaller — by about 7% at gigabyte sizes.</div>
-      <div id="allocationDiag" class="alloc-diag">Scan a folder to see this.</div>
+      <div class="muted" style="margin-bottom:10px;">Boyutlar, Finder ve disk üreticilerinin saydığı gibi ondalık birimlerdedir: 1 KB 1.000 bayt, 1 MB 1.000.000 bayt ve 1 GB 1.000.000.000 bayttır — arama kutusunun <code>size&gt;1gb</code> ifadesinde okuduğu birimlerle aynıdır. Windows Dosya Gezgini bunun yerine 1.024'e böler, bu nedenle aynı dosyaları daha küçük gösterir — gigabayt boyutlarında yaklaşık %7 daha az.</div>
+      <div id="allocationDiag" class="alloc-diag">Bunu görmek için bir klasör tarayın.</div>
 
       <!-- D2 · The right-click entry. Installed and removed from the same
            place, because an uninstall that leaves a dead menu item behind is
            the specific failure §D2 calls out. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="mouse"></span>Right-click menu</div>
-      <div class="muted" style="margin-bottom:10px;" id="shellIntegrationBlurb">Checking…</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="mouse"></span>Sağ tık menüsü</div>
+      <div class="muted" style="margin-bottom:10px;" id="shellIntegrationBlurb">Kontrol ediliyor…</div>
       <div class="rule-row">
-        <button class="btn" id="shellIntegrationBtn" disabled>Checking…</button>
+        <button class="btn" id="shellIntegrationBtn" disabled>Kontrol ediliyor…</button>
         <span class="muted" id="shellIntegrationStatus"></span>
       </div>
     </div>
@@ -248,7 +248,7 @@
            save the moment one is picked, and everything Save keeps. The note
            says which is which, beside the buttons it explains. -->
       <div class="settings-foot-text">
-        <span class="muted settings-save-note" id="settingsSaveNote">Theme, scanning budget, scan engine and drives are saved the moment you pick one, and Reclaim Score’s Reset to defaults the moment you press it. Save keeps your other edits on this sheet.</span>
+        <span class="muted settings-save-note" id="settingsSaveNote">Tema, tarama bütçesi, tarama motoru ve sürücüler seçtiğiniz anda kaydedilir; Geri Kazanım Puanı'nın Varsayılanlara Sıfırla seçeneği de tıklandığı anda uygulanır. Kaydet, bu sayfadaki diğer düzenlemelerinizi saklar.</span>
         <span class="muted" id="settingsStatus"></span>
         <!-- What #settingsStatus says, said aloud (review F1.17): it is plain text. -->
         <div id="settingsStatusSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -259,8 +259,8 @@
            The sheet opens here, its [autofocus] (review F1.4): its first
            fields are the Theme choices, which save the moment one is picked,
            and an arrow key on arrival moved the theme. -->
-      <button class="btn" data-close="settingsModal" autofocus>Close without saving</button>
-      <button class="btn btn-primary" id="settingsSaveBtn"><span data-icon="check"></span>Save</button>
+      <button class="btn" data-close="settingsModal" autofocus>Kaydetmeden kapat</button>
+      <button class="btn btn-primary" id="settingsSaveBtn"><span data-icon="check"></span>Kaydet</button>
     </div>
   </div>
 </div>

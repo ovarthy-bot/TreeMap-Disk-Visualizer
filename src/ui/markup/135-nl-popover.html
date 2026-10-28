@@ -17,24 +17,24 @@
      The treemap view's unmount() closes this, so leaving the view can never
      strand it over another screen. -->
 <div id="nlPop" class="glass" role="dialog" aria-modal="false" aria-labelledby="nlPopTitle" hidden>
-  <div class="set-h" id="nlPopTitle" style="margin:0 0 8px;">Ask in plain words</div>
+  <div class="set-h" id="nlPopTitle" style="margin:0 0 8px;">Doğal dille sorun</div>
   <!-- FX wiring: the "listening" chip sits beside the field while it
        is focused and awaiting typing; the well costs nothing empty. -->
   <div class="nl-ask-row">
-    <input type="text" id="nlInput" placeholder="big videos I haven't opened in a year" aria-label="Describe what to find, in plain words" autocomplete="off" spellcheck="false">
+    <input type="text" id="nlInput" placeholder="bir yıldır açmadığım büyük videolar" aria-label="Neyi bulmak istediğinizi doğal dille açıklayın" autocomplete="off" spellcheck="false">
     <span class="fx-orb-well" id="nlListenWell"></span>
   </div>
   <!-- FX wiring: shown only while the /api/nl-query round-trip is in
        flight — the "weaving" orb mounts into the well. Plain text: its words
        are said in #nlSaid. -->
-  <div class="nl-pending" id="nlPending" hidden><span class="fx-orb-well"></span><span class="fx-shimmer-text">Translating…</span></div>
+  <div class="nl-pending" id="nlPending" hidden><span class="fx-orb-well"></span><span class="fx-shimmer-text">Çevriliyor…</span></div>
   <div id="nlOut" hidden>
-    <div class="muted" style="font-size:11.5px;margin:9px 0 4px;">Translates to — check it, edit it, then run:</div>
-    <input type="text" id="nlResult" class="num" aria-label="The translated query — edit it before running" autocomplete="off" spellcheck="false" style="width:100%;">
+    <div class="muted" style="font-size:11.5px;margin:9px 0 4px;">Şuna çevrildi — kontrol edin, düzenleyin ve çalıştırın:</div>
+    <input type="text" id="nlResult" class="num" aria-label="Çevrilen sorgu — çalıştırmadan önce düzenleyin" autocomplete="off" spellcheck="false" style="width:100%;">
     <div id="nlDetail" class="muted" style="font-size:11px;margin-top:5px;"></div>
     <div style="display:flex;gap:8px;margin-top:10px;">
-      <button class="btn btn-primary" id="nlRun">Run this query</button>
-      <button class="btn" id="nlCancel">Cancel</button>
+      <button class="btn btn-primary" id="nlRun">Bu sorguyu çalıştır</button>
+      <button class="btn" id="nlCancel">İptal</button>
     </div>
   </div>
   <!-- Why a sentence could not be translated. Plain text: said in #nlSaid. -->
@@ -53,4 +53,4 @@
      it must not be inside .view, which is a container (and so a containing
      block for fixed children). aria-hidden: it says nothing a screen-reader
      user has not already been told by the drag itself. -->
-<div id="dropHint" aria-hidden="true"><span>Drop to scan this folder</span></div>
+<div id="dropHint" aria-hidden="true"><span>Bu klasörü taramak için bırakın</span></div>

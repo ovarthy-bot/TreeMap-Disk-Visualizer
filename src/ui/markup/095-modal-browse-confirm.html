@@ -7,26 +7,26 @@
   <div id="browseModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:560px;">
     <div class="modal-head">
-      <h3 id="browseTitle"><span data-icon="folder"></span>Choose a folder</h3>
-      <button class="close-x" data-close="browseModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="browseTitle"><span data-icon="folder"></span>Bir klasör seçin</h3>
+      <button class="close-x" data-close="browseModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <!-- G26: the whole drive, where the picker scans (browseOfferDrives) —
            named as the disk layout names it, never guessed. -->
-      <div class="chips browse-drives" id="browseDrives" role="group" aria-label="Whole drive" hidden></div>
+      <div class="chips browse-drives" id="browseDrives" role="group" aria-label="Tüm sürücü" hidden></div>
       <!-- QA D05: the path line is a field — the typing route, in every
            context the picker opens from (before the first scan the Scan
            card's path box is not on screen). -->
-      <input type="text" id="browseCurrent" style="width:100%;" aria-label="Folder shown — type a path and press Enter to open it" autocomplete="off" spellcheck="false">
-      <div class="muted" id="browseHint" style="font-size:12px;margin-top:6px;">Type a path and press Enter, or open a folder below.</div>
+      <input type="text" id="browseCurrent" style="width:100%;" aria-label="Gösterilen klasör — bir yol yazın ve açmak için Enter tuşuna basın" autocomplete="off" spellcheck="false">
+      <div class="muted" id="browseHint" style="font-size:12px;margin-top:6px;">Bir yol yazıp Enter tuşuna basın veya aşağıdaki bir klasörü açın.</div>
       <div class="chips" id="browseChips"></div>
       <div class="browse-list" id="browseList"></div>
     </div>
     <div class="modal-foot">
       <!-- G26: dot-folders wait to be asked for; this browser remembers. -->
-      <label class="browse-hidden-toggle"><input type="checkbox" id="browseShowHidden"> Show hidden folders<span id="browseHiddenCount"></span></label>
+      <label class="browse-hidden-toggle"><input type="checkbox" id="browseShowHidden"> Gizli klasörleri göster<span id="browseHiddenCount"></span></label>
       <div style="flex:1"></div>
-      <button class="btn btn-primary" id="browseUseBtn"><span data-icon="check"></span>Scan this folder</button>
+      <button class="btn btn-primary" id="browseUseBtn"><span data-icon="check"></span>Bu klasörü tara</button>
     </div>
   </div>
 </div>
@@ -40,15 +40,15 @@
   <div id="confirmModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:430px;">
     <div class="modal-head">
-      <h3 id="confirmTitle"><span data-icon="trash"></span>Move to Trash?</h3>
-      <button class="close-x" data-close="confirmModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="confirmTitle"><span data-icon="trash"></span>Çöp Kutusuna taşınsın mı?</h3>
+      <button class="close-x" data-close="confirmModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <div class="muted" id="confirmText" style="font-size:13.5px;line-height:1.55;"></div>
       <!-- B2: filled in when a program holds one of these files open. Lives
-           inside the one confirmation dialog every view shares, so no view can
-           delete without it. Plain text: what it says is said in
-           #confirmOpenHandlesSaid. -->
+            inside the one confirmation dialog every view shares, so no view can
+            delete without it. Plain text: what it says is said in
+            #confirmOpenHandlesSaid. -->
       <div id="confirmOpenHandles" hidden></div>
       <!-- The open-file panel, said aloud (BQS). The panel is hidden while it
            has nothing to say, so it comes on screen with its words already in
@@ -60,8 +60,8 @@
     </div>
     <div class="modal-foot">
       <div style="flex:1"></div>
-      <button class="btn" id="confirmCancel" data-close="confirmModal">Cancel</button>
-      <button class="btn btn-danger" id="confirmOk"><span data-icon="trash"></span>Move to Trash</button>
+      <button class="btn" id="confirmCancel" data-close="confirmModal">İptal</button>
+      <button class="btn btn-danger" id="confirmOk"><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
     </div>
   </div>
 </div>
@@ -79,8 +79,8 @@
   <div id="askModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:430px;">
     <div class="modal-head">
-      <h3 id="askTitle">Name this</h3>
-      <button class="close-x" data-close="askModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="askTitle">Adlandırın</h3>
+      <button class="close-x" data-close="askModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <label for="askInput" id="askLabel" class="muted" style="display:block;margin-bottom:7px;font-size:12.5px;"></label>
@@ -88,8 +88,8 @@
     </div>
     <div class="modal-foot">
       <div style="flex:1"></div>
-      <button class="btn" data-close="askModal">Cancel</button>
-      <button class="btn btn-primary" id="askOk">OK</button>
+      <button class="btn" data-close="askModal">İptal</button>
+      <button class="btn btn-primary" id="askOk">Tamam</button>
     </div>
   </div>
 </div>

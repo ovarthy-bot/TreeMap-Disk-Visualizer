@@ -7,8 +7,8 @@
   <div id="budgetModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:440px;">
     <div class="modal-head">
-      <h3 id="budgetTitle"><span data-icon="gauge"></span>Set folder budget</h3>
-      <button class="close-x" data-close="budgetModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="budgetTitle"><span data-icon="gauge"></span>Klasör bütçesi belirle</h3>
+      <button class="close-x" data-close="budgetModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <div class="budget-folder">
@@ -19,22 +19,22 @@
         </div>
       </div>
       <div class="muted" id="budgetCurrent" style="margin:11px 0 13px;font-size:12.5px;"></div>
-      <label for="budgetValue" class="muted" style="display:block;margin-bottom:7px;font-size:12.5px;">Warn me when this folder grows past</label>
+      <label for="budgetValue" class="muted" style="display:block;margin-bottom:7px;font-size:12.5px;">Bu klasör şu boyutu aştığında beni uyar:</label>
       <div class="budget-input">
-        <input type="number" id="budgetValue" min="0" step="any" placeholder="5" aria-label="Budget amount">
-        <select id="budgetUnit" aria-label="Budget unit">
+        <input type="number" id="budgetValue" min="0" step="any" placeholder="5" aria-label="Bütçe miktarı">
+        <select id="budgetUnit" aria-label="Bütçe birimi">
           <option value="1000000000" selected>GB</option>
           <option value="1000000">MB</option>
           <option value="1000">KB</option>
-          <option value="1">bytes</option>
+          <option value="1">bayt</option>
         </select>
       </div>
     </div>
     <div class="modal-foot">
-      <button class="btn btn-danger" id="budgetRemoveBtn" style="display:none;"><span data-icon="trash"></span>Remove</button>
+      <button class="btn btn-danger" id="budgetRemoveBtn" style="display:none;"><span data-icon="trash"></span>Kaldır</button>
       <div style="flex:1"></div>
-      <button class="btn" data-close="budgetModal">Cancel</button>
-      <button class="btn btn-primary" id="budgetSaveBtn"><span data-icon="check"></span>Save budget</button>
+      <button class="btn" data-close="budgetModal">İptal</button>
+      <button class="btn btn-primary" id="budgetSaveBtn"><span data-icon="check"></span>Bütçeyi kaydet</button>
     </div>
   </div>
 </div>
@@ -51,8 +51,8 @@
   <div id="noteModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:460px;">
     <div class="modal-head">
-      <h3 id="noteTitle"><span data-icon="doc"></span>Folder note</h3>
-      <button class="close-x" data-close="noteModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="noteTitle"><span data-icon="doc"></span>Klasör notu</h3>
+      <button class="close-x" data-close="noteModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <div class="budget-folder">
@@ -62,19 +62,19 @@
           <div class="pth" id="noteFolderPath"></div>
         </div>
       </div>
-      <label for="noteText" class="muted" style="display:block;margin:12px 0 7px;font-size:12.5px;">A note to your future self — why this folder matters</label>
-      <textarea id="noteText" maxlength="2000" rows="4" style="width:100%;resize:vertical;" placeholder="e.g. client archive, keep until 2027" aria-label="Note text"></textarea>
+      <label for="noteText" class="muted" style="display:block;margin:12px 0 7px;font-size:12.5px;">Gelecekteki kendinize bir not — bu klasör neden önemli</label>
+      <textarea id="noteText" maxlength="2000" rows="4" style="width:100%;resize:vertical;" placeholder="örn. müşteri arşivi, 2027'ye kadar sakla" aria-label="Not metni"></textarea>
       <label class="rule-row" style="margin-top:12px;cursor:var(--cur-hand);">
         <input type="checkbox" id="noteSuppress" checked>
-        <span>Pause Smart suggestions and Autopilot here</span>
+        <span>Burada Akıllı önerileri ve Otopilotu duraklat</span>
       </label>
-      <div class="muted" style="margin-top:6px;font-size:12px;">While this is on, nothing inside this folder is listed in Clean Up’s Smart suggestions, Empty folders or Shrink video, or matched by an Autopilot rule. Custom rules, Online-only files, Libraries and Duplicates still show what is inside it, and you can still delete things here by hand.</div>
+      <div class="muted" style="margin-top:6px;font-size:12px;">Bu seçenek açıkken, bu klasörün içindeki hiçbir şey Temizle'nin Akıllı önerilerinde, Boş klasörlerinde veya Video küçültmesinde listelenmez ve hiçbir Otopilot kuralıyla eşleşmez. Özel kurallar, Yalnızca çevrimiçi dosyalar, Kütüphaneler ve Yinelenenler yine de içeriği gösterir ve buradaki öğeleri elle silebilirsiniz.</div>
     </div>
     <div class="modal-foot">
-      <button class="btn btn-danger" id="noteRemoveBtn" style="display:none;"><span data-icon="trash"></span>Remove note</button>
+      <button class="btn btn-danger" id="noteRemoveBtn" style="display:none;"><span data-icon="trash"></span>Notu kaldır</button>
       <div style="flex:1"></div>
-      <button class="btn" data-close="noteModal">Cancel</button>
-      <button class="btn btn-primary" id="noteSaveBtn"><span data-icon="check"></span>Save note</button>
+      <button class="btn" data-close="noteModal">İptal</button>
+      <button class="btn btn-primary" id="noteSaveBtn"><span data-icon="check"></span>Notu kaydet</button>
     </div>
   </div>
 </div>

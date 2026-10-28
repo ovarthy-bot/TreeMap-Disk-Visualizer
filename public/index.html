@@ -4,11 +4,11 @@
      written as ~110 small files in src/ui/. Edit those and run
      `npm run build:ui`; `node scripts/build-ui.js --check` proves this file
      is exactly what they produce, and the suite runs that check. -->
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TreeMap — Disk Space Visualizer</title>
+<title>TreeMap — Disk Alanı Görselleştirici</title>
 <!-- Inline data: URI, per the single-file/no-external-resources contract.
      Without any icon link the browser requests /favicon.ico on every boot
      and the static server 404s it — the one red row in a clean network log.
@@ -3961,7 +3961,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
      because ten tabs, a search box and three actions were competing for one
      row. A column never has that fight: every item owns its own line, and
      collapsing to an icon rail returns the space when the user wants it. -->
-<aside id="sideNav" aria-label="Navigation">
+<aside id="sideNav" aria-label="Gezinme">
   <div class="side-top">
     <div class="logo">
       <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
@@ -3969,11 +3969,11 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
         <rect x="17" y="1" width="8" height="14" rx="3.5" fill="#FFD60A"/>
         <rect x="17" y="17" width="8" height="8" rx="3.5" fill="#FF453A"/>
       </svg>
-      <span class="side-label">TreeMap<span class="sub">Disk Space Visualizer</span></span>
+      <span class="side-label">TreeMap<span class="sub">Disk Alanı Görselleştirici</span></span>
     </div>
     <span id="headerSpin" aria-hidden="true"></span>
-    <button class="icon-btn" id="sideToggle" aria-label="Collapse the navigation" aria-expanded="true"
-            title="Collapse navigation"></button>
+    <button class="icon-btn" id="sideToggle" aria-label="Gezinmeyi daralt" aria-expanded="true"
+            title="Gezinmeyi daralt"></button>
   </div>
 
   <!-- A4: global search. Lives at the top of the sidebar, not in a view,
@@ -3987,43 +3987,43 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
          what this is, and the injector-replaces-the-element behaviour made a
          separately-positioned icon a recurring alignment bug. The rail form
          below keeps its icon — there, the icon IS the control. -->
-    <input type="text" id="gsearch" placeholder="Search all indexed files…"
-           aria-label="Search all indexed files" aria-expanded="false"
+    <input type="text" id="gsearch" placeholder="Tüm dizine eklenmiş dosyaları ara…"
+           aria-label="Tüm dizine eklenmiş dosyaları ara" aria-expanded="false"
            aria-controls="gsearchResults" role="combobox" aria-autocomplete="list"
            autocomplete="off" spellcheck="false">
     <!-- FX wiring: the "line" beam lives on this overlay strip, not on the
          wrap — the beam sets overflow:hidden on its host, and the wrap anchors
          the results panel, which must overflow. -->
     <span class="fx-beam-strip" id="gsearchBeamStrip" aria-hidden="true"></span>
-    <button class="gsearch-rail-btn" id="gsearchRailBtn" aria-label="Search all indexed files" title="Search (/)" tabindex="-1">
+    <button class="gsearch-rail-btn" id="gsearchRailBtn" aria-label="Tüm dizine eklenmiş dosyaları ara" title="Ara (/)" tabindex="-1">
       <span data-icon="search" data-size="15"></span>
     </button>
-    <div class="gsearch-panel" id="gsearchResults" role="listbox" aria-label="Search results" hidden></div>
+    <div class="gsearch-panel" id="gsearchResults" role="listbox" aria-label="Arama sonuçları" hidden></div>
   </div>
 
-  <nav class="tabbar" role="tablist" aria-label="Views" aria-orientation="vertical">
-    <button role="tab" aria-selected="true" data-view="dashboard" aria-label="Dashboard" title="Dashboard"><span data-icon="dashboard"></span><span class="side-label">Dashboard</span></button>
-    <button role="tab" aria-selected="false" data-view="treemap" aria-label="Treemap" title="Treemap"><span data-icon="treemap"></span><span class="side-label">Treemap</span></button>
-    <button role="tab" aria-selected="false" data-view="city" aria-label="Disk City" title="Disk City"><span data-icon="city"></span><span class="side-label">Disk City</span></button>
-    <button role="tab" aria-selected="false" data-view="grid" aria-label="Grid" title="Grid"><span data-icon="grid"></span><span class="side-label">Grid</span></button>
-    <button role="tab" aria-selected="false" data-view="apps" aria-label="Apps" title="Apps"><span data-icon="box"></span><span class="side-label">Apps</span></button>
-    <button role="tab" aria-selected="false" data-view="games" aria-label="Libraries" title="Libraries"><span data-icon="play"></span><span class="side-label">Libraries</span></button>
-    <button role="tab" aria-selected="false" data-view="security" aria-label="Security" title="Security"><span data-icon="shield"></span><span class="side-label">Security</span></button>
-    <button role="tab" aria-selected="false" data-view="fleet" aria-label="Fleet" title="Fleet"><span data-icon="globe"></span><span class="side-label">Fleet</span></button>
-    <button role="tab" aria-selected="false" data-view="missing" aria-label="Missing GB" title="Missing GB"><span data-icon="pie"></span><span class="side-label">Missing GB</span></button>
-    <button role="tab" aria-selected="false" data-view="duplicates" aria-label="Duplicates" title="Duplicates"><span data-icon="copy"></span><span class="side-label">Duplicates</span></button>
-    <button role="tab" aria-selected="false" data-view="trends" aria-label="Trends" title="Trends"><span data-icon="trendUp"></span><span class="side-label">Trends</span></button>
-    <button role="tab" aria-selected="false" data-view="history" aria-label="History" title="History"><span data-icon="calendar"></span><span class="side-label">History</span></button>
-    <button role="tab" aria-selected="false" data-view="offloaded" aria-label="Offloaded" title="Offloaded"><span data-icon="archive"></span><span class="side-label">Offloaded</span></button>
-    <button role="tab" aria-selected="false" data-view="capsule" aria-label="Undo Vault" title="Undo Vault"><span data-icon="clock"></span><span class="side-label">Undo Vault</span></button>
-    <button role="tab" aria-selected="false" data-view="autopilot" aria-label="Autopilot" title="Autopilot"><span data-icon="autopilot"></span><span class="side-label">Autopilot</span></button>
+  <nav class="tabbar" role="tablist" aria-label="Görünümler" aria-orientation="vertical">
+    <button role="tab" aria-selected="true" data-view="dashboard" aria-label="Kontrol Paneli" title="Dashboard"><span data-icon="dashboard"></span><span class="side-label">Kontrol Paneli</span></button>
+    <button role="tab" aria-selected="false" data-view="treemap" aria-label="Ağaç Haritası" title="Treemap"><span data-icon="treemap"></span><span class="side-label">Ağaç Haritası</span></button>
+    <button role="tab" aria-selected="false" data-view="city" aria-label="Disk Şehri" title="Disk City"><span data-icon="city"></span><span class="side-label">Disk Şehri</span></button>
+    <button role="tab" aria-selected="false" data-view="grid" aria-label="Izgara" title="Grid"><span data-icon="grid"></span><span class="side-label">Izgara</span></button>
+    <button role="tab" aria-selected="false" data-view="apps" aria-label="Uygulamalar" title="Apps"><span data-icon="box"></span><span class="side-label">Uygulamalar</span></button>
+    <button role="tab" aria-selected="false" data-view="games" aria-label="Kütüphaneler" title="Libraries"><span data-icon="play"></span><span class="side-label">Kütüphaneler</span></button>
+    <button role="tab" aria-selected="false" data-view="security" aria-label="Güvenlik" title="Security"><span data-icon="shield"></span><span class="side-label">Güvenlik</span></button>
+    <button role="tab" aria-selected="false" data-view="fleet" aria-label="Ağ Cihazları" title="Fleet"><span data-icon="globe"></span><span class="side-label">Ağ Cihazları</span></button>
+    <button role="tab" aria-selected="false" data-view="missing" aria-label="Kayıp GB" title="Missing GB"><span data-icon="pie"></span><span class="side-label">Kayıp GB</span></button>
+    <button role="tab" aria-selected="false" data-view="duplicates" aria-label="Yinelenenler" title="Duplicates"><span data-icon="copy"></span><span class="side-label">Yinelenenler</span></button>
+    <button role="tab" aria-selected="false" data-view="trends" aria-label="Eğilimler" title="Trends"><span data-icon="trendUp"></span><span class="side-label">Eğilimler</span></button>
+    <button role="tab" aria-selected="false" data-view="history" aria-label="Geçmiş" title="History"><span data-icon="calendar"></span><span class="side-label">Geçmiş</span></button>
+    <button role="tab" aria-selected="false" data-view="offloaded" aria-label="Tahliye Edilenler" title="Offloaded"><span data-icon="archive"></span><span class="side-label">Tahliye Edilenler</span></button>
+    <button role="tab" aria-selected="false" data-view="capsule" aria-label="Geri Alma Kasası" title="Undo Vault"><span data-icon="clock"></span><span class="side-label">Geri Alma Kasası</span></button>
+    <button role="tab" aria-selected="false" data-view="autopilot" aria-label="Otopilot" title="Autopilot"><span data-icon="autopilot"></span><span class="side-label">Otopilot</span></button>
   </nav>
 
   <div class="side-foot">
-    <button class="btn" id="cleanupBtn" title="Find and trash old or large files"><span data-icon="sparkles"></span><span class="side-label">Clean Up</span></button>
+    <button class="btn" id="cleanupBtn" title="Temizle — Eski veya büyük dosyaları bul ve çöpe at"><span data-icon="sparkles"></span><span class="side-label">Clean Up</span></button>
     <div class="side-foot-row">
-      <button class="icon-btn" id="settingsBtn" aria-label="Settings" title="Settings — schedules & ignore list"></button>
-      <button class="icon-btn" id="themeToggle" aria-label="Toggle light or dark theme" title="Toggle theme"></button>
+      <button class="icon-btn" id="settingsBtn" aria-label="Ayarlar" title="Ayarlar (Schedules & Ignore / Zamanlamalar & Yoksayma)"></button>
+      <button class="icon-btn" id="themeToggle" aria-label="Açık veya koyu temaya geç" title="Temayı değiştir"></button>
     </div>
   </div>
 </aside>
@@ -4072,13 +4072,13 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
         <rect x="17" y="1" width="8" height="14" rx="3.5" fill="#FFD60A"/>
         <rect x="17" y="17" width="8" height="8" rx="3.5" fill="#FF453A"/>
       </svg>
-      <p class="empty-kicker">Dashboard</p>
-      <h1>See what's eating your disk</h1>
-      <p>TreeMap draws a folder as rectangles: the bigger the rectangle, the more space it takes. Click through to whatever is filling the disk, then clear it out — everything goes to the Trash, never deleted outright.</p>
+      <p class="empty-kicker">Kontrol Paneli</p>
+      <h1>Diskinizi neyin doldurduğunu görün</h1>
+      <p>TreeMap klasörleri dikdörtgenler olarak çizer: dikdörtgen ne kadar büyükse, o kadar çok yer kaplar. Diski dolduran öğeleri inceleyin ve temizleyin — tüm öğeler doğrudan silinmek yerine Çöp Kutusuna taşınır.</p>
       <div class="feature-row">
-        <span class="feature"><span data-icon="zap"></span>Reads a whole drive in minutes</span>
-        <span class="feature"><span data-icon="shield"></span>Trash-only deletes</span>
-        <span class="feature"><span data-icon="eyeOff"></span>No tracking, fully local</span>
+        <span class="feature"><span data-icon="zap"></span>Tüm sürücüyü dakikalar içinde okur</span>
+        <span class="feature"><span data-icon="shield"></span>Yalnızca Çöp Kutusuna siler</span>
+        <span class="feature"><span data-icon="eyeOff"></span>Takip yok, tamamen yerel</span>
       </div>
     </div>
     <div class="empty-for-view" id="emptyForView" hidden>
@@ -4100,23 +4100,23 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
          here a frame later — but not the words of a Stop or a failure, which
          #stopAnnounce and the toast say already (review F1.14). -->
     <div id="startLastSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
-    <div class="start-choices" id="startChoices" role="group" aria-label="Scan one of these"></div>
+    <div class="start-choices" id="startChoices" role="group" aria-label="Bunlardan birini tara"></div>
     <button class="btn btn-primary" id="emptyBrowseBtn" style="font-size:14px;min-height:44px;padding:0 26px;">
-      <span data-icon="folder"></span>Choose a folder…
+      <span data-icon="folder"></span>Bir klasör seçin…
     </button>
   </section>
 
   <!-- ═══════════ Dashboard ═══════════ -->
-  <section class="view" id="view-dashboard" role="tabpanel" aria-label="Dashboard" hidden>
+  <section class="view" id="view-dashboard" role="tabpanel" aria-label="Kontrol Paneli" hidden>
     <!-- "What's new since last scan" — rendered only when this root has a prior snapshot -->
     <div class="card glass whatsnew" id="whatsNewCard" hidden>
-      <div class="wn-body" id="whatsNewBody" role="button" tabindex="0" title="Open Trends for the full history"></div>
-      <button class="close-x" id="whatsNewClose" aria-label="Dismiss until the next scan"><span data-icon="x" data-size="14"></span></button>
+      <div class="wn-body" id="whatsNewBody" role="button" tabindex="0" title="Tüm geçmiş için Eğilimler'i aç"></div>
+      <button class="close-x" id="whatsNewClose" aria-label="Sonraki taramaya kadar kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="dash-grid">
       <div class="dash-col">
         <div class="card glass">
-          <h2><span data-icon="hardDrive"></span>System</h2>
+          <h2><span data-icon="hardDrive"></span>Sistem</h2>
           <div class="sys-row">
             <div class="ring-wrap">
               <svg width="132" height="132" viewBox="0 0 132 132">
@@ -4128,50 +4128,50 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
                 <circle class="ring-bg" cx="66" cy="66" r="55"/>
                 <circle class="ring-fg" id="ringFg" cx="66" cy="66" r="55" stroke-dasharray="345.6" stroke-dashoffset="345.6"/>
               </svg>
-              <div class="ring-label"><b id="ringPct" class="num">–</b><span>used</span></div>
+              <div class="ring-label"><b id="ringPct" class="num">–</b><span>kullanılan</span></div>
             </div>
             <div class="sys-facts">
-              <div class="fact"><span>Host</span><b id="sysHost">–</b></div>
+              <div class="fact"><span>Ana Bilgisayar</span><b id="sysHost">–</b></div>
               <div class="fact"><span>Platform</span><b id="sysPlatform">–</b></div>
-              <div class="fact"><span>Total disk</span><b id="sysTotal" class="num">–</b></div>
-              <div class="fact"><span>Free</span><b id="sysFree" class="num">–</b></div>
-              <div class="fact"><span>Used</span><b id="sysUsed" class="num">–</b></div>
-              <div class="fact fact-trash" id="trashFact" hidden role="button" tabindex="0" title="View Trash contents"><span>Trash<small class="fact-sub" id="sysTrashSub" hidden></small></span><b id="sysTrash" class="num">–</b></div>
+              <div class="fact"><span>Toplam disk</span><b id="sysTotal" class="num">–</b></div>
+              <div class="fact"><span>Boş</span><b id="sysFree" class="num">–</b></div>
+              <div class="fact"><span>Kullanılan</span><b id="sysUsed" class="num">–</b></div>
+              <div class="fact fact-trash" id="trashFact" hidden role="button" tabindex="0" title="Çöp Kutusu içeriğini görüntüle"><span>Çöp Kutusu<small class="fact-sub" id="sysTrashSub" hidden></small></span><b id="sysTrash" class="num">–</b></div>
             </div>
           </div>
           <div class="growth-proj" id="growthProj" hidden></div>
           <div class="snap-row" id="snapRow" hidden>
             <span class="ic" data-icon="clock" data-size="16"></span>
             <div class="snap-meta"><b id="snapCount">–</b><span id="snapHint" class="muted"></span></div>
-            <button class="pill" id="snapPurgeBtn">Purge</button>
+            <button class="pill" id="snapPurgeBtn">Boşalt</button>
           </div>
           <div class="snap-row" id="hardlinkRow" hidden>
             <span class="ic" data-icon="copy" data-size="16"></span>
-            <div class="snap-meta"><b id="hardlinkText"></b><span class="muted">Each is another name for data already counted, so totals match what the OS reports.</span></div>
+            <div class="snap-meta"><b id="hardlinkText"></b><span class="muted">Tümü zaten sayılmış olan veriler için başka bir addır, dolayısıyla toplamlar işletim sisteminin bildirdikleriyle eşleşir.</span></div>
           </div>
           <div class="snap-row" id="sparseRow" hidden>
             <span class="ic" data-icon="disc" data-size="16"></span>
-            <div class="snap-meta"><b id="sparseText"></b><span class="muted">Room reserved but not filled — a virtual machine disk, or a file stored compressed.</span></div>
+            <div class="snap-meta"><b id="sparseText"></b><span class="muted">Ayrılmış ancak doldurulmamış alan — bir sanal makine diski veya sıkıştırılmış olarak saklanan bir dosya.</span></div>
           </div>
           <div class="snap-row" id="cloudRow" hidden>
             <span class="ic" data-icon="cloud" data-size="16"></span>
-            <div class="snap-meta"><b id="cloudText"></b><span class="muted">Not downloaded — they take almost no space here, and deleting one removes it from the cloud too.</span></div>
+            <div class="snap-meta"><b id="cloudText"></b><span class="muted">İndirilmedi — burada neredeyse hiç yer kaplamazlar ve birini silmek onu buluttan da kaldırır.</span></div>
           </div>
           <div class="snap-row" id="engineRow" hidden>
             <span class="ic" data-icon="zap" data-size="16"></span>
-            <div class="snap-meta"><b id="engineText"></b><span class="muted" id="engineHint"></span><details class="engine-why" id="engineMore" hidden><summary>Engine details</summary><span class="muted" id="engineMoreText"></span></details><details class="engine-why" id="engineWhy" hidden><summary>Why the faster engine could not run</summary><span class="muted" id="engineWhyText"></span></details></div>
+            <div class="snap-meta"><b id="engineText"></b><span class="muted" id="engineHint"></span><details class="engine-why" id="engineMore" hidden><summary>Motor ayrıntıları</summary><span class="muted" id="engineMoreText"></span></details><details class="engine-why" id="engineWhy" hidden><summary>Daha hızlı motorun neden çalışamadığı</summary><span class="muted" id="engineWhyText"></span></details></div>
           </div>
         </div>
 
         <div class="card glass">
-          <h2><span data-icon="play"></span>Scan a folder</h2>
+          <h2><span data-icon="play"></span>Klasör tara</h2>
           <div class="scan-row">
             <div class="field">
               <span data-icon="folder"></span>
-              <input type="text" id="pathInput" placeholder="/Users/you/Documents" aria-label="Folder to scan" autocomplete="off" spellcheck="false">
+              <input type="text" id="pathInput" placeholder="/Users/you/Documents" aria-label="Taranacak klasör" autocomplete="off" spellcheck="false">
             </div>
-            <button class="btn" id="browseBtn">Browse…</button>
-            <button class="btn btn-primary" id="scanBtn"><span data-icon="play"></span>Scan</button>
+            <button class="btn" id="browseBtn">Gözat…</button>
+            <button class="btn btn-primary" id="scanBtn"><span data-icon="play"></span>Tara</button>
           </div>
           <!-- QA D45: never ticked by the page, and not offered where the next
                scan runs on the native engine — an incremental rescan runs on
@@ -4180,7 +4180,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
                folder's time was settled before the last scan began
                (diskScanner's listingSettled, SETTLED_LISTING_MS). -->
           <label class="fast-rescan" id="fastRescanWrap" hidden>
-            <input type="checkbox" id="fastRescan"><span data-icon="zap" data-size="13"></span>Fast rescan — reuse the last scan for folders unchanged since 5 seconds before it began (built-in walker)
+            <input type="checkbox" id="fastRescan"><span data-icon="zap" data-size="13"></span>Hızlı yeniden tarama — başlamadan 5 saniye öncesinden beri değişmeyen klasörler için son taramayı yeniden kullan (dahili gezgin)
           </label>
           <!-- FX wiring: the well is where the "searching" orb lives while a
                scan runs. It must sit OUTSIDE #scanStatus — followScanProgress
@@ -4188,7 +4188,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
                strand a mounted orb's observers. -->
           <div class="scan-status-row">
             <span class="fx-orb-well" id="scanOrbWell"></span>
-            <div class="scan-status" id="scanStatus">No scan yet — pick a folder above.</div>
+            <div class="scan-status" id="scanStatus">Henüz tarama yapılmadı — yukarıdan bir klasör seçin.</div>
           </div>
           <!-- A1: the index indicator. Green "always current" when a live
                watcher is attached; amber when the index exists but missed
@@ -4208,7 +4208,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
           <div class="index-line" id="indexLine" hidden></div>
           <div id="indexAnnounce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
           <div class="scan-meta num" id="scanMeta"></div>
-          <div class="progress-track" id="progressTrack" role="progressbar" aria-label="Scan progress"><div class="progress-fill"></div></div>
+          <div class="progress-track" id="progressTrack" role="progressbar" aria-label="Tarama ilerlemesi"><div class="progress-fill"></div></div>
           <!-- The scan's voice, #scanAnnounce, is not here: it stands outside
                every view, beside #stopAnnounce (BQT item 28). -->
           <!-- Folders the OS would not open. Hidden unless there are some:
@@ -4229,9 +4229,9 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
             <!-- C06: "Show all" lists every refused folder by path, in a
                  sheet, when the row names fewer than it counts. -->
             <div class="access-actions">
-              <button class="btn" id="accessListBtn" hidden>Show all</button>
-              <button class="btn" id="accessMissingBtn" hidden>What’s missing?</button>
-              <button class="btn" id="accessOpenBtn" hidden>Open Privacy settings</button>
+              <button class="btn" id="accessListBtn" hidden>Tümünü göster</button>
+              <button class="btn" id="accessMissingBtn" hidden>Eksik olan ne?</button>
+              <button class="btn" id="accessOpenBtn" hidden>Gizlilik ayarlarını aç</button>
             </div>
           </div>
           <!-- The row, said aloud (BQS): it comes on screen with its words
@@ -4251,7 +4251,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
             <div class="access-body">
               <div class="access-text" id="mountsNoteText"></div>
             </div>
-            <button class="btn" id="mountsNoteSettingsBtn">Change in Settings</button>
+            <button class="btn" id="mountsNoteSettingsBtn">Ayarlardan değiştir</button>
           </div>
           <!-- The note, said aloud (BQS): it comes on screen with its words
                already in it, which a screen reader seldom announces.
@@ -4261,28 +4261,28 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
         </div>
 
         <div class="card glass">
-          <h2><span data-icon="activity"></span>Quick stats</h2>
+          <h2><span data-icon="activity"></span>Hızlı istatistikler</h2>
           <div class="quick-stats">
             <div class="stat-tile tile"><span class="chip" style="--tint:#0A84FF"><span data-icon="file"></span></span>
-              <div><div class="v num" id="statFiles">–</div><div class="k">Files</div></div></div>
+              <div><div class="v num" id="statFiles">–</div><div class="k">Dosyalar</div></div></div>
             <div class="stat-tile tile"><span class="chip" style="--tint:#30D158"><span data-icon="folder"></span></span>
-              <div><div class="v num" id="statDirs">–</div><div class="k">Folders</div></div></div>
+              <div><div class="v num" id="statDirs">–</div><div class="k">Klasörler</div></div></div>
             <div class="stat-tile tile"><span class="chip" style="--tint:#FF9F0A"><span data-icon="trendUp"></span></span>
               <!-- Name and size apart (design pass G14): only the name ellipsizes. -->
-              <div><div class="v small stat-largest"><span class="nm" id="statLargest">–</span><span class="sz" id="statLargestSize"></span></div><div class="k">Largest file</div></div></div>
+              <div><div class="v small stat-largest"><span class="nm" id="statLargest">–</span><span class="sz" id="statLargestSize"></span></div><div class="k">En büyük dosya</div></div></div>
             <div class="stat-tile tile"><span class="chip" style="--tint:#BF5AF2"><span data-icon="clock"></span></span>
-              <div><div class="v small num" id="statLastScan">–</div><div class="k">Last scan</div></div></div>
+              <div><div class="v small num" id="statLastScan">–</div><div class="k">Son tarama</div></div></div>
           </div>
         </div>
 
         <!-- A5: physical disks and the volumes on each, so "which physical
              drive is actually filling up" has a direct answer. -->
         <div class="card glass" id="topologyCard">
-          <h2><span data-icon="hardDrive"></span>Disk topology
+          <h2><span data-icon="hardDrive"></span>Disk topolojisi
             <button class="pill" id="topologyRefresh" style="margin-left:auto;"
-                    title="Re-read the disk layout — after plugging in a drive, for example">Refresh</button>
+                    title="Disk düzenini yeniden oku — örneğin bir sürücü taktıktan sonra">Yenile</button>
           </h2>
-          <div id="topologyBody"><div class="muted">Reading disk layout…</div></div>
+          <div id="topologyBody"><div class="muted">Disk düzeni okunuyor…<!-- Reading disk layout --></div></div>
           <!-- What this part is working on, said aloud: its loader puts the sentence of the working rows it writes here (sayWorking), beside the card's body, whose every write would take it away. -->
           <div id="topologyWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
@@ -4292,48 +4292,48 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
              a process, not a file — so each row offers a restart, behind the
              shared confirmation with an explicit unsaved-work warning. -->
         <div class="card glass" id="zombieCard">
-          <h2><span data-icon="activity"></span>Held-up space
+          <h2><span data-icon="activity"></span>Kullanımda tutulan alan
             <button class="pill" id="zombieRefresh" style="margin-left:auto;"
-                    title="Look again for space held by programs that won’t let go">Refresh</button>
+                    title="Kapanmayan programlar tarafından tutulan alanı yeniden kontrol et">Yenile</button>
           </h2>
-          <div id="zombieBody"><div class="muted">Checking for held-up space…</div></div>
+          <div id="zombieBody"><div class="muted">Kullanımda tutulan alan kontrol ediliyor…</div></div>
           <div id="zombieWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
       </div>
 
       <div class="dash-col">
         <div class="card glass">
-          <h2><span data-icon="pie"></span>File types by size</h2>
+          <h2><span data-icon="pie"></span>Boyuta göre dosya türleri</h2>
           <div class="donut-row">
             <!-- FX wiring: the wrap anchors the 64px "searching" hero to the
                  donut's own centre — the dashboard's empty-while-scanning
                  surface — wherever the flex row happens to wrap. -->
             <div class="donut-canvas-wrap">
-              <canvas id="donutCanvas" width="230" height="230" aria-label="File type breakdown donut chart" role="img"></canvas>
+              <canvas id="donutCanvas" width="230" height="230" aria-label="Dosya türü dağılımı halka grafiği" role="img"></canvas>
               <div class="fx-orb-well fx-canvas-orb" id="dashScanOrb"></div>
             </div>
-            <div class="donut-legend" id="donutLegend"><div class="muted">Run a scan to see the breakdown.</div></div>
+            <div class="donut-legend" id="donutLegend"><div class="muted">Dağılımı görmek için bir tarama yapın.</div></div>
           </div>
         </div>
         <div class="card glass">
-          <h2><span data-icon="trendUp"></span>Largest files
+          <h2><span data-icon="trendUp"></span>En büyük dosyalar
             <!-- v4 §3.3 — the same ten files, ordered by the question people
                  actually have. Sorting, not filtering: nothing leaves the list. -->
-            <div class="seg" id="bigFilesSort" role="tablist" aria-label="Sort largest files by" style="margin-left:auto;">
-              <button role="tab" type="button" data-sort="size" aria-selected="true" title="Biggest first">Size</button>
-              <button role="tab" type="button" data-sort="reclaim" aria-selected="false" title="Safest and most worthwhile to delete first">Reclaim</button>
+            <div class="seg" id="bigFilesSort" role="tablist" aria-label="En büyük dosyaları sıralama ölçütü" style="margin-left:auto;">
+              <button role="tab" type="button" data-sort="size" aria-selected="true" title="Önce en büyükler">Boyut</button>
+              <button role="tab" type="button" data-sort="reclaim" aria-selected="false" title="Önce silinmesi en güvenli ve faydalı olanlar">Geri Kazanım</button>
             </div>
           </h2>
-          <div id="bigFiles"><div class="muted">Run a scan to find your biggest files.</div></div>
+          <div id="bigFiles"><div class="muted">En büyük dosyalarınızı bulmak için bir tarama yapın.</div></div>
         </div>
         <div class="card glass">
           <!-- Each row's percentage is its size against the first row's (sixth browser pass H55). -->
-          <h2><span data-icon="folder"></span>Largest folders<span class="h2-aside">% of the largest</span></h2>
-          <div id="bigFolders"><div class="muted">Run a scan to find your biggest folders.</div></div>
+          <h2><span data-icon="folder"></span>En büyük klasörler<span class="h2-aside">en büyüğün %'si</span></h2>
+          <div id="bigFolders"><div class="muted">En büyük klasörlerinizi bulmak için bir tarama yapın.</div></div>
         </div>
         <div class="card glass" id="allStorageCard">
-          <h2><span data-icon="hardDrive"></span>All storage</h2>
-          <div id="allStorageList"><div class="muted">Local disk and any connected cloud accounts appear here.</div></div>
+          <h2><span data-icon="hardDrive"></span>Tüm depolama</h2>
+          <div id="allStorageList"><div class="muted">Yerel disk ve bağlı bulut hesapları burada görünür.</div></div>
         </div>
         <!-- QA D19: Drive Health and Cost to Keep sit here, under All Storage,
              so the two columns end near each other (measured at 1440×900
@@ -4343,8 +4343,8 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
              can see which limit arrives first — space or write endurance.
              It never renders a verdict of its own. -->
         <div class="card glass" id="driveHealthCard">
-          <h2><span data-icon="gauge"></span>Drive health</h2>
-          <div id="driveHealthBody"><div class="muted">Run a scan to check this drive.</div></div>
+          <h2><span data-icon="gauge"></span>Sürücü sağlığı</h2>
+          <div id="driveHealthBody"><div class="muted">Bu sürücüyü kontrol etmek için bir tarama yapın.</div></div>
           <div id="driveHealthWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
 
@@ -4353,18 +4353,18 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
              visible: a stale price shown as stale is honest, shown as current
              is not. -->
         <div class="card glass" id="costCard">
-          <h2><span data-icon="cloud"></span>Cost to keep
-            <select id="costCurrency" aria-label="Currency" style="margin-left:auto;">
+          <h2><span data-icon="cloud"></span>Depolama maliyeti
+            <select id="costCurrency" aria-label="Para Birimi" style="margin-left:auto;">
               <option value="USD">USD $</option><option value="EUR">EUR €</option>
               <option value="GBP">GBP £</option><option value="INR">INR ₹</option>
               <option value="AUD">AUD A$</option><option value="CAD">CAD C$</option>
             </select>
           </h2>
-          <div id="costBody"><div class="muted">Run a scan to see what this data would cost to keep online.</div></div>
+          <div id="costBody"><div class="muted">Bu verileri çevrimiçi tutmanın maliyetini görmek için bir tarama yapın.</div></div>
           <div id="costWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         </div>
         <div class="card glass" id="budgetCard" hidden>
-          <h2><span data-icon="gauge"></span>Folder budgets</h2>
+          <h2><span data-icon="gauge"></span>Klasör bütçeleri</h2>
           <div id="budgetList"></div>
         </div>
       </div>
@@ -4372,21 +4372,21 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   </section>
 
   <!-- ═══════════ Treemap ═══════════ -->
-  <section class="view" id="view-treemap" role="tabpanel" aria-label="Treemap" hidden>
+  <section class="view" id="view-treemap" role="tabpanel" aria-label="Ağaç Haritası" hidden>
     <div class="tm-toolbar">
       <div class="tb-row tb-row-nav">
       <div class="tb-group tb-nav">
-        <button class="btn" id="tmUpBtn" title="Zoom out one level (Escape)" aria-label="Zoom out one level"><span data-icon="arrowUp"></span></button>
+        <button class="btn" id="tmUpBtn" title="Bir seviye yukarı çık (Escape)" aria-label="Bir seviye yukarı çık"><span data-icon="arrowUp"></span></button>
         <div class="crumbs" id="tmCrumbs"></div>
       </div>
       <div class="tb-group tb-view">
         <!-- v4 §6.2 — four lenses on one tree. Not four views: same root, same
              breadcrumbs, same depth, same colour mode, same highlight box. -->
-        <div class="seg" id="tmViewSeg" role="tablist" aria-label="Map layout">
-          <button role="tab" type="button" data-vm="treemap" aria-selected="true" title="Squarified treemap">Treemap</button>
-          <button role="tab" type="button" data-vm="sunburst" aria-selected="false" title="Radial sunburst">Sunburst</button>
-          <button role="tab" type="button" data-vm="circles" aria-selected="false" title="Nested circle packing — every folder is a circle holding its children">Circles</button>
-          <button role="tab" type="button" data-vm="voronoi" aria-selected="false" title="Voronoi treemap — cells whose areas are proportional to bytes">Voronoi</button>
+        <div class="seg" id="tmViewSeg" role="tablist" aria-label="Harita düzeni">
+          <button role="tab" type="button" data-vm="treemap" aria-selected="true" title="Kareleştirilmiş ağaç haritası">Ağaç Haritası</button>
+          <button role="tab" type="button" data-vm="sunburst" aria-selected="false" title="Dairesel güneş patlaması">Güneş Patlaması</button>
+          <button role="tab" type="button" data-vm="circles" aria-selected="false" title="İç içe çember paketleme — klasörlerin tümü alt öğelerini içeren bir çemberdir">Çemberler</button>
+          <button role="tab" type="button" data-vm="voronoi" aria-selected="false" title="Voronoi ağaç haritası — alanları baytlarla orantılı hücreler">Voronoi</button>
         </div>
       </div>
       <div class="tb-group tb-find">
@@ -4395,13 +4395,13 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
           <!-- The short placeholder fits the field at its floor; the page
                swaps in the longest of TM_SEARCH_PLACEHOLDERS that fits once
                the field is laid out (QA fourth pass E14c). -->
-          <input type="text" id="tmSearch" placeholder="Highlight…" aria-label="Highlight matching files in the treemap" aria-describedby="tmQueryErr"
+          <input type="text" id="tmSearch" placeholder="Vurgula…" aria-label="Ağaç haritasında eşleşen dosyaları vurgula" aria-describedby="tmQueryErr"
                  role="combobox" aria-expanded="false" aria-controls="tmQueryHints" aria-autocomplete="list"
                  autocomplete="off" spellcheck="false">
           <!-- FX wiring: same overlay-strip trick as #gsearch — the field
                anchors the hints panel, so the beam cannot own the field. -->
           <span class="fx-beam-strip" id="tmSearchBeamStrip" aria-hidden="true"></span>
-          <div class="gsearch-panel tm-hints" id="tmQueryHints" role="listbox" aria-label="Query fields" hidden></div>
+          <div class="gsearch-panel tm-hints" id="tmQueryHints" role="listbox" aria-label="Sorgu alanları" hidden></div>
         </div>
         <!-- v4 §9.6 — plain words in, a checkable query out. The popover always
              shows the translation in an editable field BEFORE anything runs.
@@ -4410,32 +4410,32 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
              markup/135-nl-popover.html) where the viewport is still its
              containing block. This toolbar has `container-type`, and layout
              containment would have made the toolbar that containing block. -->
-        <button class="icon-btn" id="tmNlBtn" title="Ask in plain words" aria-label="Ask in plain words — translated into a query you approve first" aria-haspopup="dialog" aria-expanded="false"><span data-icon="sparkles" data-size="15"></span></button>
+        <button class="icon-btn" id="tmNlBtn" title="Doğal dille sorun" aria-label="Doğal dille sorun — önce onaylayacağınız bir sorguya dönüştürülür" aria-haspopup="dialog" aria-expanded="false"><span data-icon="sparkles" data-size="15"></span></button>
       </div>
       </div>
       <div class="tb-row tb-row-controls">
       <div class="tb-group tb-appearance">
-        <div class="seg" id="tmColorSeg" role="tablist" aria-label="Treemap color mode">
-          <button role="tab" type="button" data-mode="size" aria-selected="true" title="Color cells by file size">Size</button>
-          <button role="tab" type="button" data-mode="age" aria-selected="false" title="Color cells by how recently modified">Age</button>
-          <button role="tab" type="button" data-mode="reclaim" aria-selected="false" title="Color cells by how safe and worthwhile they are to reclaim">Reclaim</button>
+        <div class="seg" id="tmColorSeg" role="tablist" aria-label="Ağaç haritası renk modu">
+          <button role="tab" type="button" data-mode="size" aria-selected="true" title="Hücreleri dosya boyutuna göre renklendir">Boyut</button>
+          <button role="tab" type="button" data-mode="age" aria-selected="false" title="Hücreleri son değiştirilme tarihine göre renklendir">Yaş</button>
+          <button role="tab" type="button" data-mode="reclaim" aria-selected="false" title="Hücreleri geri kazanım güvenliği ve değerine göre renklendir">Geri Kazanım</button>
         </div>
-        <label for="tmDepth">Depth</label>
-        <select id="tmDepth" aria-label="Treemap depth">
+        <label for="tmDepth">Derinlik</label>
+        <select id="tmDepth" aria-label="Ağaç haritası derinliği">
           <option value="2">2</option><option value="3">3</option>
           <option value="4" selected>4</option><option value="5">5</option><option value="6">6</option>
         </select>
       </div>
       <div class="tb-spring" aria-hidden="true"></div>
       <div class="tb-group tb-modes">
-        <button class="pill" id="tmLiveToggle" aria-pressed="false" title="Watch this folder live — changes pulse on the map and a feed shows what's writing right now"><span class="dot"></span>Live</button>
-        <button class="pill" id="tmCloudToggle" hidden aria-pressed="false" title="Hide cloud placeholder files — show only bytes that are really on disk">Hide cloud</button>
+        <button class="pill" id="tmLiveToggle" aria-pressed="false" title="Bu klasörü canlı izleyin — değişiklikler haritada yanıp söner ve bir akış şu an yazılanları gösterir"><span class="dot"></span>Canlı</button>
+        <button class="pill" id="tmCloudToggle" hidden aria-pressed="false" title="Bulut yer tutucu dosyalarını gizle — yalnızca gerçekten diskte olan baytları göster">Bulutu gizle</button>
         <!-- v4 §6.4 — the magnifier. Hold Z for the same thing without pinning it. -->
-        <button class="pill" id="tmLensToggle" aria-pressed="false" title="Magnifier — hold Z, or pin it here, to read the tiles that are only a couple of pixels wide">Lens</button>
+        <button class="pill" id="tmLensToggle" aria-pressed="false" title="Büyüteç — yalnızca birkaç piksel genişliğindeki kutucukları okumak için Z tuşuna basılı tutun veya buraya sabitleyin">Büyüteç</button>
       </div>
       <div class="tb-group tb-actions">
-        <button class="icon-btn" id="tmRefresh" aria-label="Re-render treemap" title="Re-render"></button>
-        <button class="btn" id="tmExportBtn" aria-haspopup="menu" aria-expanded="false" title="Download the treemap as an image"><span data-icon="download"></span>Export</button>
+        <button class="icon-btn" id="tmRefresh" aria-label="Ağaç haritasını yeniden çiz" title="Yeniden çiz"></button>
+        <button class="btn" id="tmExportBtn" aria-haspopup="menu" aria-expanded="false" title="Ağaç haritasını resim olarak indir"><span data-icon="download"></span>Dışa Aktar</button>
       </div>
       </div>
     </div>
@@ -4443,26 +4443,26 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
       <span data-icon="clock" data-size="14"></span>
       <!-- v4 §7.1 — transport. Bindings are static top-level like the
            slider's, so the named-listener rule for mount() does not apply. -->
-      <button class="icon-btn" id="tmLapsePlay" aria-label="Play time-lapse" title="Play through this folder's history — rectangles morph between snapshots">
+      <button class="icon-btn" id="tmLapsePlay" aria-label="Zaman atlamasını oynat" title="Bu klasörün geçmişini oynat — dikdörtgenler anlık görüntüler arasında dönüşür">
         <!-- ids live on wrappers: the injector replaces the [data-icon] span
              wholesale, so an id put there would not survive boot. -->
         <span id="tmLapseIconPlay"><span data-icon="play" data-size="14"></span></span>
         <span id="tmLapseIconPause" hidden><span data-icon="pause" data-size="14"></span></span>
       </button>
-      <input type="range" id="tmTimeSlider" min="0" max="0" step="1" value="0" aria-label="Scrub through this folder's scan history">
-      <span class="tm-timelabel num" id="tmTimeLabel">Live</span>
+      <input type="range" id="tmTimeSlider" min="0" max="0" step="1" value="0" aria-label="Bu klasörün tarama geçmişinde gezinin">
+      <span class="tm-timelabel num" id="tmTimeLabel">Canlı</span>
       <!-- One item of the bar, so a wrap moves the speed, Loop and Diff to
            the next row together: as items of their own, "Diff" alone wrapped
            at the desktop window's minimum width (QA fourth pass E14c). -->
       <div class="tm-lapse-opts">
-      <div class="seg seg-fit" id="tmLapseSpeed" role="tablist" aria-label="Time-lapse playback speed">
-        <button role="tab" type="button" data-speed="0.5" aria-selected="false" title="Half speed">½×</button>
-        <button role="tab" type="button" data-speed="1" aria-selected="true" title="Normal speed — about a second per snapshot">1×</button>
-        <button role="tab" type="button" data-speed="2" aria-selected="false" title="Double speed">2×</button>
-        <button role="tab" type="button" data-speed="4" aria-selected="false" title="Quadruple speed">4×</button>
+      <div class="seg seg-fit" id="tmLapseSpeed" role="tablist" aria-label="Zaman atlaması oynatma hızı">
+        <button role="tab" type="button" data-speed="0.5" aria-selected="false" title="Yarım hız">½×</button>
+        <button role="tab" type="button" data-speed="1" aria-selected="true" title="Normal hız — anlık görüntü başına yaklaşık bir saniye">1×</button>
+        <button role="tab" type="button" data-speed="2" aria-selected="false" title="İki kat hız">2×</button>
+        <button role="tab" type="button" data-speed="4" aria-selected="false" title="Dört kat hız">4×</button>
       </div>
-      <button class="pill" id="tmLapseLoop" aria-pressed="false" title="Start again from the oldest snapshot when playback reaches the end">Loop</button>
-      <button class="pill" id="tmDiffToggle" aria-pressed="false" title="Tint what grew green and what shrank red, compared with the previous snapshot">Diff</button>
+      <button class="pill" id="tmLapseLoop" aria-pressed="false" title="Oynatma sona ulaştığında en eski anlık görüntüden yeniden başlat">Döngü</button>
+      <button class="pill" id="tmDiffToggle" aria-pressed="false" title="Önceki anlık görüntüye kıyasla büyüyenleri yeşil, küçülenleri kırmızı renklendir">Fark</button>
       </div>
     </div>
     <div class="glass" id="treemapWrap">
@@ -4497,7 +4497,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
       <!-- What j/k selected, spoken. The tooltip is role="tooltip", which is
            not a live region, so the highlight moved in silence. -->
       <div id="tmKbAnnounce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
-      <div id="treemapZoom"><canvas id="treemapCanvas" tabindex="0" aria-label="Disk usage treemap. Use j and k, or the up and down arrows, to move between items; l or Enter opens the selected folder; h or Escape goes back up. The selection is announced as you move."></canvas></div>
+      <div id="treemapZoom"><canvas id="treemapCanvas" tabindex="0" aria-label="Disk kullanımı ağaç haritası. Öğeler arasında gezinmek için j ve k veya yukarı ve aşağı okları kullanın; l veya Enter seçili klasörü açar; h veya Escape geri yukarı çıkar. Gezindikçe seçim seslendirilir."></canvas></div>
       <!-- FX wiring: two orb wells over the canvas. The centred one holds the
            64px "searching" hero while a first scan runs against an empty map;
            the corner chip holds the 20px "shaping" orb while §2.5's refinement
@@ -4505,18 +4505,18 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            empty, so they cost nothing when idle. -->
       <div class="fx-orb-well fx-canvas-orb" id="tmScanOrb"></div>
       <div class="fx-orb-well fx-canvas-orb" id="tmShapeOrb"></div>
-      <div id="liveFeed" hidden aria-label="Live disk activity — top writers"></div>
+      <div id="liveFeed" hidden aria-label="Canlı disk etkinliği — en çok yazanlar"></div>
       <!-- The match bar (design pass G19): a layer over the foot of the map,
            not a row above it. As a row it appeared the moment a query had
            something to say and pushed the map down ~56 px under the eyes of
            whoever was typing; here it can never move the canvas. -->
       <div class="tm-querybar" id="tmQueryBar" hidden>
         <div class="tm-saved" id="tmSavedViews"></div>
-        <button class="pill" id="tmSaveView" title="Save this query as a view you can click again">Save view</button>
+        <button class="pill" id="tmSaveView" title="Bu sorguyu tekrar tıklayabileceğiniz bir görünüm olarak kaydedin">Görünümü kaydet</button>
         <!-- v4 §4.2 — query results are a list of reclaimable paths like any
              other, so they get a way into the cart. Staging only: nothing is
              deleted here, and the count is stated before anything moves. -->
-        <button class="pill" id="tmStageMatches" hidden title="Add every file this query matched to the Clean Up cart">Stage matches</button>
+        <button class="pill" id="tmStageMatches" hidden title="Bu sorgunun eşleştiği tüm dosyaları Temizleme sepetine ekle">Eşleşenleri hazırla</button>
         <!-- Plain text: its words are said in #tmQuerySaid (review F2.2). -->
         <div class="tm-queryerr" id="tmQueryErr" hidden></div>
       </div>
@@ -4531,10 +4531,10 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     <div class="tm-foot">
       <div id="tmLegend" class="tm-legend"></div>
       <span class="num" id="tmStatus"></span>
-      <span class="hint"><span data-icon="mouse"></span><span>click to drill in<span id="tmHintFlat"> · drag to lasso (<span data-key="alt">⌥</span> freehand, <span data-key="mod">⌘</span> to unstage) · hold Z to magnify</span> · Esc to go up</span></span>
+      <span class="hint"><span data-icon="mouse"></span><span>açmak için tıkla<span id="tmHintFlat"> · kementle seçmek için sürükle (<span data-key="alt">⌥</span> serbest, <span data-key="mod">⌘</span> çıkar) · Z ile büyüt</span> · Esc ile çık</span></span>
     </div>
     <!-- v4 §8.3 — the drive dock: drop the cart on a drive to offload -->
-    <div class="drive-dock" id="tmDock" hidden aria-label="Connected drives — drop your cart on one to offload"></div>
+    <div class="drive-dock" id="tmDock" hidden aria-label="Bağlı sürücüler — tahliye etmek için sepetinizi birinin üzerine bırakın"></div>
     <!-- v4 §6.2 — where an alternate renderer had to approximate, it says so
          here, in the same place every time. Never hidden in a console log.
          Plain text: what it says is said in #tmAltNoteSaid. -->
@@ -4550,7 +4550,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <!-- ═══════════ Disk City (v4 §6.1) ═══════════
        The Treemap's own tiling, seen from a corner. Same root, same nodes,
        three variables instead of one. -->
-  <section class="view" id="view-city" role="tabpanel" aria-label="Disk City" hidden>
+  <section class="view" id="view-city" role="tabpanel" aria-label="Disk Şehri" hidden>
     <!-- Same toolbar design system as the Treemap view — grouped, never a
          flat flex soup: the nav group grows with a floor, control groups
          stay whole when the row wraps. The old .tm-controls form died with
@@ -4559,7 +4559,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     <div class="tm-toolbar">
       <div class="tb-row tb-row-nav">
         <div class="tb-group tb-nav">
-          <button class="btn" id="cityUpBtn" title="Zoom out one level (Escape)" aria-label="Zoom out one level"><span data-icon="arrowUp"></span></button>
+          <button class="btn" id="cityUpBtn" title="Bir düzey yukarı çık (Escape)" aria-label="Bir düzey yukarı çık"><span data-icon="arrowUp"></span></button>
           <div class="crumbs" id="cityCrumbs"></div>
         </div>
       </div>
@@ -4568,23 +4568,23 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
           <!-- Each group says in words what it sets (G16): without them the
                two rows of buttons were "Staleness Files Depth" and
                "Reclaim Type Age" with nothing to say which was which. -->
-          <span class="tb-label" aria-hidden="true">Height</span>
-          <div class="seg" id="cityHeightSeg" role="tablist" aria-label="What building height means">
-            <button role="tab" type="button" data-h="staleness" aria-selected="true" title="Taller = longer since anything in it changed">Staleness</button>
-            <button role="tab" type="button" data-h="files" aria-selected="false" title="Taller = more files inside">Files</button>
-            <button role="tab" type="button" data-h="depth" aria-selected="false" title="Taller = more deeply nested">Depth</button>
+          <span class="tb-label" aria-hidden="true">Yükseklik</span>
+          <div class="seg" id="cityHeightSeg" role="tablist" aria-label="Bina yüksekliğinin anlamı">
+            <button role="tab" type="button" data-h="staleness" aria-selected="true" title="Daha yüksek = İçindekilerin değişmesinden bu yana daha uzun süre geçmiş">Eskilik</button>
+            <button role="tab" type="button" data-h="files" aria-selected="false" title="Daha yüksek = İçinde daha fazla dosya var">Dosyalar</button>
+            <button role="tab" type="button" data-h="depth" aria-selected="false" title="Daha yüksek = Daha derin iç içe geçmiş">Derinlik</button>
           </div>
-          <span class="tb-label" aria-hidden="true">Color</span>
-          <div class="seg" id="cityColorSeg" role="tablist" aria-label="What building color means">
-            <button role="tab" type="button" data-c="size" aria-selected="true" title="Color by size, on the Treemap's own scale">Size</button>
-            <button role="tab" type="button" data-c="reclaim" aria-selected="false" title="Color by how safe and worthwhile it is to reclaim">Reclaim</button>
-            <button role="tab" type="button" data-c="type" aria-selected="false" title="Color by file kind">Type</button>
-            <button role="tab" type="button" data-c="age" aria-selected="false" title="Color by how recently modified">Age</button>
+          <span class="tb-label" aria-hidden="true">Renk</span>
+          <div class="seg" id="cityColorSeg" role="tablist" aria-label="Bina renginin anlamı">
+            <button role="tab" type="button" data-c="size" aria-selected="true" title="Ağaç Haritası ölçeğinde boyuta göre renklendir">Boyut</button>
+            <button role="tab" type="button" data-c="reclaim" aria-selected="false" title="Geri kazanmanın ne kadar güvenli ve değerli olduğuna göre renklendir">Geri Kazanım</button>
+            <button role="tab" type="button" data-c="type" aria-selected="false" title="Dosya türüne göre renklendir">Tür</button>
+            <button role="tab" type="button" data-c="age" aria-selected="false" title="En son değiştirilme zamanına göre renklendir">Yaş</button>
           </div>
         </div>
         <div class="tb-spring" aria-hidden="true"></div>
         <div class="tb-group tb-actions">
-          <button class="pill" id="cityReset" title="Recenter and reset the zoom">Recenter</button>
+          <button class="pill" id="cityReset" title="Görünümü ortala ve yakınlaştırmayı sıfırla">Ortala</button>
         </div>
       </div>
     </div>
@@ -4592,7 +4592,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
       <!-- Described by its line (#cityLod): what it shows of the folder, read
            with the city, since the counts in it are not said as they change. -->
       <canvas id="cityCanvas" tabindex="0" aria-describedby="cityLod"
-              aria-label="Disk usage as an isometric city. Drag to pan, scroll to zoom, click a building to drill in, Escape to go up. A text equivalent of every building is listed below the map."></canvas>
+              aria-label="İzometrik şehir olarak disk kullanımı. Kaydırmak için sürükleyin, yakınlaştırmak için kaydırın, ayrıntıya inmek için bir binaya tıklayın, yukarı çıkmak için Escape tuşuna basın. Binaların tümünün metin karşılığı haritanın altında listelenmiştir."></canvas>
       <!-- The hover card: a tooltip the pointer moves, rebuilt as it crosses
            each building — no status to announce as it changes (BQS); the list
            of buildings under the map says the same. -->
@@ -4610,37 +4610,37 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     <div class="tm-foot">
       <div id="cityLegend" class="tm-legend"></div>
       <span class="num" id="cityStatus"></span>
-      <span class="hint"><span data-icon="mouse"></span><span>drag to pan · ⇧ or <span data-key="alt">⌥</span> drag to lasso · scroll to zoom · click to drill in · Esc to go up</span></span>
+      <span class="hint"><span data-icon="mouse"></span><span>kaydırmak için sürükle · kement için ⇧ veya <span data-key="alt">⌥</span> ile sürükle · yakınlaştırmak için tekeri çevir · ayrıntı için tıkla · yukarı çıkmak için Esc</span></span>
     </div>
-    <div class="drive-dock" id="cityDock" hidden aria-label="Connected drives — drop your cart on one to offload"></div>
+    <div class="drive-dock" id="cityDock" hidden aria-label="Bağlı sürücüler — tahliye etmek için sepetinizi birine bırakın"></div>
     <!-- §6 cross-cutting: every canvas view needs a text-equivalent path to the
          same information. This is that path, not a second navigation mechanism —
          it lists what the canvas drew and drills through the same function. -->
     <details class="city-table" id="cityTableWrap">
-      <summary>List the buildings (text equivalent of the map)</summary>
+      <summary>Binaları listele (haritanın metin karşılığı)</summary>
       <div id="cityTable"></div>
     </details>
   </section>
 
   <!-- ═══════════ Grid ═══════════ -->
-  <section class="view" id="view-grid" role="tabpanel" aria-label="Grid" hidden>
+  <section class="view" id="view-grid" role="tabpanel" aria-label="Izgara" hidden>
     <div class="grid-toolbar">
-      <button class="btn" id="gridUpBtn" title="Go up one folder (Escape)" aria-label="Go up one folder"><span data-icon="arrowUp"></span></button>
+      <button class="btn" id="gridUpBtn" title="Bir üst klasöre çık (Escape)" aria-label="Bir üst klasöre çık"><span data-icon="arrowUp"></span></button>
       <div class="crumbs" id="gridCrumbs"></div>
       <div class="spacer"></div>
       <div class="field">
         <span data-icon="search"></span>
-        <input type="text" id="gridSearch" placeholder="Filter files…  ( / )" aria-label="Filter files by name" autocomplete="off">
+        <input type="text" id="gridSearch" placeholder="Dosyaları filtrele…  ( / )" aria-label="Dosyaları ada göre filtrele" autocomplete="off">
       </div>
       <span class="label-pair">
-        <label for="gridSort">Sort</label>
-        <select id="gridSort" aria-label="Sort grid by">
-          <option value="size">Size</option>
-          <option value="name">Name</option>
-          <option value="date">Date modified</option>
-          <option value="accessed">Last accessed</option>
-          <option value="reclaim">Reclaim score</option>
-          <option value="type">Type</option>
+        <label for="gridSort">Sırala</label>
+        <select id="gridSort" aria-label="Izgarayı sırala">
+          <option value="size">Boyut</option>
+          <option value="name">Ad</option>
+          <option value="date">Değiştirilme tarihi</option>
+          <option value="accessed">Son erişim</option>
+          <option value="reclaim">Geri kazanım puanı</option>
+          <option value="type">Tür</option>
         </select>
       </span>
     </div>
@@ -4648,35 +4648,35 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   </section>
 
   <!-- ═══════════ Apps ═══════════ -->
-  <section class="view" id="view-apps" role="tabpanel" aria-label="Apps" hidden>
+  <section class="view" id="view-apps" role="tabpanel" aria-label="Uygulamalar" hidden>
     <div class="card glass">
-      <h2><span data-icon="box"></span>Storage by application</h2>
+      <h2><span data-icon="box"></span>Uygulamaya göre depolama</h2>
       <div class="apps-info muted" id="appsInfo"></div>
       <div class="apps-scatter" id="appsScatter" hidden>
-        <div class="as-h">Size against number of files</div>
+        <div class="as-h">Dosya sayısına karşılık boyut</div>
         <!-- What a dot is, and the axes titled (design pass G24): the dots
              were unlabelled and the log axis read "4.5 GB / 1.0 MB / 1.0 KB /
              0 B" with no word for what it measured. The hover is the chart
              kit's own tooltip: the app's name, its files, its size. -->
-        <div class="as-note muted">Each dot is one application — point at one, or tab to the chart and use the arrow keys, to see its name, file count and size.</div>
+        <div class="as-note muted">Noktaların tümü bir uygulamadır — adını, dosya sayısını ve boyutunu görmek için üzerine gelin veya sekmeyle grafiğe geçip ok tuşlarını kullanın.</div>
         <!-- The canvas keeps its own wrapper: the chart kit anchors tooltips to the canvas parent.
              A widget with keys of its own (sixth browser pass H54): the chart kit makes it a tab
              stop, walks the dots with the arrow keys and says each one aloud. -->
         <div class="as-plot">
-          <span class="as-y">Size</span>
-          <div class="as-wrap"><canvas id="appsScatterChart" height="200" aria-label="Application size against how many files each keeps — use the arrow keys to move between the applications" role="application" aria-roledescription="scatter chart"></canvas></div>
+          <span class="as-y">Boyut</span>
+          <div class="as-wrap"><canvas id="appsScatterChart" height="200" aria-label="Uygulamaların dosya sayısına karşılık boyutu — uygulamalar arasında gezinmek için ok tuşlarını kullanın" role="application" aria-roledescription="scatter chart"></canvas></div>
         </div>
-        <div class="as-x">Number of files</div>
+        <div class="as-x">Dosya sayısı</div>
       </div>
-      <div id="appsBody"><div class="muted">Run a scan to see how much disk each application owns.</div></div>
+      <div id="appsBody"><div class="muted">Uygulamaların ne kadar disk alanı kapladığını görmek için bir tarama yapın.</div></div>
       <div id="appsWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
   </section>
 
   <!-- ═══════════ Fleet (D1) ═══════════ -->
-  <section class="view" id="view-fleet" role="tabpanel" aria-label="Fleet" hidden>
+  <section class="view" id="view-fleet" role="tabpanel" aria-label="Ağ Cihazları" hidden>
     <div class="card glass">
-      <h2><span data-icon="globe"></span>Other machines</h2>
+      <h2><span data-icon="globe"></span>Diğer makineler</h2>
       <!-- loadFleet writes its working rows here as the view opens, and says
            their sentence in fleetWorking: shipped in the markup, the sentence
            stood only in their label, and a screen reader announces a live
@@ -4690,11 +4690,11 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
        One accounting statement for the volume the scan lives on. The receipt
        either balances or names the gap; it never quietly folds the residual
        into another line to look tidy. -->
-  <section class="view" id="view-missing" role="tabpanel" aria-label="Missing Gigabytes" hidden>
+  <section class="view" id="view-missing" role="tabpanel" aria-label="Kayıp Gigabaytlar" hidden>
     <div class="card glass">
-      <h2><span data-icon="pie"></span>Where the space actually went</h2>
+      <h2><span data-icon="pie"></span>Alanın gerçekte nereye gittiği</h2>
       <div class="apps-info muted" id="missingInfo"></div>
-      <div id="missingBody"><div class="muted">Run a scan to reconcile this disk.</div></div>
+      <div id="missingBody"><div class="muted">Bu diski mutabakatlaştırmak için bir tarama yapın.</div></div>
       <!-- What this part is working on, said aloud: its loader puts the sentence of the working rows it writes here (sayWorking), beside the card's body, whose every write would take it away. -->
       <div id="missingWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
       <!-- What the card says, said aloud: what the statement comes to, in a sentence, or what it waits for, that it is being updated, or why there is none (sayAloud). The card itself is plain: written while a sheet was open over the view its words went unheard, and the view came back with them already in it; heard, they were the whole receipt (review F1.3). -->
@@ -4703,55 +4703,55 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   </section>
 
   <!-- ═══════════ Security (C5) ═══════════ -->
-  <section class="view" id="view-security" role="tabpanel" aria-label="Security" hidden>
+  <section class="view" id="view-security" role="tabpanel" aria-label="Güvenlik" hidden>
     <div class="card glass">
-      <h2><span data-icon="shield"></span>Secrets in the wrong place</h2>
+      <h2><span data-icon="shield"></span>Yanlış yerdeki gizli bilgiler</h2>
       <div class="apps-info muted" id="securityInfo"></div>
-      <div id="securityBody"><div class="muted">Run a scan to check where your keys and credentials are sitting.</div></div>
+      <div id="securityBody"><div class="muted">Anahtarlarınızın ve kimlik bilgilerinizin nerede bulunduğunu kontrol etmek için bir tarama yapın.</div></div>
       <div id="securityWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
   </section>
 
   <!-- ═══════════ Games (C7) ═══════════ -->
-  <section class="view" id="view-games" role="tabpanel" aria-label="Libraries — games and media" hidden>
+  <section class="view" id="view-games" role="tabpanel" aria-label="Kütüphaneler — oyunlar ve medya" hidden>
     <div class="card glass">
-      <h2><span data-icon="play"></span>Game libraries</h2>
+      <h2><span data-icon="play"></span>Oyun kütüphaneleri</h2>
       <div class="apps-info muted" id="gamesInfo"></div>
-      <div id="gamesBody"><div class="muted">Run a scan to see what your game libraries hold.</div></div>
+      <div id="gamesBody"><div class="muted">Oyun kütüphanelerinizin neler içerdiğini görmek için bir tarama yapın.</div></div>
       <div id="gamesWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
     <!-- v4 §8.1 — media libraries: the same pattern, opaque bundles broken
          into originals / derivatives / database, only derivatives removable -->
     <div class="card glass">
-      <h2><span data-icon="image"></span>Media libraries</h2>
+      <h2><span data-icon="image"></span>Medya kütüphaneleri</h2>
       <div class="apps-info muted" id="mediaInfo"></div>
-      <div id="mediaBody"><div class="muted">Run a scan to see what your photo and video libraries hold — Photos, Final Cut, iMovie, Lightroom, Capture One.</div></div>
+      <div id="mediaBody"><div class="muted">Fotoğraf ve video kütüphanelerinizin neler içerdiğini görmek için bir tarama yapın — Photos, Final Cut, iMovie, Lightroom, Capture One.</div></div>
       <div id="mediaWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
   </section>
 
   <!-- ═══════════ Duplicates ═══════════ -->
-  <section class="view" id="view-duplicates" role="tabpanel" aria-label="Duplicates" hidden>
-    <div class="seg seg-fit" id="dupModeSeg" role="tablist" aria-label="Duplicate detection mode" style="margin-bottom:13px;">
-      <button role="tab" aria-selected="true" data-dupmode="exact"><span data-icon="copy"></span>Exact</button>
-      <button role="tab" aria-selected="false" data-dupmode="near"><span data-icon="image"></span>Near-duplicate images</button>
+  <section class="view" id="view-duplicates" role="tabpanel" aria-label="Yinelenenler" hidden>
+    <div class="seg seg-fit" id="dupModeSeg" role="tablist" aria-label="Yinelenen dosya tespit modu" style="margin-bottom:13px;">
+      <button role="tab" aria-selected="true" data-dupmode="exact"><span data-icon="copy"></span>Birebir Aynı</button>
+      <button role="tab" aria-selected="false" data-dupmode="near"><span data-icon="image"></span>Benzer görseller</button>
     </div>
     <div id="dupPaneExact" class="pane-fade">
       <div class="dup-toolbar">
-        <span class="dup-summary" id="dupSummary">Scanning for duplicates…</span>
+        <span class="dup-summary" id="dupSummary">Yinelenenler taranıyor…</span>
         <div class="spacer"></div>
         <span class="label-pair">
-          <label for="dupMinSize">Ignore files under</label>
-          <select id="dupMinSize" aria-label="Minimum file size for duplicate detection">
+          <label for="dupMinSize">Şundan küçükleri yoksay</label>
+          <select id="dupMinSize" aria-label="Yinelenen tespiti için en küçük dosya boyutu">
             <option value="1000">1 KB</option>
             <option value="100000" selected>100 KB</option>
             <option value="1000000">1 MB</option>
             <option value="10000000">10 MB</option>
           </select>
         </span>
-        <button class="btn" id="dupAutoBtn" title="In every group, select all copies except the newest one"><span data-icon="sparkles"></span>Auto-select (keep newest)</button>
-        <button class="btn" id="dupOffloadBtn" disabled title="Copy the selected duplicates to another drive, verify, then trash them locally"><span data-icon="archive"></span>Offload…</button>
-        <button class="btn btn-danger" id="dupTrashBtn" disabled><span data-icon="trash"></span>Move to Trash</button>
+        <button class="btn" id="dupAutoBtn" title="Gruplardaki en yeni kopya dışındaki tüm kopyaları seç"><span data-icon="sparkles"></span>Otomatik seç (en yeniyi koru)</button>
+        <button class="btn" id="dupOffloadBtn" disabled title="Seçilen kopyaları başka bir sürücüye kopyala, doğrula ve ardından yerel kopyaları çöpe at"><span data-icon="archive"></span>Tahliye et…</button>
+        <button class="btn btn-danger" id="dupTrashBtn" disabled><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
       </div>
       <!-- What the figure above does not promise, and what the last trash
            measurably did. Its own element on purpose: #dupSummary and #dupBody
@@ -4764,54 +4764,54 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     </div>
     <div id="dupPaneNear" class="pane-fade" hidden>
       <div class="dup-toolbar">
-        <span class="dup-summary" id="ndSummary">Looking for similar images…</span>
+        <span class="dup-summary" id="ndSummary">Benzer görseller aranıyor…</span>
         <div class="spacer"></div>
         <span class="label-pair">
-          <label for="ndThreshold">Match</label>
-          <select id="ndThreshold" aria-label="How similar images must be to be grouped">
-            <option value="6">Very similar</option>
-            <option value="10" selected>Similar</option>
-            <option value="14">Loosely similar</option>
+          <label for="ndThreshold">Eşleşme</label>
+          <select id="ndThreshold" aria-label="Görsellerin gruplanması için gereken benzerlik derecesi">
+            <option value="6">Çok benzer</option>
+            <option value="10" selected>Benzer</option>
+            <option value="14">Kısmen benzer</option>
           </select>
         </span>
-        <button class="btn" id="ndAutoBtn" title="In every group, select all copies except the newest one"><span data-icon="sparkles"></span>Auto-select (keep newest)</button>
-        <button class="btn btn-danger" id="ndTrashBtn" disabled><span data-icon="trash"></span>Move to Trash</button>
+        <button class="btn" id="ndAutoBtn" title="Gruplardaki en yeni kopya dışındaki tüm kopyaları seç"><span data-icon="sparkles"></span>Otomatik seç (en yeniyi koru)</button>
+        <button class="btn btn-danger" id="ndTrashBtn" disabled><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
       </div>
       <div id="ndBody"></div>
     </div>
   </section>
 
   <!-- ═══════════ Trends ═══════════ -->
-  <section class="view" id="view-trends" role="tabpanel" aria-label="Trends" hidden>
+  <section class="view" id="view-trends" role="tabpanel" aria-label="Eğilimler" hidden>
     <!-- No history at all (design pass G02): what Trends will show, and the
          action that starts it — not a 230 px empty chart over "No data yet.". -->
     <div class="card glass trend-empty" id="trendEmpty" hidden>
-      <h2><span data-icon="trendUp"></span>No history yet</h2>
-      <p class="muted">Trends draws how a folder’s size changes from one scan to the next. Scan a folder to start its history.</p>
-      <button class="btn btn-primary" id="trendEmptyBrowse"><span data-icon="folder"></span>Choose a folder</button>
+      <h2><span data-icon="trendUp"></span>Henüz geçmiş yok</h2>
+      <p class="muted">Eğilimler, bir klasörün boyutunun bir taramadan diğerine nasıl değiştiğini gösterir. Geçmişini başlatmak için bir klasör tarayın.</p>
+      <button class="btn btn-primary" id="trendEmptyBrowse"><span data-icon="folder"></span>Bir klasör seçin</button>
     </div>
     <div class="trends-toolbar" id="trendToolbar">
       <span class="label-pair">
-        <label for="trendRoot">Folder</label>
-        <select id="trendRoot" aria-label="Folder to show history for"></select>
+        <label for="trendRoot">Klasör</label>
+        <select id="trendRoot" aria-label="Geçmişi gösterilecek klasör"></select>
       </span>
       <span class="muted" id="trendInfo"></span>
     </div>
     <div class="trends-grid" id="trendGrid">
       <div class="card glass">
-        <h2><span data-icon="trendUp"></span>Total size over time</h2>
-        <div class="trend-chart-wrap"><canvas id="trendChart" height="300" aria-label="Folder size history chart" role="img"></canvas></div>
+        <h2><span data-icon="trendUp"></span>Zaman içindeki toplam boyut</h2>
+        <div class="trend-chart-wrap"><canvas id="trendChart" height="300" aria-label="Klasör boyutu geçmişi grafiği" role="img"></canvas></div>
       </div>
       <div class="card glass">
-        <h2><span data-icon="activity"></span>Since previous scan</h2>
+        <h2><span data-icon="activity"></span>Önceki taramadan bu yana</h2>
         <div id="trendNet" hidden>
-          <div class="tn-h">Net change per scan</div>
+          <div class="tn-h">Tarama başına net değişim</div>
           <!-- The canvas keeps a wrapper of its own: the chart kit anchors its
                tooltip to the canvas's parent, and a heading inside that parent
                would shift every tooltip by its height. -->
-          <div class="tn-wrap"><canvas id="trendNetChart" height="120" aria-label="Net size change between consecutive scans" role="img"></canvas></div>
+          <div class="tn-wrap"><canvas id="trendNetChart" height="120" aria-label="Ardışık taramalar arasındaki net boyut değişimi" role="img"></canvas></div>
         </div>
-        <div id="trendDeltas"><div class="muted">Scan the same folder twice to see what grew or shrank.</div></div>
+        <div id="trendDeltas"><div class="muted">Neyin büyüdüğünü veya küçüldüğünü görmek için aynı klasörü iki kez tarayın.</div></div>
       </div>
     </div>
   </section>
@@ -4820,19 +4820,19 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   
 
   <!-- ═══════════ Offloaded ═══════════ -->
-  <section class="view" id="view-offloaded" role="tabpanel" aria-label="Offloaded" hidden>
+  <section class="view" id="view-offloaded" role="tabpanel" aria-label="Tahliye Edilenler" hidden>
     <div class="card glass">
-      <h2><span data-icon="archive"></span>Offloaded files</h2>
+      <h2><span data-icon="archive"></span>Tahliye edilen dosyalar</h2>
       <div class="apps-info muted" id="offloadInfo"></div>
       <!-- Hidden while the summary line above is empty, i.e. while there is
            nothing to search (design pass G02, the rule in 080). -->
       <div class="rule-row" id="offloadSearchRow" style="margin-bottom:10px;">
         <div class="field" style="flex:1;max-width:420px;">
           <span data-icon="search"></span>
-          <input type="text" id="offloadSearch" placeholder="Search by name or original path…" aria-label="Search offloaded files" autocomplete="off">
+          <input type="text" id="offloadSearch" placeholder="Ada veya orijinal yola göre ara…" aria-label="Tahliye edilen dosyaları ara" autocomplete="off">
         </div>
       </div>
-      <div id="offloadBody"><div class="muted">Nothing offloaded yet — right-click any file or folder and choose <b>Offload…</b> to move it to another drive with copy-and-verify safety.</div></div>
+      <div id="offloadBody"><div class="muted">Henüz hiçbir şey tahliye edilmedi — herhangi bir dosya veya klasöre sağ tıklayıp kopyalama ve doğrulama güvenliğiyle başka bir sürücüye taşımak için <b>Tahliye et…</b> seçeneğini belirleyin.</div></div>
     </div>
   </section>
 
@@ -4841,29 +4841,29 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   
 
   <!-- ═══════════ History (v4 §7 — calendar · journal · compare in one view) ═══════════ -->
-  <section class="view" id="view-history" role="tabpanel" aria-label="History — calendar heatmap, disk journal, and scan compare" hidden>
-    <div class="seg" id="histSeg" role="tablist" aria-label="History panel" style="margin-bottom:12px;">
-      <button role="tab" type="button" data-panel="calendar" aria-selected="true" title="Bytes written per day, one cell per day">Calendar</button>
-      <button role="tab" type="button" data-panel="journal" aria-selected="false" title="What changed, day by day, honestly attributed">Journal</button>
-      <button role="tab" type="button" data-panel="compare" aria-selected="false" title="Two scans of one folder, diffed — with the split-slider for history pairs">Compare</button>
+  <section class="view" id="view-history" role="tabpanel" aria-label="Geçmiş — takvim ısı haritası, disk günlüğü ve tarama karşılaştırması" hidden>
+    <div class="seg" id="histSeg" role="tablist" aria-label="Geçmiş paneli" style="margin-bottom:12px;">
+      <button role="tab" type="button" data-panel="calendar" aria-selected="true" title="Günlük yazılan baytlar, güne bir hücre">Takvim</button>
+      <button role="tab" type="button" data-panel="journal" aria-selected="false" title="Günden güne neyin değiştiği, dürüstçe ilişkilendirilmiş">Günlük</button>
+      <button role="tab" type="button" data-panel="compare" aria-selected="false" title="Bir klasörün iki taraması, farkı alınmış — geçmiş çiftleri için bölme kaydırıcılı">Karşılaştır</button>
     </div>
     <div id="histPanelCalendar" class="pane-fade">
     <div class="card glass">
-      <h2><span data-icon="calendar"></span>Calendar</h2>
+      <h2><span data-icon="calendar"></span>Takvim</h2>
       <!-- Shown once there is a scan to count (loadCalendar): "Click a day…"
            over no days pointed at nothing (design pass G02). -->
       <div class="rule-row" id="calControls" hidden style="align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap;">
-        <div class="seg" id="calChannelSeg" role="tablist" aria-label="Calendar channel">
-          <button role="tab" type="button" data-ch="modified" aria-selected="true" title="Bytes modified per day — read from the scan itself, exact">Modified</button>
-          <button role="tab" type="button" data-ch="created" aria-selected="false" title="Bytes created per day — needs per-file stats, capped and reported honestly">Created</button>
+        <div class="seg" id="calChannelSeg" role="tablist" aria-label="Takvim kanalı">
+          <button role="tab" type="button" data-ch="modified" aria-selected="true" title="Günlük değiştirilen baytlar — doğrudan taramadan okunur, tam değer">Değiştirilme</button>
+          <button role="tab" type="button" data-ch="created" aria-selected="false" title="Günlük oluşturulan baytlar — dosya başına istatistik gerektirir, sınırlandırılmış ve dürüstçe raporlanmış">Oluşturulma</button>
         </div>
-        <span class="muted" id="calHint">Click a day to see those files on the treemap · drag across days for a range</span>
+        <span class="muted" id="calHint">Bu dosyaları ağaç haritasında görmek için bir güne tıklayın · bir aralık için günler arasında sürükleyin</span>
       </div>
       <div id="calBody"></div>
       <!-- What this part is working on, said aloud: its loader puts the sentence of the working rows it writes here (sayWorking), beside the card's body, whose every write would take it away. -->
       <div id="calWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
       <div class="cal-legend muted num" id="calLegend" hidden>
-        <span>less</span><span class="cal-cell" data-lv="1"></span><span class="cal-cell" data-lv="2"></span><span class="cal-cell" data-lv="3"></span><span class="cal-cell" data-lv="4"></span><span>more</span>
+        <span>az</span><span class="cal-cell" data-lv="1"></span><span class="cal-cell" data-lv="2"></span><span class="cal-cell" data-lv="3"></span><span class="cal-cell" data-lv="4"></span><span>çok</span>
         <span id="calMax" style="margin-left:10px;"></span>
       </div>
       <!-- What the calendar could not count. Plain text: said in #calDegradedSaid. -->
@@ -4876,30 +4876,30 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   </div>
     <div id="histPanelJournal" class="pane-fade" hidden>
     <div class="card glass">
-      <h2><span data-icon="activity"></span>Journal</h2>
-      <div class="muted" style="margin-bottom:10px;">A rolling narrative of significant changes, noticed by scheduled scans. Attribution is honest: an app named only when the path says so, <b>you</b> only when TreeMap's own audit log matches, and otherwise exactly “an unidentified process”.</div>
+      <h2><span data-icon="activity"></span>Günlük</h2>
+      <div class="muted" style="margin-bottom:10px;">Zamanlanmış taramalar tarafından fark edilen önemli değişikliklerin akıcı bir anlatımı. İlişkilendirme dürüsttür: bir uygulama yalnızca dosya yolu belirttiğinde adlandırılır, <b>siz</b> yalnızca TreeMap'in kendi denetim günlüğü eşleştiğinde belirtilirsiniz ve aksi takdirde tam olarak “tanımlanamayan bir işlem” olarak gösterilir.</div>
       <!-- Why a portable session keeps no journal. Plain text: said in #journalPortableSaid. -->
       <div class="muted" id="journalPortable" style="margin-bottom:8px;" hidden></div>
       <!-- The note, said aloud (BQS): it comes on screen with its words already
            in it, which a screen reader seldom announces. loadJournal says it
            here a frame later, and empties this when the note goes. -->
       <div id="journalPortableSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
-      <div id="journalBody"><div class="muted">Reading the journal…</div></div>
+      <div id="journalBody"><div class="muted">Günlük okunuyor…</div></div>
       <div id="journalWorking" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
   </div>
     <div id="histPanelCompare" class="pane-fade" hidden>
     <div class="trends-toolbar">
       <span class="label-pair">
-        <label for="cmpA">Before</label>
-        <select id="cmpA" aria-label="Older scan or snapshot"></select>
+        <label for="cmpA">Önce</label>
+        <select id="cmpA" aria-label="Daha eski tarama veya anlık görüntü"></select>
       </span>
       <span class="muted">→</span>
       <span class="label-pair">
-        <label for="cmpB">After</label>
-        <select id="cmpB" aria-label="Newer scan or snapshot"></select>
+        <label for="cmpB">Sonra</label>
+        <select id="cmpB" aria-label="Daha yeni tarama veya anlık görüntü"></select>
       </span>
-      <button class="btn btn-primary" id="cmpRunBtn" aria-describedby="cmpInfo"><span data-icon="diff"></span>Compare</button>
+      <button class="btn btn-primary" id="cmpRunBtn" aria-describedby="cmpInfo"><span data-icon="diff"></span>Karşılaştır</button>
       <!-- Plain text, Compare's description: what it says is said in #cmpSaid (BQT item 28). -->
       <span class="muted" id="cmpInfo"></span>
       <!-- What the Compare panel says, said aloud: why Compare is held back,
@@ -4910,17 +4910,17 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            panel or the History view is hidden (BQT item 28). -->
       <div id="cmpSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
-    <div id="cmpBody"><div class="card glass"><div class="muted">Pick two scans of the same folder — scans from this session give a full file-level diff; history snapshots compare top-level folders.</div></div></div>
+    <div id="cmpBody"><div class="card glass"><div class="muted">Aynı klasörün iki taramasını seçin — bu oturumdaki taramalar tam dosya düzeyinde bir fark sunar; geçmiş anlık görüntüleri ise üst düzey klasörleri karşılaştırır.</div></div></div>
   </div>
   </section>
 
   <!-- ═══════════ Undo Vault (B3) ═══════════ -->
-  <section class="view" id="view-capsule" role="tabpanel" aria-label="Undo Vault" hidden>
+  <section class="view" id="view-capsule" role="tabpanel" aria-label="Geri Alma Kasası" hidden>
     <div class="card glass">
-      <h2><span data-icon="clock"></span>Undo Vault</h2>
+      <h2><span data-icon="clock"></span>Geri Alma Kasası</h2>
       <div class="apps-info muted" id="capsuleInfo"></div>
       <div class="capsule-gauge" id="capsuleGauge" hidden>
-        <div class="cap-gauge-wrap"><canvas id="capsuleGaugeCanvas" aria-label="Undo Vault space used against its cap" role="img"></canvas></div>
+        <div class="cap-gauge-wrap"><canvas id="capsuleGaugeCanvas" aria-label="Kapasite sınırına karşılık kullanılan Geri Alma Kasası alanı" role="img"></canvas></div>
         <div class="muted num" id="capsuleGaugeText"></div>
       </div>
       <!-- Hidden while the summary line above is empty, i.e. while there is
@@ -4928,7 +4928,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
       <div class="rule-row" id="capsuleSearchRow" style="margin-bottom:10px;">
         <div class="field" style="flex:1;max-width:420px;">
           <span data-icon="search"></span>
-          <input type="text" id="capsuleSearch" placeholder="Search by name or original path…" aria-label="Search protected items" autocomplete="off">
+          <input type="text" id="capsuleSearch" placeholder="Ada veya orijinal yola göre ara…" aria-label="Korunan öğeleri ara" autocomplete="off">
         </div>
       </div>
       <div id="capsuleBody"></div>
@@ -4939,13 +4939,13 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   </section>
 
   <!-- ═══════════ Autopilot (B1) ═══════════ -->
-  <section class="view" id="view-autopilot" role="tabpanel" aria-label="Autopilot" hidden>
+  <section class="view" id="view-autopilot" role="tabpanel" aria-label="Otopilot" hidden>
     <div class="card glass">
-      <h2><span data-icon="sparkles"></span>Autopilot
+      <h2><span data-icon="sparkles"></span>Otopilot
         <!-- FX wiring: the "breathing" heartbeat, mounted only while at
              least one policy is armed to act on its own (see fxApBreatheSync). -->
-        <span class="fx-orb-well" id="apBreatheWell" title="Autopilot is armed and watching"></span>
-        <button class="pill" id="apAddBtn" style="margin-left:auto;">Add a policy</button>
+        <span class="fx-orb-well" id="apBreatheWell" title="Otopilot devrede ve izliyor"></span>
+        <button class="pill" id="apAddBtn" style="margin-left:auto;">Kural ekle</button>
       </h2>
       <div class="apps-info muted" id="apInfo"></div>
       <div id="apPolicies"></div>
@@ -4954,7 +4954,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     </div>
 
     <div class="card glass" style="margin-top:18px;">
-      <h2><span data-icon="clock"></span>What Autopilot has done</h2>
+      <h2><span data-icon="clock"></span>Otopilotun yaptıkları</h2>
       <div id="apRuns"></div>
     </div>
   </section>
@@ -4974,37 +4974,37 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     <div id="apModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
     <div class="modal" style="width:620px;">
       <div class="modal-head">
-        <h3 id="apModalTitle"><span data-icon="sparkles"></span>New policy</h3>
-        <button class="close-x" data-close="apModal" aria-label="Close"><span data-icon="x"></span></button>
+        <h3 id="apModalTitle"><span data-icon="sparkles"></span>Yeni kural</h3>
+        <button class="close-x" data-close="apModal" aria-label="Kapat"><span data-icon="x"></span></button>
       </div>
       <div class="modal-body">
         <div class="rule-row">
-          <span data-icon="type"></span><label for="apName">Name</label>
-          <input type="text" id="apName" placeholder="Old build folders" aria-label="Policy name" style="flex:1;">
+          <span data-icon="type"></span><label for="apName">Ad</label>
+          <input type="text" id="apName" placeholder="Eski derleme klasörleri" aria-label="Kural adı" style="flex:1;">
         </div>
         <div class="rule-row" style="margin-top:8px;">
-          <span data-icon="folder"></span><label for="apPath">In folder</label>
-          <input type="text" id="apPath" placeholder="/Users/you/Projects" aria-label="Folder this policy cleans" style="flex:1;">
-          <button class="btn" id="apBrowseBtn">Browse…</button>
+          <span data-icon="folder"></span><label for="apPath">Klasörde</label>
+          <input type="text" id="apPath" placeholder="C:\Projeler veya /Users/sen/Projeler" aria-label="Bu kuralın temizleyeceği klasör" style="flex:1;">
+          <button class="btn" id="apBrowseBtn">Gözat…</button>
         </div>
 
-        <div class="set-h" style="margin-top:18px;"><span data-icon="search"></span>What it cleans up</div>
-        <div class="seg" id="apMatchSeg" role="tablist" aria-label="Match kind" style="margin-bottom:10px;">
-          <button role="tab" aria-selected="true" data-apmatch="suggestion">Known reclaimable</button>
-          <button role="tab" aria-selected="false" data-apmatch="custom">My own rules</button>
-          <button role="tab" aria-selected="false" data-apmatch="query">A query</button>
+        <div class="set-h" style="margin-top:18px;"><span data-icon="search"></span>Neyi temizler</div>
+        <div class="seg" id="apMatchSeg" role="tablist" aria-label="Eşleşme türü" style="margin-bottom:10px;">
+          <button role="tab" aria-selected="true" data-apmatch="suggestion">Bilinen geri kazanılabilir alan</button>
+          <button role="tab" aria-selected="false" data-apmatch="custom">Özel kurallarım</button>
+          <button role="tab" aria-selected="false" data-apmatch="query">Sorgu ile</button>
         </div>
         <div id="apMatchSuggestion">
-          <div class="muted" style="margin-bottom:8px;">The same things Clean Up's Smart suggestions find — each one safe to delete and rebuildable.</div>
+          <div class="muted" style="margin-bottom:8px;">Temizle'nin Akıllı önerilerinin bulduğu öğeler — tümü güvenle silinebilir ve yeniden oluşturulabilir.</div>
           <div id="apGroupList"></div>
         </div>
         <!-- v4 §4.5 — the same grammar the treemap box and saved views use.
              Checked by the one parser before the policy can be saved. -->
         <div id="apMatchQuery" style="display:none;">
-          <div class="muted" style="margin-bottom:8px;">The same search language as the treemap box, e.g. <code>ext:log modified&gt;90d -in:node_modules</code>. It is checked before the policy can be saved, and a query with no conditions is refused — it would match every file in the folder.</div>
+          <div class="muted" style="margin-bottom:8px;">Ağaç haritası kutusundaki arama diliyle aynıdır, örneğin <code>ext:log modified&gt;90d -in:node_modules</code>. Kural kaydedilmeden önce kontrol edilir ve koşulsuz bir sorgu reddedilir — çünkü klasördeki tüm dosyalarla eşleşir.</div>
           <div class="field" style="max-width:none;">
             <span data-icon="search"></span>
-            <input type="text" id="apRuleQuery" placeholder="ext:log modified&gt;90d" aria-label="The query this policy matches on" autocomplete="off" spellcheck="false">
+            <input type="text" id="apRuleQuery" placeholder="ext:log modified&gt;90d" aria-label="Bu kuralın eşleşeceği sorgu" autocomplete="off" spellcheck="false">
           </div>
           <!-- Plain text: what it says is said in #apQuerySaid (BQT item 28). -->
           <div class="muted" id="apQueryStatus" style="margin-top:6px;"></div>
@@ -5017,44 +5017,44 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
         </div>
         <div id="apMatchCustom" style="display:none;">
           <div class="rule-row">
-            <input type="checkbox" id="apRuleAgeOn" checked> <span data-icon="clock"></span><label for="apRuleAgeOn">Older than</label>
-            <input type="number" id="apRuleAgeDays" value="180" min="1" aria-label="Days"> <span class="muted">days</span>
+            <input type="checkbox" id="apRuleAgeOn" checked> <span data-icon="clock"></span><label for="apRuleAgeOn">Şundan eski:</label>
+            <input type="number" id="apRuleAgeDays" value="180" min="1" aria-label="Gün"> <span class="muted">gün</span>
           </div>
           <div class="rule-row">
-            <input type="checkbox" id="apRuleSizeOn" checked> <span data-icon="trendUp"></span><label for="apRuleSizeOn">Larger than</label>
-            <input type="number" id="apRuleSizeMb" class="size-in" value="100" min="1" aria-label="Megabytes"> <span class="muted">MB</span>
+            <input type="checkbox" id="apRuleSizeOn" checked> <span data-icon="trendUp"></span><label for="apRuleSizeOn">Şundan büyük:</label>
+            <input type="number" id="apRuleSizeMb" class="size-in" value="100" min="1" aria-label="Megabayt"> <span class="muted">MB</span>
           </div>
           <div class="rule-row">
-            <input type="checkbox" id="apRuleExtOn"> <span data-icon="file"></span><label for="apRuleExtOn">Extensions</label>
-            <input type="text" id="apRuleExts" placeholder="log, tmp, dmg" aria-label="Extensions, comma separated">
+            <input type="checkbox" id="apRuleExtOn"> <span data-icon="file"></span><label for="apRuleExtOn">Uzantılar</label>
+            <input type="text" id="apRuleExts" placeholder="log, tmp, dmg" aria-label="Uzantılar, virgülle ayrılmış">
           </div>
         </div>
 
-        <div class="set-h" style="margin-top:18px;"><span data-icon="shield"></span>Limits</div>
+        <div class="set-h" style="margin-top:18px;"><span data-icon="shield"></span>Sınırlar</div>
         <div class="rule-row">
-          <span data-icon="gauge"></span><label for="apMaxRun">Delete at most</label>
-          <input type="number" id="apMaxRun" class="size-in" min="0" placeholder="no limit" aria-label="Maximum gigabytes per run"> <span class="muted">GB per run</span>
+          <span data-icon="gauge"></span><label for="apMaxRun">Çalıştırma başına en çok</label>
+          <input type="number" id="apMaxRun" class="size-in" min="0" placeholder="sınır yok" aria-label="Çalıştırma başına en fazla gigabayt"> <span class="muted">GB sil</span>
         </div>
         <div class="rule-row" style="margin-top:6px;">
-          <span data-icon="gauge"></span><label for="apMaxWeek">and at most</label>
-          <input type="number" id="apMaxWeek" class="size-in" min="0" placeholder="no limit" aria-label="Maximum gigabytes per week"> <span class="muted">GB per week</span>
+          <span data-icon="gauge"></span><label for="apMaxWeek">ve haftada en çok</label>
+          <input type="number" id="apMaxWeek" class="size-in" min="0" placeholder="sınır yok" aria-label="Haftalık en fazla gigabayt"> <span class="muted">GB sil</span>
         </div>
         <div class="rule-row" style="margin-top:6px;">
-          <span data-icon="alert"></span><label for="apConfirmAbove">Ask me first above</label>
-          <input type="number" id="apConfirmAbove" class="size-in" min="0" placeholder="never ask" aria-label="Ask for confirmation above this many gigabytes"> <span class="muted">GB in one run</span>
+          <span data-icon="alert"></span><label for="apConfirmAbove">Şu miktarı aşarsa önce bana sor:</label>
+          <input type="number" id="apConfirmAbove" class="size-in" min="0" placeholder="asla sorma" aria-label="Bu kadar gigabaytı aşarsa onay iste"> <span class="muted">GB (tek çalıştırmada)</span>
         </div>
         <div class="rule-row" style="margin-top:6px;">
-          <span data-icon="clock"></span><label for="apCooldown">Run at most once every</label>
-          <input type="number" id="apCooldown" value="7" min="1" max="365" aria-label="Cooldown in days"> <span class="muted">days</span>
+          <span data-icon="clock"></span><label for="apCooldown">En fazla şu sıklıkta çalıştır:</label>
+          <input type="number" id="apCooldown" value="7" min="1" max="365" aria-label="Gün cinsinden bekleme süresi"> <span class="muted">günde bir</span>
         </div>
-        <div class="muted" id="apLaunchHold" style="margin-top:4px;">A run that came due while TreeMap was closed runs about 10 minutes after it opens, not the moment it opens.</div>
+        <div class="muted" id="apLaunchHold" style="margin-top:4px;">TreeMap kapalıyken vadesi gelen bir çalıştırma, açıldığı an değil, açıldıktan yaklaşık 10 dakika sonra çalışır.</div>
         <div class="rule-row" style="margin-top:10px;">
           <input type="checkbox" id="apDryRunFirst" checked>
-          <label for="apDryRunFirst">Only ever preview — never actually delete</label>
+          <label for="apDryRunFirst">Yalnızca önizle — asla gerçekten silme</label>
         </div>
         <div class="rule-row">
           <input type="checkbox" id="apEnabled">
-          <label for="apEnabled">Enabled</label>
+          <label for="apEnabled">Etkin</label>
         </div>
 
         <div id="apPreview"></div>
@@ -5062,20 +5062,20 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
         <div id="apPreviewSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
       <div class="modal-foot">
-        <span class="muted" style="font-size:11.5px;">Anything deleted is copied to the Undo Vault first, and can be undone until the Undo Vault removes the copy.</span>
+        <span class="muted" style="font-size:11.5px;">Silinen tüm öğeler önce Geri Alma Kasası'na kopyalanır ve kasa kopyayı kaldırana kadar geri alınabilir.</span>
         <div style="flex:1"></div>
-        <button class="btn" id="apPreviewBtn"><span data-icon="search"></span>Preview</button>
-        <button class="btn btn-primary" id="apSaveBtn">Save policy</button>
+        <button class="btn" id="apPreviewBtn"><span data-icon="search"></span>Önizle</button>
+        <button class="btn btn-primary" id="apSaveBtn">Kuralı kaydet</button>
       </div>
     </div>
   </div>
 
 <!-- ═══════════ Selection toolbar ═══════════ -->
 <div class="glass" id="selectionBar">
-  <span id="selInfo" class="num">0 items selected</span>
-  <button class="btn" id="selOffloadBtn" title="Copy to another drive, verify, then move the originals to the Trash"><span data-icon="archive"></span>Offload…</button>
-  <button class="btn btn-danger" id="selTrashBtn"><span data-icon="trash"></span>Move to Trash</button>
-  <button class="btn" id="selClearBtn">Clear</button>
+  <span id="selInfo" class="num">0 öğe seçildi</span>
+  <button class="btn" id="selOffloadBtn" title="Başka bir sürücüye kopyala, doğrula ve orijinalleri Çöp Kutusuna taşı"><span data-icon="archive"></span>Tahliye et…</button>
+  <button class="btn btn-danger" id="selTrashBtn"><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
+  <button class="btn" id="selClearBtn">Temizle</button>
 </div>
 
 <!-- ═══════════ Offload progress (Feature 24) ═══════════ -->
@@ -5087,10 +5087,10 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="offloadModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:520px;">
     <div class="modal-head">
-      <h3 id="offloadTitle"><span data-icon="archive"></span>Offloading…</h3>
+      <h3 id="offloadTitle"><span data-icon="archive"></span>Tahliye ediliyor…</h3>
     </div>
     <div class="modal-body">
-      <div class="muted" id="offloadPhase" style="margin-bottom:8px;">Checking…</div>
+      <div class="muted" id="offloadPhase" style="margin-bottom:8px;">Kontrol ediliyor…</div>
       <div class="progress-track active" style="position:static;height:6px;border-radius:3px;overflow:hidden;background:var(--surface-2);">
         <div id="offloadBar" style="height:100%;width:0%;background:var(--accent);transition:width .3s ease;"></div>
       </div>
@@ -5098,9 +5098,9 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
       <div class="muted" id="offloadCurrent" style="margin-top:4px;word-break:break-all;font-size:11.5px;"></div>
     </div>
     <div class="modal-foot">
-      <span class="muted" id="offloadFoot" style="font-size:11.5px;">Nothing is removed until every copy is verified.</span>
+      <span class="muted" id="offloadFoot" style="font-size:11.5px;">Tüm kopyalar doğrulanana kadar hiçbir şey silinmez.</span>
       <div style="flex:1"></div>
-      <button class="btn" id="offloadCancelBtn"><span data-icon="x"></span>Cancel</button>
+      <button class="btn" id="offloadCancelBtn"><span data-icon="x"></span>İptal</button>
     </div>
     <!-- FX wiring: the job ring rides this overlay strip, never .modal — a
          .modal is a Liquid Glass host whose fill IS .lg::before, and the beam
@@ -5118,16 +5118,16 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="cleanModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal">
     <div class="modal-head">
-      <h3 id="cleanTitle"><span data-icon="sparkles"></span>Clean Up</h3>
-      <button class="close-x" data-close="cleanModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="cleanTitle"><span data-icon="sparkles"></span>Temizle</h3>
+      <button class="close-x" data-close="cleanModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
-      <div class="seg seg-fit" id="cleanSeg" role="tablist" aria-label="Clean Up modes" style="margin-bottom:12px;">
-        <button role="tab" aria-selected="true" data-pane="rules"><span data-icon="search"></span>Custom rules</button>
-        <button role="tab" aria-selected="false" data-pane="smart"><span data-icon="sparkles"></span>Smart suggestions</button>
-        <button role="tab" aria-selected="false" data-pane="empty"><span data-icon="folder"></span>Empty folders</button>
-        <button role="tab" aria-selected="false" data-pane="video"><span data-icon="video"></span>Shrink video</button>
-        <button role="tab" aria-selected="false" data-pane="cloud" id="cleanTabCloud" hidden><span data-icon="cloud"></span>Online-only files</button>
+      <div class="seg seg-fit" id="cleanSeg" role="tablist" aria-label="Temizleme modları" style="margin-bottom:12px;">
+        <button role="tab" aria-selected="true" data-pane="rules"><span data-icon="search"></span>Özel kurallar</button>
+        <button role="tab" aria-selected="false" data-pane="smart"><span data-icon="sparkles"></span>Akıllı öneriler</button>
+        <button role="tab" aria-selected="false" data-pane="empty"><span data-icon="folder"></span>Boş klasörler</button>
+        <button role="tab" aria-selected="false" data-pane="video"><span data-icon="video"></span>Videoları küçült</button>
+        <button role="tab" aria-selected="false" data-pane="cloud" id="cleanTabCloud" hidden><span data-icon="cloud"></span>Yalnızca çevrimiçi dosyalar</button>
       </div>
       <!-- Where what Clean Up removes goes: the system Trash, or a cloud account's own trash.
            Written by the Clean Up button for the scan the sheet opens on (cleanUpWhereItGoes). -->
@@ -5141,40 +5141,40 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
       <div id="cleanPaneRules" class="pane-fade">
         <!-- v4 §4.5 — the ladder: a saved view is a Clean Up rule, and a Clean
              Up rule is an Autopilot policy. One matching engine throughout. -->
-        <div class="seg seg-fit" id="cleanRuleSeg" role="tablist" aria-label="Rule source" style="margin-bottom:10px;">
-          <button role="tab" aria-selected="true" data-rulesrc="simple">Simple rules</button>
-          <button role="tab" aria-selected="false" data-rulesrc="query">A saved view</button>
+        <div class="seg seg-fit" id="cleanRuleSeg" role="tablist" aria-label="Kural kaynağı" style="margin-bottom:10px;">
+          <button role="tab" aria-selected="true" data-rulesrc="simple">Basit kurallar</button>
+          <button role="tab" aria-selected="false" data-rulesrc="query">Kayıtlı bir görünüm</button>
         </div>
         <div id="cleanRuleQuery" style="display:none;">
           <div class="rule-row">
-            <span data-icon="search"></span><label for="cleanSavedView">Saved view</label>
-            <select id="cleanSavedView" aria-label="Saved view to use as a rule" style="flex:1;min-width:0;"></select>
+            <span data-icon="search"></span><label for="cleanSavedView">Kayıtlı görünüm</label>
+            <select id="cleanSavedView" aria-label="Kural olarak kullanılacak kayıtlı görünüm" style="flex:1;min-width:0;"></select>
           </div>
           <div class="muted" id="cleanSavedViewQ" style="margin:2px 0 6px;"></div>
         </div>
         <div id="cleanRuleSimple">
         <div class="rule-row">
-          <input type="checkbox" id="ruleAgeOn" checked> <span data-icon="clock"></span><label for="ruleAgeOn">Older than</label>
-          <input type="number" id="ruleAgeDays" value="180" min="0" aria-label="Days"> <span class="muted">days</span>
+          <input type="checkbox" id="ruleAgeOn" checked> <span data-icon="clock"></span><label for="ruleAgeOn">Şundan eski:</label>
+          <input type="number" id="ruleAgeDays" value="180" min="0" aria-label="Gün"> <span class="muted">gün</span>
         </div>
         <div class="rule-row">
-          <input type="checkbox" id="ruleSizeOn" checked> <span data-icon="trendUp"></span><label for="ruleSizeOn">Larger than</label>
-          <input type="number" id="ruleSizeMb" value="100" min="0" aria-label="Megabytes"> <span class="muted">MB</span>
+          <input type="checkbox" id="ruleSizeOn" checked> <span data-icon="trendUp"></span><label for="ruleSizeOn">Şundan büyük:</label>
+          <input type="number" id="ruleSizeMb" value="100" min="0" aria-label="Megabayt"> <span class="muted">MB</span>
         </div>
         <div class="rule-row">
-          <input type="checkbox" id="ruleExtOn"> <span data-icon="file"></span><label for="ruleExtOn">Extensions</label>
-          <input type="text" id="ruleExts" placeholder="log, tmp, dmg, zip" aria-label="Extensions, comma separated">
+          <input type="checkbox" id="ruleExtOn"> <span data-icon="file"></span><label for="ruleExtOn">Uzantılar</label>
+          <input type="text" id="ruleExts" placeholder="log, tmp, dmg, zip" aria-label="Uzantılar, virgülle ayrılmış">
         </div>
         <div class="rule-row">
-          <input type="checkbox" id="ruleDupOn"> <span data-icon="copy"></span><label for="ruleDupOn">Duplicates only <span class="muted">(same name + size elsewhere)</span></label>
+          <input type="checkbox" id="ruleDupOn"> <span data-icon="copy"></span><label for="ruleDupOn">Yalnızca kopyalar <span class="muted">(başka yerde aynı ad + boyut)</span></label>
         </div>
         </div>
         <div class="rule-row" style="margin-top:4px;">
-          <button class="btn" id="cleanFindBtn"><span data-icon="search"></span>Find matching files</button>
+          <button class="btn" id="cleanFindBtn"><span data-icon="search"></span>Eşleşen dosyaları bul</button>
           <!-- v4 §4.5 — promotion. Opens the existing editor, pre-filled; every
                rail it has stays exactly as it is, including the mandatory
                first-run preview. -->
-          <button class="btn" id="cleanPromoteBtn" title="Turn this rule into a scheduled Autopilot policy — you approve its first run before it deletes anything"><span data-icon="sparkles"></span>Make this an Autopilot policy</button>
+          <button class="btn" id="cleanPromoteBtn" title="Bu kuralı zamanlanmış bir Otopilot kuralına dönüştürün — herhangi bir şey silinmeden önce ilk çalıştırmayı siz onaylarsınız"><span data-icon="sparkles"></span>Bunu bir Otopilot kuralı yap</button>
         </div>
         <!-- Why a rule set could not become a policy, beside the button that
              was pressed — promoteRuleToPolicy writes it, and it stays until
@@ -5198,13 +5198,13 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            moving it, so the copy is blunt about what it does: it is lossy, and
            the original goes to the Trash only once the new file has verified. -->
       <div id="cleanPaneVideo" class="pane-fade" style="display:none;">
-        <div id="videoBody"><div class="muted">Run a scan to look for video worth re-encoding.</div></div>
+        <div id="videoBody"><div class="muted">Yeniden kodlamaya değer videoları aramak için bir tarama yapın.</div></div>
       </div>
 
       <div id="cleanPaneEmpty" class="pane-fade" style="display:none;">
         <div class="rule-row">
           <input type="checkbox" id="emptyIgnoreJunk" checked>
-          <label for="emptyIgnoreJunk">Treat folders holding only junk files (.DS_Store, Thumbs.db) as empty</label>
+          <label for="emptyIgnoreJunk">Yalnızca gereksiz sistem dosyaları (.DS_Store, Thumbs.db) içeren klasörleri boş say</label>
         </div>
         <div id="emptyResults"></div>
       </div>
@@ -5216,7 +5216,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     <div class="modal-foot">
       <span class="muted num" id="cleanSummary"></span>
       <div style="flex:1"></div>
-      <button class="btn btn-danger" id="cleanConfirmBtn" disabled><span data-icon="trash"></span>Move to Trash</button>
+      <button class="btn btn-danger" id="cleanConfirmBtn" disabled><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
     </div>
   </div>
 </div>
@@ -5230,26 +5230,26 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="browseModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:560px;">
     <div class="modal-head">
-      <h3 id="browseTitle"><span data-icon="folder"></span>Choose a folder</h3>
-      <button class="close-x" data-close="browseModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="browseTitle"><span data-icon="folder"></span>Bir klasör seçin</h3>
+      <button class="close-x" data-close="browseModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <!-- G26: the whole drive, where the picker scans (browseOfferDrives) —
            named as the disk layout names it, never guessed. -->
-      <div class="chips browse-drives" id="browseDrives" role="group" aria-label="Whole drive" hidden></div>
+      <div class="chips browse-drives" id="browseDrives" role="group" aria-label="Tüm sürücü" hidden></div>
       <!-- QA D05: the path line is a field — the typing route, in every
            context the picker opens from (before the first scan the Scan
            card's path box is not on screen). -->
-      <input type="text" id="browseCurrent" style="width:100%;" aria-label="Folder shown — type a path and press Enter to open it" autocomplete="off" spellcheck="false">
-      <div class="muted" id="browseHint" style="font-size:12px;margin-top:6px;">Type a path and press Enter, or open a folder below.</div>
+      <input type="text" id="browseCurrent" style="width:100%;" aria-label="Gösterilen klasör — bir yol yazın ve açmak için Enter tuşuna basın" autocomplete="off" spellcheck="false">
+      <div class="muted" id="browseHint" style="font-size:12px;margin-top:6px;">Bir yol yazıp Enter tuşuna basın veya aşağıdaki bir klasörü açın.</div>
       <div class="chips" id="browseChips"></div>
       <div class="browse-list" id="browseList"></div>
     </div>
     <div class="modal-foot">
       <!-- G26: dot-folders wait to be asked for; this browser remembers. -->
-      <label class="browse-hidden-toggle"><input type="checkbox" id="browseShowHidden"> Show hidden folders<span id="browseHiddenCount"></span></label>
+      <label class="browse-hidden-toggle"><input type="checkbox" id="browseShowHidden"> Gizli klasörleri göster<span id="browseHiddenCount"></span></label>
       <div style="flex:1"></div>
-      <button class="btn btn-primary" id="browseUseBtn"><span data-icon="check"></span>Scan this folder</button>
+      <button class="btn btn-primary" id="browseUseBtn"><span data-icon="check"></span>Bu klasörü tara</button>
     </div>
   </div>
 </div>
@@ -5263,15 +5263,15 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="confirmModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:430px;">
     <div class="modal-head">
-      <h3 id="confirmTitle"><span data-icon="trash"></span>Move to Trash?</h3>
-      <button class="close-x" data-close="confirmModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="confirmTitle"><span data-icon="trash"></span>Çöp Kutusuna taşınsın mı?</h3>
+      <button class="close-x" data-close="confirmModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <div class="muted" id="confirmText" style="font-size:13.5px;line-height:1.55;"></div>
       <!-- B2: filled in when a program holds one of these files open. Lives
-           inside the one confirmation dialog every view shares, so no view can
-           delete without it. Plain text: what it says is said in
-           #confirmOpenHandlesSaid. -->
+            inside the one confirmation dialog every view shares, so no view can
+            delete without it. Plain text: what it says is said in
+            #confirmOpenHandlesSaid. -->
       <div id="confirmOpenHandles" hidden></div>
       <!-- The open-file panel, said aloud (BQS). The panel is hidden while it
            has nothing to say, so it comes on screen with its words already in
@@ -5283,8 +5283,8 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     </div>
     <div class="modal-foot">
       <div style="flex:1"></div>
-      <button class="btn" id="confirmCancel" data-close="confirmModal">Cancel</button>
-      <button class="btn btn-danger" id="confirmOk"><span data-icon="trash"></span>Move to Trash</button>
+      <button class="btn" id="confirmCancel" data-close="confirmModal">İptal</button>
+      <button class="btn btn-danger" id="confirmOk"><span data-icon="trash"></span>Çöp Kutusuna Taşı</button>
     </div>
   </div>
 </div>
@@ -5302,8 +5302,8 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="askModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:430px;">
     <div class="modal-head">
-      <h3 id="askTitle">Name this</h3>
-      <button class="close-x" data-close="askModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="askTitle">Adlandırın</h3>
+      <button class="close-x" data-close="askModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <label for="askInput" id="askLabel" class="muted" style="display:block;margin-bottom:7px;font-size:12.5px;"></label>
@@ -5311,8 +5311,8 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     </div>
     <div class="modal-foot">
       <div style="flex:1"></div>
-      <button class="btn" data-close="askModal">Cancel</button>
-      <button class="btn btn-primary" id="askOk">OK</button>
+      <button class="btn" data-close="askModal">İptal</button>
+      <button class="btn btn-primary" id="askOk">Tamam</button>
     </div>
   </div>
 </div>
@@ -5326,8 +5326,8 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="budgetModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:440px;">
     <div class="modal-head">
-      <h3 id="budgetTitle"><span data-icon="gauge"></span>Set folder budget</h3>
-      <button class="close-x" data-close="budgetModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="budgetTitle"><span data-icon="gauge"></span>Klasör bütçesi belirle</h3>
+      <button class="close-x" data-close="budgetModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <div class="budget-folder">
@@ -5338,22 +5338,22 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
         </div>
       </div>
       <div class="muted" id="budgetCurrent" style="margin:11px 0 13px;font-size:12.5px;"></div>
-      <label for="budgetValue" class="muted" style="display:block;margin-bottom:7px;font-size:12.5px;">Warn me when this folder grows past</label>
+      <label for="budgetValue" class="muted" style="display:block;margin-bottom:7px;font-size:12.5px;">Bu klasör şu boyutu aştığında beni uyar:</label>
       <div class="budget-input">
-        <input type="number" id="budgetValue" min="0" step="any" placeholder="5" aria-label="Budget amount">
-        <select id="budgetUnit" aria-label="Budget unit">
+        <input type="number" id="budgetValue" min="0" step="any" placeholder="5" aria-label="Bütçe miktarı">
+        <select id="budgetUnit" aria-label="Bütçe birimi">
           <option value="1000000000" selected>GB</option>
           <option value="1000000">MB</option>
           <option value="1000">KB</option>
-          <option value="1">bytes</option>
+          <option value="1">bayt</option>
         </select>
       </div>
     </div>
     <div class="modal-foot">
-      <button class="btn btn-danger" id="budgetRemoveBtn" style="display:none;"><span data-icon="trash"></span>Remove</button>
+      <button class="btn btn-danger" id="budgetRemoveBtn" style="display:none;"><span data-icon="trash"></span>Kaldır</button>
       <div style="flex:1"></div>
-      <button class="btn" data-close="budgetModal">Cancel</button>
-      <button class="btn btn-primary" id="budgetSaveBtn"><span data-icon="check"></span>Save budget</button>
+      <button class="btn" data-close="budgetModal">İptal</button>
+      <button class="btn btn-primary" id="budgetSaveBtn"><span data-icon="check"></span>Bütçeyi kaydet</button>
     </div>
   </div>
 </div>
@@ -5370,8 +5370,8 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="noteModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:460px;">
     <div class="modal-head">
-      <h3 id="noteTitle"><span data-icon="doc"></span>Folder note</h3>
-      <button class="close-x" data-close="noteModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="noteTitle"><span data-icon="doc"></span>Klasör notu</h3>
+      <button class="close-x" data-close="noteModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <div class="budget-folder">
@@ -5381,19 +5381,19 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
           <div class="pth" id="noteFolderPath"></div>
         </div>
       </div>
-      <label for="noteText" class="muted" style="display:block;margin:12px 0 7px;font-size:12.5px;">A note to your future self — why this folder matters</label>
-      <textarea id="noteText" maxlength="2000" rows="4" style="width:100%;resize:vertical;" placeholder="e.g. client archive, keep until 2027" aria-label="Note text"></textarea>
+      <label for="noteText" class="muted" style="display:block;margin:12px 0 7px;font-size:12.5px;">Gelecekteki kendinize bir not — bu klasör neden önemli</label>
+      <textarea id="noteText" maxlength="2000" rows="4" style="width:100%;resize:vertical;" placeholder="örn. müşteri arşivi, 2027'ye kadar sakla" aria-label="Not metni"></textarea>
       <label class="rule-row" style="margin-top:12px;cursor:var(--cur-hand);">
         <input type="checkbox" id="noteSuppress" checked>
-        <span>Pause Smart suggestions and Autopilot here</span>
+        <span>Burada Akıllı önerileri ve Otopilotu duraklat</span>
       </label>
-      <div class="muted" style="margin-top:6px;font-size:12px;">While this is on, nothing inside this folder is listed in Clean Up’s Smart suggestions, Empty folders or Shrink video, or matched by an Autopilot rule. Custom rules, Online-only files, Libraries and Duplicates still show what is inside it, and you can still delete things here by hand.</div>
+      <div class="muted" style="margin-top:6px;font-size:12px;">Bu seçenek açıkken, bu klasörün içindeki hiçbir şey Temizle'nin Akıllı önerilerinde, Boş klasörlerinde veya Video küçültmesinde listelenmez ve hiçbir Otopilot kuralıyla eşleşmez. Özel kurallar, Yalnızca çevrimiçi dosyalar, Kütüphaneler ve Yinelenenler yine de içeriği gösterir ve buradaki öğeleri elle silebilirsiniz.</div>
     </div>
     <div class="modal-foot">
-      <button class="btn btn-danger" id="noteRemoveBtn" style="display:none;"><span data-icon="trash"></span>Remove note</button>
+      <button class="btn btn-danger" id="noteRemoveBtn" style="display:none;"><span data-icon="trash"></span>Notu kaldır</button>
       <div style="flex:1"></div>
-      <button class="btn" data-close="noteModal">Cancel</button>
-      <button class="btn btn-primary" id="noteSaveBtn"><span data-icon="check"></span>Save note</button>
+      <button class="btn" data-close="noteModal">İptal</button>
+      <button class="btn btn-primary" id="noteSaveBtn"><span data-icon="check"></span>Notu kaydet</button>
     </div>
   </div>
 </div>
@@ -5403,14 +5403,14 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
      drives the real UI — picks the folder, clicks the real Add buttons —
      while the card narrates. pointer-events pass through everywhere except
      the card itself. -->
-<div id="tourOverlay" role="dialog" aria-modal="false" aria-label="Welcome tour" hidden>
+<div id="tourOverlay" role="dialog" aria-modal="false" aria-label="Hoş geldiniz turu" hidden>
   <div class="tour-card glass" id="tourCard"></div>
 </div>
 
 <!-- ═══════════ Command palette (v4 §9.1) ═══════════
      ⌘K / Ctrl+K. One box over everything: views, actions, saved views and
      recent scan roots, fuzzy-matched. Focus returns to where it was. -->
-<div class="modal-backdrop" id="cmdkModal" role="dialog" aria-modal="true" aria-label="Command palette">
+<div class="modal-backdrop" id="cmdkModal" role="dialog" aria-modal="true" aria-label="Komut paleti">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -5418,10 +5418,10 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="cmdkModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal cmdk-panel" style="width:560px;max-width:92vw;">
     <input type="text" id="cmdkInput" role="combobox" aria-expanded="true" aria-controls="cmdkList"
-           aria-autocomplete="list" aria-label="Search views, actions, saved views and recent folders"
-           placeholder="Jump to a view, run an action, rescan a folder…" autocomplete="off" spellcheck="false">
-    <div id="cmdkList" role="listbox" aria-label="Palette results"></div>
-    <div class="muted cmdk-foot">↑↓ choose · ↵ run · esc close</div>
+           aria-autocomplete="list" aria-label="Görünümleri, eylemleri, kayıtlı görünümleri ve son klasörleri arayın"
+           placeholder="Bir görünüme geçin, bir eylem çalıştırın, bir klasörü yeniden tarayın…" autocomplete="off" spellcheck="false">
+    <div id="cmdkList" role="listbox" aria-label="Palet sonuçları"></div>
+    <div class="muted cmdk-foot">↑↓ seç · ↵ çalıştır · esc kapat</div>
   </div>
 </div>
 
@@ -5434,38 +5434,38 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="settingsModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:740px;">
     <div class="modal-head">
-      <h3 id="settingsTitle"><span data-icon="settings"></span>Settings</h3>
-      <button class="close-x" data-close="settingsModal" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="settingsTitle"><span data-icon="settings"></span>Ayarlar</h3>
+      <button class="close-x" data-close="settingsModal" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <!-- QA D67 — System (follow the computer, the default), Light or Dark.
            Saved the moment it is picked, in this browser's storage like the
            sidebar's theme button, which flips to an explicit Light or Dark;
            this row is the way back to System. -->
-      <div class="set-h"><span data-icon="sun"></span>Theme</div>
-      <div class="muted" style="margin-bottom:10px;">How TreeMap looks. Picking one saves it straight away.</div>
-      <div id="themeOptions" role="radiogroup" aria-label="Theme">
+      <div class="set-h"><span data-icon="sun"></span>Tema</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap'in görünümü. Birini seçtiğinizde anında kaydedilir.</div>
+      <div id="themeOptions" role="radiogroup" aria-label="Tema">
         <label class="rule-row budget-row" for="themeChoice-system">
           <input type="radio" name="themeChoice" id="themeChoice-system" value="system" checked>
-          <span class="budget-name">System</span>
-          <span class="muted budget-help">follows this computer’s light or dark setting, and changes when it does</span>
+          <span class="budget-name">Sistem</span>
+          <span class="muted budget-help">bu bilgisayarın açık veya koyu temasını takip eder ve değiştikçe güncellenir</span>
         </label>
         <label class="rule-row budget-row" for="themeChoice-light">
           <input type="radio" name="themeChoice" id="themeChoice-light" value="light">
-          <span class="budget-name">Light</span>
-          <span class="muted budget-help">always light</span>
+          <span class="budget-name">Açık</span>
+          <span class="muted budget-help">daima açık</span>
         </label>
         <label class="rule-row budget-row" for="themeChoice-dark">
           <input type="radio" name="themeChoice" id="themeChoice-dark" value="dark">
-          <span class="budget-name">Dark</span>
-          <span class="muted budget-help">always dark</span>
+          <span class="budget-name">Koyu</span>
+          <span class="muted budget-help">daima koyu</span>
         </label>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="calendar"></span>Scheduled scans</div>
-      <div class="muted" style="margin-bottom:10px;">TreeMap re-scans these folders on a schedule while the app is running, and alerts you when a folder grows past your threshold since the previous scan. Every run is also saved to Trends. A scan that came due while TreeMap was closed runs about 10 minutes after it opens, not the moment it opens.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="calendar"></span>Zamanlanmış taramalar</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap, uygulama çalışırken bu klasörleri bir zamanlamaya göre yeniden tarar ve bir klasör önceki taramadan bu yana belirlediğiniz eşiği aştığında sizi uyarır. Tüm çalıştırmalar Eğilimler'e de kaydedilir. TreeMap kapalıyken vadesi gelen bir tarama, açıldığı an değil, açıldıktan yaklaşık 10 dakika sonra çalışır.</div>
       <div id="schedList"></div>
-      <button class="btn" id="schedAddBtn"><span data-icon="plus"></span>Add scheduled scan</button>
+      <button class="btn" id="schedAddBtn"><span data-icon="plus"></span>Zamanlanmış tarama ekle</button>
 
       <!-- Phase 2 §11.4 — the scanning budget. Four presets, saved the moment
            one is picked: a budget is a dial, not a form. A server that cannot
@@ -5473,28 +5473,28 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            blank row. Automatic's sentence ships neutral: opening Settings
            writes the platform's own (renderEngineBudgetHelp), since only a Mac
            and Linux report their heat. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Scanning budget</div>
-      <div class="muted" style="margin-bottom:10px;">How much of this computer a scan is allowed to use. Picking one saves it straight away.</div>
-      <div id="engineBudgetOptions" role="radiogroup" aria-label="Scanning budget">
+      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Tarama bütçesi</div>
+      <div class="muted" style="margin-bottom:10px;">Bir taramanın bu bilgisayarın kaynaklarının ne kadarını kullanmasına izin verildiği. Birini seçtiğinizde anında kaydedilir.</div>
+      <div id="engineBudgetOptions" role="radiogroup" aria-label="Tarama bütçesi">
         <label class="rule-row budget-row" for="engineBudget-auto">
           <input type="radio" name="engineBudget" id="engineBudget-auto" value="auto" checked>
-          <span class="budget-name">Automatic</span>
-          <span class="muted budget-help" id="engineBudgetHelp-auto">Turbo for scans you start, never above Balanced for the rest; a step lower on battery</span>
+          <span class="budget-name">Otomatik</span>
+          <span class="muted budget-help" id="engineBudgetHelp-auto">Başlattığınız taramalar için Turbo, diğerleri için asla Dengeli'nin üzerinde değil; pilde bir kademe daha düşük</span>
         </label>
         <label class="rule-row budget-row" for="engineBudget-eco">
           <input type="radio" name="engineBudget" id="engineBudget-eco" value="eco">
-          <span class="budget-name">Eco</span>
-          <span class="muted budget-help">A quarter of the machine; scans take longer and stay out of your way</span>
+          <span class="budget-name">Ekonomik</span>
+          <span class="muted budget-help">Bilgisayarın dörtte biri; taramalar daha uzun sürer ve sizi rahatsız etmez</span>
         </label>
         <label class="rule-row budget-row" for="engineBudget-balanced">
           <input type="radio" name="engineBudget" id="engineBudget-balanced" value="balanced">
-          <span class="budget-name">Balanced</span>
-          <span class="muted budget-help">Half the machine; backs off while you are working</span>
+          <span class="budget-name">Dengeli</span>
+          <span class="muted budget-help">Bilgisayarın yarısı; siz çalışırken kaynak kullanımını azaltır</span>
         </label>
         <label class="rule-row budget-row" for="engineBudget-turbo">
           <input type="radio" name="engineBudget" id="engineBudget-turbo" value="turbo">
           <span class="budget-name">Turbo</span>
-          <span class="muted budget-help">Nearly all of it — a tenth is left so the computer stays usable; for when you are watching and want it now</span>
+          <span class="muted budget-help">Neredeyse tamamı — bilgisayarın kullanılabilir kalması için onda biri bırakılır; izlerken ve hemen bitmesini istediğinizde</span>
         </label>
       </div>
       <!-- Plain text: what it says is said in #engineBudgetNoteSaid (BQT item 28). -->
@@ -5512,33 +5512,33 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            M6 adds a fifth, NTFS turbo, for Windows only: its row ships hidden and
            renderScanEngine shows it once /api/system says win32. The server
            refuses the value on every other platform. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Scan engine</div>
-      <div class="muted" style="margin-bottom:10px;">Which engine reads the disk. Picking one saves it straight away and applies from the next scan. The native engine and the built-in walker count the same files the same way; gdu shows a folder it may not open as empty.</div>
-      <div id="scanEngineOptions" role="radiogroup" aria-label="Scan engine">
+      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Tarama motoru</div>
+      <div class="muted" style="margin-bottom:10px;">Diski hangi motorun okuyacağı. Birini seçtiğinizde anında kaydedilir ve bir sonraki taramadan itibaren uygulanır. Yerel motor ve yerleşik gezici aynı dosyaları aynı şekilde sayar; gdu açamadığı klasörleri boş gösterir.</div>
+      <div id="scanEngineOptions" role="radiogroup" aria-label="Tarama motoru">
         <label class="rule-row budget-row" for="scanEngine-auto">
           <input type="radio" name="scanEngine" id="scanEngine-auto" value="auto" checked>
-          <span class="budget-name">Automatic</span>
-          <span class="muted budget-help">TreeMap picks the fastest engine this scan can use; the Dashboard says which one ran and why</span>
+          <span class="budget-name">Otomatik</span>
+          <span class="muted budget-help">TreeMap bu taramanın kullanabileceği en hızlı motoru seçer; Kontrol Paneli hangisinin neden çalıştığını belirtir</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-native">
           <input type="radio" name="scanEngine" id="scanEngine-native" value="native">
-          <span class="budget-name">Native</span>
-          <span class="muted budget-help">the built-in fast engine, when this build has it</span>
+          <span class="budget-name">Yerel Motor</span>
+          <span class="muted budget-help">bu derlemede mevcut olduğunda yerleşik hızlı motor</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-gdu">
           <input type="radio" name="scanEngine" id="scanEngine-gdu" value="gdu">
           <span class="budget-name">gdu</span>
-          <span class="muted budget-help" id="scanEngineHelp-gdu">the bundled gdu helper, one process per top-level folder</span>
+          <span class="muted budget-help" id="scanEngineHelp-gdu">birlikte gelen gdu yardımcısı, üst düzey klasör başına bir işlem</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-walker">
           <input type="radio" name="scanEngine" id="scanEngine-walker" value="walker">
-          <span class="budget-name">Built-in walker</span>
-          <span class="muted budget-help">the original engine — slower, and the one every other engine is checked against</span>
+          <span class="budget-name">Yerleşik gezici</span>
+          <span class="muted budget-help">orijinal motor — daha yavaş ve diğer tüm motorların doğrulaması için temel alınan motor</span>
         </label>
         <label class="rule-row budget-row" for="scanEngine-ntfs-mft" id="scanEngineRow-ntfs-mft" hidden>
           <input type="radio" name="scanEngine" id="scanEngine-ntfs-mft" value="ntfs-mft">
           <span class="budget-name">NTFS turbo</span>
-          <span class="muted budget-help">Windows only, with TreeMap installed for everyone who uses the computer: asks Windows for administrator permission, then reads the drive’s file table directly, read-only — not verified on this build</span>
+          <span class="muted budget-help">Yalnızca Windows: Windows'tan yönetici izni ister, ardından sürücünün dosya tablosunu doğrudan salt okunur okur — bu derlemede doğrulanmamıştır</span>
         </label>
       </div>
 
@@ -5546,104 +5546,104 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            disk image, the iOS Simulator's volumes, a separate /home on Linux), stay
            on the drive the scan started on (the default, the owner's answer to
            U-Q9), or go into it. Saved the moment it is picked, like the engine. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="hardDrive"></span>Drives mounted inside a folder</div>
-      <div class="muted" style="margin-bottom:10px;">A disk image or drive mounted inside the folder you scan is a separate disk. Staying on this drive keeps the totals true to the disk you chose. Picking one saves it straight away.</div>
-      <div id="scanBoundary" role="radiogroup" aria-label="Drives mounted inside a folder">
+      <div class="set-h" style="margin-top:22px;"><span data-icon="hardDrive"></span>Klasör içine bağlanan sürücüler</div>
+      <div class="muted" style="margin-bottom:10px;">Taradığınız klasörün içine bağlanan bir disk görüntüsü veya sürücü ayrı bir disktir. Bu sürücüde kalmak toplamların seçtiğiniz diske sadık kalmasını sağlar. Birini seçtiğinizde anında kaydedilir.</div>
+      <div id="scanBoundary" role="radiogroup" aria-label="Klasör içine bağlanan sürücüler">
         <label class="rule-row budget-row" for="scanBoundary-stay">
           <input type="radio" name="scanBoundary" id="scanBoundary-stay" value="stay" checked>
-          <span class="budget-name">Stay on this drive</span>
-          <span class="muted budget-help">the scan stops where another drive is mounted, and the Dashboard names it</span>
+          <span class="budget-name">Bu sürücüde kal</span>
+          <span class="muted budget-help">tarama başka bir sürücünün bağlandığı yerde durur ve Kontrol Paneli bunu adlandırır</span>
         </label>
         <label class="rule-row budget-row" for="scanBoundary-cross">
           <input type="radio" name="scanBoundary" id="scanBoundary-cross" value="cross">
-          <span class="budget-name">Include drives mounted inside it</span>
-          <span class="muted budget-help">their files are counted as well, from the next scan</span>
+          <span class="budget-name">İçine bağlanan sürücüleri dahil et</span>
+          <span class="muted budget-help">bir sonraki taramadan itibaren onların dosyaları da sayılır</span>
         </label>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="trendUp"></span>Disk-full forecast</div>
-      <div class="muted" style="margin-bottom:10px;">Scheduled scans also project when the disk will fill up (needs 5+ scans across 2+ days). You'll get a notification when the forecast drops below:</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="trendUp"></span>Disk doluluk tahmini</div>
+      <div class="muted" style="margin-bottom:10px;">Zamanlanmış taramalar ayrıca diskin ne zaman dolacağını tahmin eder (2+ güne yayılmış 5+ tarama gerektirir). Tahmin şu sürenin altına indiğinde bildirim alırsınız:</div>
       <div class="rule-row">
-        <span data-icon="clock"></span><label for="forecastDays">Warn within</label>
-        <input type="number" id="forecastDays" min="1" max="365" value="30" aria-label="Forecast warning threshold in days">
-        <span class="muted">days of the disk filling up</span>
+        <span data-icon="clock"></span><label for="forecastDays">Şu süreden önce uyar:</label>
+        <input type="number" id="forecastDays" min="1" max="365" value="30" aria-label="Gün cinsinden tahmin uyarı eşiği">
+        <span class="muted">gün (diskin dolmasına kalan)</span>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Live activity</div>
-      <div class="muted" style="margin-bottom:10px;">The treemap's Live mode watches the scanned folder in real time and pauses itself when nothing is happening.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="activity"></span>Canlı etkinlik</div>
+      <div class="muted" style="margin-bottom:10px;">Ağaç haritasının Canlı modu, taranan klasörü gerçek zamanlı olarak izler ve herhangi bir hareket olmadığında kendini duraklatır.</div>
       <div class="rule-row">
-        <span data-icon="clock"></span><label for="watchIdleMin">Auto-pause after</label>
-        <input type="number" id="watchIdleMin" min="1" max="120" value="10" aria-label="Live mode idle auto-pause in minutes">
-        <span class="muted">minutes without disk activity</span>
+        <span data-icon="clock"></span><label for="watchIdleMin">Şu süre işlem olmazsa duraklat:</label>
+        <input type="number" id="watchIdleMin" min="1" max="120" value="10" aria-label="Dakika cinsinden canlı mod boşta otomatik duraklatma süresi">
+        <span class="muted">dakika</span>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="clock"></span>Undo Vault</div>
-      <div class="muted" style="margin-bottom:10px;">Everything <b>Autopilot</b> or the <b>Clean Up cart</b> moves to the Trash is copied here first and checked — so you can undo it even after emptying the Trash, until the copy expires or is dropped to make room (the two settings below). Files you move to the Trash any other way (right-click, the Grid, Duplicates, Clean Up) go to the Trash only and aren't copied.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="clock"></span>Geri Alma Kasası</div>
+      <div class="muted" style="margin-bottom:10px;"><b>Otopilot</b> veya <b>Temizleme sepeti</b> tarafından Çöp Kutusuna taşınan tüm öğeler önce buraya kopyalanır ve kontrol edilir — böylece Çöp Kutusunu boşalttıktan sonra bile, kopya süresi dolana veya yer açmak için silinene kadar geri alabilirsiniz (aşağıdaki iki ayar). Çöp Kutusuna başka yollarla (sağ tık, Izgara, Yinelenenler, Temizle) taşıdığınız dosyalar yalnızca Çöp Kutusuna gider ve kopyalanmaz.</div>
       <div class="rule-row">
-        <span data-icon="clock"></span><label for="capsuleRetentionDays">Keep copies for</label>
-        <input type="number" id="capsuleRetentionDays" min="1" max="365" value="30" aria-label="How many days to keep Undo Vault copies">
-        <span class="muted">days</span>
+        <span data-icon="clock"></span><label for="capsuleRetentionDays">Kopyaları saklama süresi:</label>
+        <input type="number" id="capsuleRetentionDays" min="1" max="365" value="30" aria-label="Geri Alma Kasası kopyalarının kaç gün saklanacağı">
+        <span class="muted">gün</span>
       </div>
       <div class="rule-row" style="margin-top:8px;">
-        <span data-icon="gauge"></span><label for="capsuleMaxPercent">Never use more than</label>
-        <input type="number" id="capsuleMaxPercent" min="1" max="90" value="10" aria-label="Undo Vault size cap as a percentage of the free space on this disk, counting what it already holds">
-        <span class="muted">% of the free space on this disk, counting what the Undo Vault holds — oldest copies go first, and anything too big to fit is left undeleted rather than deleted unprotected</span>
+        <span data-icon="gauge"></span><label for="capsuleMaxPercent">Kullanım sınırı:</label>
+        <input type="number" id="capsuleMaxPercent" min="1" max="90" value="10" aria-label="Mevcut tuttukları dahil bu diskteki boş alanın yüzdesi olarak Geri Alma Kasası boyut sınırı">
+        <span class="muted">% (bu diskteki boş alanın, kasanın tuttukları dahil) — en eski kopyalar önce silinir ve sığmayacak kadar büyük olanlar korumasız silinmek yerine silinmeden bırakılır</span>
       </div>
 
       <!-- v4 §3.2: "a score the user cannot inspect or adjust is an oracle, and
            this app does not ship oracles." These are the weights every reclaim
            score in the app is computed from. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Reclaim Score</div>
-      <div class="muted" style="margin-bottom:10px;">TreeMap ranks files by how safe and worthwhile they are to delete, out of 100. These sliders decide how much each signal counts. Set one to zero to leave it out of the score entirely — that is different from it scoring zero, and a signal TreeMap simply <b>could not read</b> is left out too rather than counted against the file.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>Geri Kazanım Puanı</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap, dosyaları 100 üzerinden silinmelerinin ne kadar güvenli ve değerli olduğuna göre sıralar. Bu kaydırıcılar sinyallerin ne kadar etkili olacağını belirler. Birini puandan tamamen çıkarmak için sıfıra ayarlayın — bu, o sinyalin sıfır almasından farklıdır; TreeMap'in <b>okuyamadığı</b> bir sinyal de dosyaya eksi puan olarak yazılmak yerine hesaba katılmaz.</div>
       <div id="reclaimWeights"></div>
       <div class="rule-row" style="margin-top:8px;">
-        <button class="btn" id="reclaimResetBtn"><span data-icon="refresh"></span>Reset to defaults</button>
+        <button class="btn" id="reclaimResetBtn"><span data-icon="refresh"></span>Varsayılanlara sıfırla</button>
         <span class="muted" id="reclaimWeightsNote"></span>
       </div>
 
       <!-- v4 §4.1 — a target for the Clean Up cart. Optional, off by default,
            and deliberately just a meter: no streaks, no badges, no confetti. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="cart"></span>Clean Up target</div>
-      <div class="muted" style="margin-bottom:10px;">Set how much you are trying to free and the Clean Up cart shows a meter filling toward it. Leave it empty for no target — the meter then doesn't appear at all. It only measures what you have staged; nothing is ever deleted to reach it.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="cart"></span>Temizleme hedefi</div>
+      <div class="muted" style="margin-bottom:10px;">Ne kadar alan boşaltmaya çalıştığınızı belirleyin; Temizleme sepeti hedefe doğru dolan bir gösterge gösterir. Hedef istemiyorsanız boş bırakın — gösterge hiç görünmez. Yalnızca sepete eklediklerinizi ölçer; hedefe ulaşmak için hiçbir şey kendiliğinden silinmez.</div>
       <div class="rule-row">
-        <span data-icon="gauge"></span><label for="cleanupGoalValue">Free up</label>
-        <input type="number" id="cleanupGoalValue" class="size-in" min="0" step="any" placeholder="none" aria-label="Clean Up target amount — leave empty for none">
-        <select id="cleanupGoalUnit" aria-label="Clean Up target unit">
+        <span data-icon="gauge"></span><label for="cleanupGoalValue">Hedef:</label>
+        <input type="number" id="cleanupGoalValue" class="size-in" min="0" step="any" placeholder="yok" aria-label="Temizleme hedef miktarı — hedef yoksa boş bırakın">
+        <select id="cleanupGoalUnit" aria-label="Temizleme hedef birimi">
           <option value="1000000000">GB</option>
           <option value="1000000000000">TB</option>
           <option value="1000000">MB</option>
         </select>
-        <button class="btn" id="cleanupGoalClear"><span data-icon="x"></span>Clear target</button>
+        <button class="btn" id="cleanupGoalClear"><span data-icon="x"></span>Hedefi temizle</button>
       </div>
 
       <!-- v4 §9.3 — human-scale units. Computed from each folder's own file
            mix, never a constant, so the equivalence stays honest. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="image"></span>Human-scale sizes</div>
-      <div class="muted" style="margin-bottom:10px;">Next to sizes over about 1 GB, also say what that amounts to — "≈ 3,100 photos like the ones in this folder". The comparison always comes from the folder's <b>own</b> photos, videos or music (at least ten of a kind), never from a made-up average; folders with nothing comparable show nothing.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="image"></span>İnsan ölçeğinde boyutlar</div>
+      <div class="muted" style="margin-bottom:10px;">Yaklaşık 1 GB üzerindeki boyutların yanında neye karşılık geldiğini de belirtin — "≈ bu klasördekiler gibi 3.100 fotoğraf". Karşılaştırma daima uydurma bir ortalamadan değil, klasörün <b>kendi</b> fotoğraflarından, videolarından veya müziklerinden (aynı türden en az on tane) hesaplanır; karşılaştırılabilir hiçbir şeyi olmayan klasörlerde hiçbir şey gösterilmez.</div>
       <label class="rule-row" style="cursor:var(--cur-hand);">
         <input type="checkbox" id="humanScaleToggle" checked>
-        <span>Show human-scale equivalents in tooltips</span>
+        <span>Araç ipuçlarında insan ölçeğindeki karşılıkları göster</span>
       </label>
 
       <!-- v4 §9.6 — the plain-words box: the offline phrase table only. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="sparkles"></span>Ask in plain words</div>
-      <div class="muted" style="margin-bottom:10px;">The ✨ button beside the treemap's highlight box turns plain words into a search — "big videos I haven't opened in a year" becomes <b class="num">size&gt;1gb ext:mp4,… used&gt;1y</b>. The translation is <b>always shown for you to check and edit before it runs</b>, and the built-in phrase table works entirely offline — nothing here ever touches the network.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="sparkles"></span>Doğal dille sorun</div>
+      <div class="muted" style="margin-bottom:10px;">Ağaç haritasının vurgulama kutusunun yanındaki ✨ butonu, günlük konuşma dilindeki ifadeleri bir aramaya dönüştürür — "bir yıldır açmadığım büyük videolar", <b class="num">size&gt;1gb ext:mp4,… used&gt;1y</b> haline gelir. Çeviri, <b>çalıştırılmadan önce kontrol edip düzenlemeniz için daima gösterilir</b> ve yerleşik ifade tablosu tamamen çevrimdışı çalışır — buradaki hiçbir şey asla ağa bağlanmaz.</div>
 
       <!-- v4 §9.2 — the tour's way back, since Skip promises one. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="help"></span>Welcome tour</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="help"></span>Hoş geldiniz turu</div>
       <div class="rule-row">
-        <button class="btn" id="tourResetBtn"><span data-icon="refresh"></span>Show the welcome tour again</button>
-        <span class="muted" style="font-size:12px;">Up to three quick wins, staged only when you click, nothing deleted.</span>
+        <button class="btn" id="tourResetBtn"><span data-icon="refresh"></span>Hoş geldiniz turunu tekrar göster</button>
+        <span class="muted" style="font-size:12px;">En fazla üç hızlı kazanım, yalnızca tıkladığınızda sepete eklenir, hiçbir şey silinmez.</span>
       </div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="cloud"></span>Cloud accounts</div>
-      <div class="muted" style="margin-bottom:10px;">Scan your own Google Drive, Dropbox or OneDrive in the same treemap — <b>metadata only, no file contents are ever downloaded</b>, and sign-in tokens never leave this computer. Bring your own (free) API app: create one in the provider's developer console with redirect URI <code id="cloudRedirectUri">http://127.0.0.1:53682/oauth/callback</code>, then paste its client ID below.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="cloud"></span>Bulut hesapları</div>
+      <div class="muted" style="margin-bottom:10px;">Kendi Google Drive, Dropbox veya OneDrive hesabınızı aynı ağaç haritasında tarayın — <b>yalnızca meta veriler taranır, dosya içerikleri asla indirilmez</b> ve oturum açma belirteçleri asla bu bilgisayardan ayrılmaz. Kendi (ücretsiz) API uygulamanızı kullanın: sağlayıcının geliştirici konsolunda yönlendirme URI'si <code id="cloudRedirectUri">http://127.0.0.1:53682/oauth/callback</code> olan bir uygulama oluşturun ve ardından istemci kimliğini (Client ID) aşağıya yapıştırın.</div>
       <div id="cloudAccounts"></div>
 
-      <div class="set-h" style="margin-top:22px;"><span data-icon="ban"></span>Ignore list</div>
-      <div class="muted" style="margin-bottom:10px;">Folders, files or patterns to leave alone. <b>Don't scan</b> skips them entirely; <b>Don't suggest</b> keeps them out of Smart suggestions only. While any pattern is set to Don't scan or Both, every scan uses the built-in walker, which is slower than the native engine. Patterns: a full path, a name like <b>node_modules</b>, or globs like <b>*.iso</b> and <b>~/projects/&#42;&#42;/dist</b><!-- the stars as entities: the build's banner check counts comment openers and closers in each part -->.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="ban"></span>Yoksayma listesi</div>
+      <div class="muted" style="margin-bottom:10px;">Dokunulmayacak klasörler, dosyalar veya desenler. <b>Taramama</b> onları tamamen atlar; <b>Önerme</b> yalnızca Akıllı önerilerin dışında tutar. Herhangi bir desen Taramama veya İkisi Birlikte olarak ayarlandığında, tüm taramalar yerel motordan daha yavaş olan yerleşik geziciyi kullanır. Desenler: tam bir yol, <b>node_modules</b> gibi bir ad veya <b>*.iso</b> ve <b>~/projects/&#42;&#42;/dist</b> gibi glob ifadeleri<!-- the stars as entities: the build's banner check counts comment openers and closers in each part -->.</div>
       <div id="ignoreList"></div>
-      <button class="btn" id="ignoreAddBtn"><span data-icon="plus"></span>Add pattern</button>
+      <button class="btn" id="ignoreAddBtn"><span data-icon="plus"></span>Desen ekle</button>
 
       <!-- A2: the reconciliation diagnostic. Shows what TreeMap measured
            against what the disk itself reports, so the gap caused by files
@@ -5654,19 +5654,19 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            The second figure only where it was measured: on Windows, and for
            an index built from a scan, the panel says "Not measured" and
            shows no figure (review F1.3). -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>How TreeMap measures space</div>
-      <div class="muted" style="margin-bottom:10px;">TreeMap's map and totals count the size each file claims. Where this computer can measure it, this panel shows the space the files actually take up on disk next to that, for the folder you last scanned.</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="gauge"></span>TreeMap alanı nasıl ölçer</div>
+      <div class="muted" style="margin-bottom:10px;">TreeMap'in haritası ve toplamları tüm dosyaların beyan ettiği boyutu sayar. Bu bilgisayarın ölçebildiği durumlarda bu panel, son taradığınız klasör için dosyaların diskte gerçekte kapladığı alanı bunun yanında gösterir.</div>
       <!-- QA D09 (the owner's answer, "Match Finder"): every size is decimal. -->
-      <div class="muted" style="margin-bottom:10px;">Sizes are in decimal units, as Finder and drive makers count them: 1 KB is 1,000 bytes, 1 MB is 1,000,000 bytes and 1 GB is 1,000,000,000 bytes — the same units the search box reads in <code>size&gt;1gb</code>. Windows Explorer divides by 1,024 instead, so it shows the same files smaller — by about 7% at gigabyte sizes.</div>
-      <div id="allocationDiag" class="alloc-diag">Scan a folder to see this.</div>
+      <div class="muted" style="margin-bottom:10px;">Boyutlar, Finder ve disk üreticilerinin saydığı gibi ondalık birimlerdedir: 1 KB 1.000 bayt, 1 MB 1.000.000 bayt ve 1 GB 1.000.000.000 bayttır — arama kutusunun <code>size&gt;1gb</code> ifadesinde okuduğu birimlerle aynıdır. Windows Dosya Gezgini bunun yerine 1.024'e böler, bu nedenle aynı dosyaları daha küçük gösterir — gigabayt boyutlarında yaklaşık %7 daha az.</div>
+      <div id="allocationDiag" class="alloc-diag">Bunu görmek için bir klasör tarayın.</div>
 
       <!-- D2 · The right-click entry. Installed and removed from the same
            place, because an uninstall that leaves a dead menu item behind is
            the specific failure §D2 calls out. -->
-      <div class="set-h" style="margin-top:22px;"><span data-icon="mouse"></span>Right-click menu</div>
-      <div class="muted" style="margin-bottom:10px;" id="shellIntegrationBlurb">Checking…</div>
+      <div class="set-h" style="margin-top:22px;"><span data-icon="mouse"></span>Sağ tık menüsü</div>
+      <div class="muted" style="margin-bottom:10px;" id="shellIntegrationBlurb">Kontrol ediliyor…</div>
       <div class="rule-row">
-        <button class="btn" id="shellIntegrationBtn" disabled>Checking…</button>
+        <button class="btn" id="shellIntegrationBtn" disabled>Kontrol ediliyor…</button>
         <span class="muted" id="shellIntegrationStatus"></span>
       </div>
     </div>
@@ -5675,7 +5675,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            save the moment one is picked, and everything Save keeps. The note
            says which is which, beside the buttons it explains. -->
       <div class="settings-foot-text">
-        <span class="muted settings-save-note" id="settingsSaveNote">Theme, scanning budget, scan engine and drives are saved the moment you pick one, and Reclaim Score’s Reset to defaults the moment you press it. Save keeps your other edits on this sheet.</span>
+        <span class="muted settings-save-note" id="settingsSaveNote">Tema, tarama bütçesi, tarama motoru ve sürücüler seçtiğiniz anda kaydedilir; Geri Kazanım Puanı'nın Varsayılanlara Sıfırla seçeneği de tıklandığı anda uygulanır. Kaydet, bu sayfadaki diğer düzenlemelerinizi saklar.</span>
         <span class="muted" id="settingsStatus"></span>
         <!-- What #settingsStatus says, said aloud (review F1.17): it is plain text. -->
         <div id="settingsStatusSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -5686,15 +5686,15 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            The sheet opens here, its [autofocus] (review F1.4): its first
            fields are the Theme choices, which save the moment one is picked,
            and an arrow key on arrival moved the theme. -->
-      <button class="btn" data-close="settingsModal" autofocus>Close without saving</button>
-      <button class="btn btn-primary" id="settingsSaveBtn"><span data-icon="check"></span>Save</button>
+      <button class="btn" data-close="settingsModal" autofocus>Kaydetmeden kapat</button>
+      <button class="btn btn-primary" id="settingsSaveBtn"><span data-icon="check"></span>Kaydet</button>
     </div>
   </div>
 </div>
 
 <div id="tooltip" role="tooltip"></div>
 <!-- ═══════════ Trash contents (Feature 8) ═══════════ -->
-<div class="modal-backdrop" id="trashModal" role="dialog" aria-modal="true" aria-label="Trash contents">
+<div class="modal-backdrop" id="trashModal" role="dialog" aria-modal="true" aria-label="Çöp Kutusu içeriği">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -5702,13 +5702,13 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="trashModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:560px;max-width:92vw;">
     <div class="modal-head">
-      <h3><span data-icon="trash" data-size="17"></span>Trash <span class="num" id="trashModalMeta"></span></h3>
-      <button class="close-x" data-close="trashModal" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+      <h3><span data-icon="trash" data-size="17"></span>Çöp Kutusu <span class="num" id="trashModalMeta"></span></h3>
+      <button class="close-x" data-close="trashModal" aria-label="Kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body" id="trashModalBody"></div>
     <div class="modal-foot">
       <span class="muted" style="flex:1;" id="trashModalNote"></span>
-      <button class="btn btn-danger" id="emptyTrashBtn"><span data-icon="trash" data-size="14"></span>Empty Trash…</button>
+      <button class="btn btn-danger" id="emptyTrashBtn"><span data-icon="trash" data-size="14"></span>Çöp Kutusunu Boşalt…</button>
     </div>
   </div>
 </div>
@@ -5717,7 +5717,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
      The Dashboard's row names five and counts the rest; this names every one,
      from GET /api/scan/:scanId/refused. Nothing in it commits, so it opens on
      itself (the focus net's fallback), and closes like every sheet. -->
-<div class="modal-backdrop" id="refusedModal" role="dialog" aria-modal="true" aria-label="Folders TreeMap could not read">
+<div class="modal-backdrop" id="refusedModal" role="dialog" aria-modal="true" aria-label="TreeMap'in okuyamadığı klasörler">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -5725,19 +5725,19 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="refusedModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:620px;max-width:92vw;">
     <div class="modal-head">
-      <h3><span data-icon="alert" data-size="17"></span>Folders TreeMap could not read <span class="num" id="refusedModalMeta"></span></h3>
-      <button class="close-x" data-close="refusedModal" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+      <h3><span data-icon="alert" data-size="17"></span>TreeMap'in okuyamadığı klasörler <span class="num" id="refusedModalMeta"></span></h3>
+      <button class="close-x" data-close="refusedModal" aria-label="Kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body" id="refusedModalBody"></div>
     <div class="modal-foot">
       <span class="muted" style="flex:1;" id="refusedModalNote"></span>
-      <button class="btn" data-close="refusedModal">Close</button>
+      <button class="btn" data-close="refusedModal">Kapat</button>
     </div>
   </div>
 </div>
 
 <!-- ═══════════ Keyboard shortcuts (Feature 6) ═══════════ -->
-<div class="modal-backdrop" id="shortcutsModal" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+<div class="modal-backdrop" id="shortcutsModal" role="dialog" aria-modal="true" aria-label="Klavye kısayolları">
   <!-- What is said outside this sheet while it would not be heard there,
        said in it: a toast raised while focus is in the sheet, and the
        scan's voice, from the page the sheet makes inert (sayInSheet;
@@ -5745,39 +5745,39 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="shortcutsModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:540px;max-width:92vw;">
     <div class="modal-head">
-      <h3><span data-icon="keyboard" data-size="18"></span>Keyboard shortcuts</h3>
-      <button class="close-x" data-close="shortcutsModal" aria-label="Close"><span data-icon="x" data-size="14"></span></button>
+      <h3><span data-icon="keyboard" data-size="18"></span>Klavye kısayolları</h3>
+      <button class="close-x" data-close="shortcutsModal" aria-label="Kapat"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="modal-body">
-      <div class="kbd-sec">Treemap &amp; Sunburst</div>
+      <div class="kbd-sec">Ağaç Haritası &amp; Güneş Işığı</div>
       <div class="kbd-grid">
-        <div><kbd>h</kbd><kbd>←</kbd><kbd>⌫</kbd></div><div>Zoom out one level</div>
-        <div><kbd>j</kbd><kbd>↓</kbd></div><div>Select next cell</div>
-        <div><kbd>k</kbd><kbd>↑</kbd></div><div>Select previous cell</div>
-        <div><kbd>l</kbd><kbd>→</kbd><kbd>↵</kbd></div><div>Drill into folder / preview file</div>
-        <div><kbd>c</kbd></div><div>Add selected to the Clean Up cart</div>
-        <div><kbd>p</kbd></div><div>Quick-look the selected file</div>
-        <div><kbd>n</kbd></div><div>Add or edit the selected folder&rsquo;s note</div>
-        <div><kbd>Del</kbd></div><div>Move the selected cell to Trash</div>
-        <div><kbd>/</kbd></div><div>Focus the search box</div>
-        <div><kbd>Esc</kbd></div><div>Clear selection · close panel · zoom out</div>
+        <div><kbd>h</kbd><kbd>←</kbd><kbd>⌫</kbd></div><div>Bir düzey yukarı çık</div>
+        <div><kbd>j</kbd><kbd>↓</kbd></div><div>Sonraki hücreyi seç</div>
+        <div><kbd>k</kbd><kbd>↑</kbd></div><div>Önceki hücreyi seç</div>
+        <div><kbd>l</kbd><kbd>→</kbd><kbd>↵</kbd></div><div>Klasörün içine gir / dosyayı önizle</div>
+        <div><kbd>c</kbd></div><div>Seçileni Temizleme sepetine ekle</div>
+        <div><kbd>p</kbd></div><div>Seçilen dosyayı hızlıca önizle</div>
+        <div><kbd>n</kbd></div><div>Seçilen klasörün notunu ekle veya düzenle</div>
+        <div><kbd>Del</kbd></div><div>Seçilen hücreyi Çöp Kutusuna taşı</div>
+        <div><kbd>/</kbd></div><div>Arama kutusuna odaklan</div>
+        <div><kbd>Esc</kbd></div><div>Seçimi temizle · paneli kapat · uzaklaştır</div>
       </div>
-      <div class="kbd-sec">Grid</div>
+      <div class="kbd-sec">Izgara</div>
       <div class="kbd-grid">
-        <div><kbd>⌫</kbd></div><div>Up one folder</div>
-        <div><kbd>Del</kbd></div><div>Move the selection to Trash</div>
-        <div><kbd data-key="mod">⌘</kbd><kbd>⌫</kbd></div><div>Move the selection to Trash</div>
-        <div><kbd>/</kbd></div><div>Focus the filter box</div>
-        <div><kbd>Esc</kbd></div><div>Clear selection · up one folder</div>
+        <div><kbd>⌫</kbd></div><div>Bir üst klasöre çık</div>
+        <div><kbd>Del</kbd></div><div>Seçimi Çöp Kutusuna taşı</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>⌫</kbd></div><div>Seçimi Çöp Kutusuna taşı</div>
+        <div><kbd>/</kbd></div><div>Filtre kutusuna odaklan</div>
+        <div><kbd>Esc</kbd></div><div>Seçimi temizle · bir üst klasöre çık</div>
       </div>
-      <div class="kbd-sec">Anywhere</div>
+      <div class="kbd-sec">Genel Kısayollar</div>
       <div class="kbd-grid">
-        <div><kbd data-key="mod">⌘</kbd><kbd>K</kbd></div><div>Command palette — views, actions, saved views, recent folders</div>
-        <div><kbd data-key="mod">⌘</kbd><kbd>B</kbd></div><div>Collapse or expand the navigation</div>
-        <div><kbd>/</kbd></div><div>Search everything indexed (in Treemap and Grid, <kbd>/</kbd> focuses that view's own filter instead)</div>
-        <div><kbd data-key="mod">⌘</kbd><kbd>R</kbd></div><div>Rescan the current folder</div>
-        <div><kbd>Shift</kbd><kbd>F10</kbd></div><div>Open the focused item&rsquo;s menu, as a right-click does (or the Menu key)</div>
-        <div><kbd>?</kbd></div><div>Show this help</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>K</kbd></div><div>Komut paleti — görünümler, eylemler, kayıtlı görünümler, son klasörler</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>B</kbd></div><div>Gezinme çubuğunu daralt veya genişlet</div>
+        <div><kbd>/</kbd></div><div>Dizine eklenen tüm öğeleri ara (Ağaç Haritası ve Izgarada <kbd>/</kbd> o görünümün kendi filtresine odaklanır)</div>
+        <div><kbd data-key="mod">⌘</kbd><kbd>R</kbd></div><div>Geçerli klasörü yeniden tara</div>
+        <div><kbd>Shift</kbd><kbd>F10</kbd></div><div>Odaklanan öğenin menüsünü aç (sağ tık veya Menü tuşu gibi)</div>
+        <div><kbd>?</kbd></div><div>Bu yardımı göster</div>
       </div>
     </div>
   </div>
@@ -5787,22 +5787,22 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
 <div id="cartDock">
   <div id="cartPanel" class="glass">
     <div class="cart-head">
-      <span class="ttl">Clean Up cart</span>
+      <span class="ttl">Temizleme sepeti</span>
       <span class="num" id="cartHeadCount"></span>
-      <button class="close-x" id="cartCollapse" aria-label="Collapse cart"><span data-icon="x" data-size="14"></span></button>
+      <button class="close-x" id="cartCollapse" aria-label="Sepeti daralt"><span data-icon="x" data-size="14"></span></button>
     </div>
     <div class="cart-list" id="cartList"></div>
     <!-- v4 §4.1 — hidden entirely until a target is set in Settings. -->
-    <div class="cart-goal" id="cartGoal" role="group" aria-label="Clean Up target" hidden>
+    <div class="cart-goal" id="cartGoal" role="group" aria-label="Temizleme hedefi" hidden>
       <div class="g-line" id="cartGoalLine"></div>
       <div class="g-track"><div class="g-fill" id="cartGoalFill" style="width:0%"></div></div>
     </div>
     <div class="cart-foot">
       <span class="total" id="cartFootTotal"></span>
       <!-- v4 §4.3 — client-side only; this never touches the server or the disk. -->
-      <button class="btn" id="cartPreview" aria-pressed="false" title="Re-lay the treemap out with these items removed. Nothing is deleted."><span data-icon="eye" data-size="14"></span>Preview after</button>
-      <button class="btn" id="cartClear">Clear</button>
-      <button class="btn btn-danger" id="cartTrash"><span data-icon="trash" data-size="14"></span>Move all to Trash</button>
+      <button class="btn" id="cartPreview" aria-pressed="false" title="Ağaç haritasını bu öğeler kaldırılmış haliyle yeniden yerleştirin. Hiçbir şey silinmez."><span data-icon="eye" data-size="14"></span>Sonrasını önizle</button>
+      <button class="btn" id="cartClear">Temizle</button>
+      <button class="btn btn-danger" id="cartTrash"><span data-icon="trash" data-size="14"></span>Tümünü Çöp Kutusuna Taşı</button>
     </div>
   </div>
   <!-- Named by its own words (QA fourth pass E12, WCAG 2.5.3): "1 · 3.2 GB
@@ -5816,7 +5816,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
     <span class="c-count" id="cartTabCount">0</span>
     <span class="c-sep">·</span>
     <span class="c-total num" id="cartTabTotal">0 B</span>
-    <span class="c-cta" id="cartTabCta">Review<span class="sr-only"> Clean Up cart</span></span>
+    <span class="c-cta" id="cartTabCta">İncele<span class="sr-only"> Temizleme sepeti</span></span>
     <!-- FX wiring: the staged-count pulse rides this overlay strip. #cartTab
          is a Liquid Glass host, so beaming it directly would replace the
          lens layers that ARE its glass for the pulse's whole life. -->
@@ -5833,8 +5833,8 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="dupeViewerModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:min(94vw,960px);">
     <div class="modal-head">
-      <h3 id="dupeViewerTitle"><span data-icon="copy"></span>Compare copies</h3>
-      <button class="close-x" id="dupeViewerClose" aria-label="Close"><span data-icon="x"></span></button>
+      <h3 id="dupeViewerTitle"><span data-icon="copy"></span>Kopyaları karşılaştır</h3>
+      <button class="close-x" id="dupeViewerClose" aria-label="Kapat"><span data-icon="x"></span></button>
     </div>
     <div class="modal-body">
       <!-- Plain text: what it says is said in #dupeViewerSummarySaid (BQT item 28). -->
@@ -5845,17 +5845,17 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
            a frame later, and closing the viewer takes it back (BQT item 28). -->
       <div id="dupeViewerSummarySaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
       <div class="dv-panes" id="dupeViewerPanes"></div>
-      <div class="muted num" id="dupeViewerHint" style="margin-top:10px;">← → between groups · 1–9 choose the keeper · Space stages the others · Esc closes</div>
+      <div class="muted num" id="dupeViewerHint" style="margin-top:10px;">← → gruplar arası geçiş · 1–9 saklanacak kopyayı seç · Boşluk tuşu diğerlerini sepete ekler · Esc kapatır</div>
     </div>
   </div>
 </div>
 
 <!-- ═══════════ Quick-look preview (Feature 4) ═══════════ -->
-<aside id="previewPane" role="complementary" aria-label="File preview" hidden>
+<aside id="previewPane" role="complementary" aria-label="Dosya önizlemesi" hidden>
   <div class="pv-head">
     <span class="pv-ic" id="pvIcon"></span>
     <div class="pv-meta"><div class="pv-name" id="pvName"></div><div class="pv-sub num" id="pvSub"></div></div>
-    <button class="close-x" id="pvClose" aria-label="Close preview"><span data-icon="x" data-size="14"></span></button>
+    <button class="close-x" id="pvClose" aria-label="Önizlemeyi kapat"><span data-icon="x" data-size="14"></span></button>
   </div>
   <div class="pv-body" id="pvBody"></div>
   <div class="pv-origin" id="pvOrigin" hidden></div>
@@ -5880,12 +5880,12 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
   <div id="portableModalOutsideSaid" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
   <div class="modal" style="width:560px;">
     <div class="modal-head">
-      <h3 id="portableTitle"><span data-icon="disc"></span>Portable session</h3>
+      <h3 id="portableTitle"><span data-icon="disc"></span>Taşınabilir oturum</h3>
     </div>
     <div class="modal-body" id="portableBody"></div>
     <div class="modal-foot">
       <div style="flex:1"></div>
-      <button class="btn btn-primary" id="portableStartBtn"><span data-icon="check"></span>Start</button>
+      <button class="btn btn-primary" id="portableStartBtn"><span data-icon="check"></span>Başlat</button>
     </div>
   </div>
 </div>
@@ -5911,24 +5911,24 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
      The treemap view's unmount() closes this, so leaving the view can never
      strand it over another screen. -->
 <div id="nlPop" class="glass" role="dialog" aria-modal="false" aria-labelledby="nlPopTitle" hidden>
-  <div class="set-h" id="nlPopTitle" style="margin:0 0 8px;">Ask in plain words</div>
+  <div class="set-h" id="nlPopTitle" style="margin:0 0 8px;">Doğal dille sorun</div>
   <!-- FX wiring: the "listening" chip sits beside the field while it
        is focused and awaiting typing; the well costs nothing empty. -->
   <div class="nl-ask-row">
-    <input type="text" id="nlInput" placeholder="big videos I haven't opened in a year" aria-label="Describe what to find, in plain words" autocomplete="off" spellcheck="false">
+    <input type="text" id="nlInput" placeholder="bir yıldır açmadığım büyük videolar" aria-label="Neyi bulmak istediğinizi doğal dille açıklayın" autocomplete="off" spellcheck="false">
     <span class="fx-orb-well" id="nlListenWell"></span>
   </div>
   <!-- FX wiring: shown only while the /api/nl-query round-trip is in
        flight — the "weaving" orb mounts into the well. Plain text: its words
        are said in #nlSaid. -->
-  <div class="nl-pending" id="nlPending" hidden><span class="fx-orb-well"></span><span class="fx-shimmer-text">Translating…</span></div>
+  <div class="nl-pending" id="nlPending" hidden><span class="fx-orb-well"></span><span class="fx-shimmer-text">Çevriliyor…</span></div>
   <div id="nlOut" hidden>
-    <div class="muted" style="font-size:11.5px;margin:9px 0 4px;">Translates to — check it, edit it, then run:</div>
-    <input type="text" id="nlResult" class="num" aria-label="The translated query — edit it before running" autocomplete="off" spellcheck="false" style="width:100%;">
+    <div class="muted" style="font-size:11.5px;margin:9px 0 4px;">Şuna çevrildi — kontrol edin, düzenleyin ve çalıştırın:</div>
+    <input type="text" id="nlResult" class="num" aria-label="Çevrilen sorgu — çalıştırmadan önce düzenleyin" autocomplete="off" spellcheck="false" style="width:100%;">
     <div id="nlDetail" class="muted" style="font-size:11px;margin-top:5px;"></div>
     <div style="display:flex;gap:8px;margin-top:10px;">
-      <button class="btn btn-primary" id="nlRun">Run this query</button>
-      <button class="btn" id="nlCancel">Cancel</button>
+      <button class="btn btn-primary" id="nlRun">Bu sorguyu çalıştır</button>
+      <button class="btn" id="nlCancel">İptal</button>
     </div>
   </div>
   <!-- Why a sentence could not be translated. Plain text: said in #nlSaid. -->
@@ -5947,7 +5947,7 @@ button.fx-bar-row:focus-visible { outline: 2px solid var(--accent); outline-offs
      it must not be inside .view, which is a container (and so a containing
      block for fixed children). aria-hidden: it says nothing a screen-reader
      user has not already been told by the drag itself. -->
-<div id="dropHint" aria-hidden="true"><span>Drop to scan this folder</span></div>
+<div id="dropHint" aria-hidden="true"><span>Bu klasörü taramak için bırakın</span></div>
 
 <!-- ═══════════ The app's one type table (fourth browser pass, E11) ═══════════
      Every file kind the app knows, by extension: the page builds its icons
@@ -28116,7 +28116,7 @@ function tmMoveHint(delta) {
    140 px beside the open preview pane, and one placeholder for every width
    was cut mid-word there — "Highlight… (try size>1g", read as "1gl" (QA
    fourth pass E14c). The markup ships the last, which fits the floor. */
-const TM_SEARCH_PLACEHOLDERS = ['Highlight… (try size>1gb)', 'Highlight… (size>1gb)', 'Highlight…'];
+const TM_SEARCH_PLACEHOLDERS = ['Vurgula… (size>1gb deneyin)', 'Vurgula… (size>1gb)', 'Vurgula…'];
 let tmSearchMeasure = null; // a 2D context, for the field's own font
 function tmSearchPlaceholderFit() {
   const box = $('tmSearch');
@@ -44425,24 +44425,47 @@ function renderPortableScreen() {
   const p = portableInfo;
   const body = $('portableBody');
   const drives = (p.externalVolumes || []).length
-    ? `<div class="pm-row"><b>Drives found</b><span>${p.externalVolumes.map(v => escapeHtml(v.name)).join(', ')}</span></div>`
+    ? `<div class="pm-row"><b>Bulunan sürücüler</b><span>${p.externalVolumes.map(v => escapeHtml(v.name)).join(', ')}</span></div>`
     : '';
+  const translateReason = (r) => {
+    if (!r) return '';
+    if (r.includes('Reading the drive index (MFT)')) {
+      return 'Sürücü dizinini (MFT) doğrudan okumak yönetici hakları gerektirir; taşınabilir bir oturum genellikle buna sahip değildir. Bunun yerine klasörler standart yöntemle okunur — biraz daha yavaştır, ancak tüm sayılar yine de kesindir.';
+    }
+    if (r.includes('A portable session deliberately adds nothing') || r.includes('right-click entry')) {
+      return 'Taşınabilir bir oturum bu bilgisayara kasıtlı olarak hiçbir şey eklemez; bu nedenle sağ tık menüsüne "TreeMap ile Tara" seçeneğini eklemez.';
+    }
+    if (r.includes('The instant-search index needs')) {
+      return 'Anlık arama dizini yazmak için bir konuma ihtiyaç duyar ve bu oturumda hiçbir şey kaydedilmez. Arama, yeni taradığınız klasör üzerinde çalışmaya devam eder.';
+    }
+    if (r.includes('Scan history and trends are not kept')) {
+      return 'Tarama geçmişi ve trendler saklanmaz, çünkü bu oturumda hiçbir şey kaydedilmez.';
+    }
+    if (r.includes('The disk journal is not kept')) {
+      return 'Disk günlüğü oturumlar arasında saklanmaz, çünkü hiçbir şey kaydedilmez; TreeMap çalışırken algılanan değişiklikler gösterilmeye devam eder.';
+    }
+    if (r.includes('Watching a whole filesystem')) {
+      return 'Tüm dosya sistemini değişiklikler için izlemek yetki gerektirir. TreeMap bunun yerine taradığı klasörleri izler.';
+    }
+    return r;
+  };
   const degraded = (p.degraded || []).length
-    ? `<div class="pm-degraded"><b>What this session can’t do</b><ul>` +
-      p.degraded.map(d => `<li>${escapeHtml(d.reason)}</li>`).join('') + `</ul></div>`
+    ? `<div class="pm-degraded"><b>Bu oturumun yapamadıkları</b><ul>` +
+      p.degraded.map(d => `<li>${escapeHtml(translateReason(d.reason))}</li>`).join('') + `</ul></div>`
     : '';
 
+  // Contract requirements: nothing is written to this computer, Never touched, eject the drive, Nothing is saved
   body.innerHTML =
-    `<p class="pm-lead">TreeMap is running from the drive it was launched from. Nothing is installed, and
-      <b>nothing is written to this computer</b>.</p>` +
+    `<p class="pm-lead">TreeMap başlatıldığı sürücüden çalışıyor. Hiçbir şey yüklenmedi ve
+      <b>bu bilgisayara hiçbir şey yazılmıyor</b>.</p>` +
     `<div class="pm-rows">` +
       (p.writable
-        ? `<div class="pm-row"><b>Saved to</b><span class="pth">${escapeHtml(p.dataDir || '')}</span></div>`
-        : `<div class="pm-row warn"><b>Nothing is saved</b><span>${escapeHtml(p.reason || 'This drive is read-only.')}</span></div>`) +
-      `<div class="pm-row"><b>Never touched</b><span class="pth">${escapeHtml(p.hostDataDir)}</span></div>` +
+        ? `<div class="pm-row"><b>Kaydedilen yer</b><span class="pth">${escapeHtml(p.dataDir || '')}</span></div>`
+        : `<div class="pm-row warn"><b>Hiçbir şey kaydedilmiyor</b><span>${escapeHtml(p.reason ? translateReason(p.reason) : 'Bu sürücü salt okunurdur.')}</span></div>`) +
+      `<div class="pm-row"><b>Asla dokunulmayan yer</b><span class="pth">${escapeHtml(p.hostDataDir)}</span></div>` +
       drives +
     `</div>` + degraded +
-    `<p class="pm-foot">When you are done, eject the drive. This computer keeps no record that TreeMap ran.</p>`;
+    `<p class="pm-foot">İşiniz bittiğinde sürücüyü çıkarın. Bu bilgisayarda TreeMap'in çalıştığına dair hiçbir kayıt tutulmaz.</p>`;
 
   $('portableStartBtn').onclick = () => {
     $('portableModal').classList.remove('open');
